@@ -1,0 +1,27 @@
+{
+  "name": "نیازیار - بازار خرید و فروش",
+  "short_name": "نیازیار",
+  "description": "پلتفرم هوشمند خرید، فروش و ارائه خدمات",
+  "start_url": "/niyazyar/",
+  "scope": "/niyazyar/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait",
+  "lang": "fa",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
