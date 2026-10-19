@@ -3,6 +3,6 @@
   "target": {
     "namespace": "android_app",
     "package_name": "ir.niyazyar_app.twa",
-    "sha256_cert_fingerprints": ["95:9E:AC:C9:85:79:23:B2:07:BA:5F:63:DB:FF:87:1E:18:DE:B4:A5:29:EF:EB:C6:87:3A:D6:A5:49:55:5D:7B"]
+    "sha256_cert_fingerprints": ["F8:08:CC:B1:67:79:7E:B3:5A:83:B0:D7:A0:74:37:E2:22:D0:CD:AF:82:65:A1:F4:A0:03:FC:5C:81:C1:A9:78"]
   }
 }]
