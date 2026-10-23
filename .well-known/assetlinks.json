@@ -1,14 +1,8 @@
-[
-{
-"relation": [
-"delegate_permission/common.handle_all_urls"
-],
-"target": {
-"namespace": "android_app",
-"package_name": "cafebazaar_twa.ir.niyazyar_app",
-"sha256_cert_fingerprints": [
-"D9:A3:25:72:71:83:D8:EA:42:1D:75:E0:4F:80:F4:3D:95:FC:6A:AA:F4:71:D6:C3:B0:1E:ED:70:85:AB:AC:E8"
-]
-}
-}
-]
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "ir.niyazyar_app.twa",
+        "sha256_cert_fingerprints": ["E1:41:D4:0B:50:51:8F:BF:CC:3E:A8:74:3C:6B:76:B0:07:3E:EF:35:E5:C8:D0:1F:C5:03:47:A1:F3:F8:20:8F"]
+      }
+    }]
