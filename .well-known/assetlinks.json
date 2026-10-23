@@ -2,7 +2,7 @@
   "relation": ["delegate_permission/common.handle_all_urls"],
   "target": {
     "namespace": "cafebazaar_twa",
-    "package_name": "cafebazaar_twa.ir.niyazyar_app",
+    "package_name": "cafebazaar_twa",
     "sha256_cert_fingerprints": ["D9:A3:25:72:71:83:D8:EA:42:1D:75:E0:4F:80:F4:3D:95:FC:6A:AA:F4:71:D6:C3:B0:1E:ED:70:85:AB:AC:E8"]
   }
 }]
