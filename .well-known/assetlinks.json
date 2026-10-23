@@ -1,8 +1,8 @@
 [{
   "relation": ["delegate_permission/common.handle_all_urls"],
   "target": {
-    "namespace": "android_app",
+    "namespace": "cafebazaar_twa",
     "package_name": "cafebazaar_twa.ir.niyazyar_app",
-    "sha256_cert_fingerprints": ["17:D7:B7:A8:CB:B2:40:E4:CF:8E:D9:0C:7E:BB:40:DA:DA:57:22:48:6B:EA:2D:FF:2A:BE:6D:84:C2:EE:1C:5E"]
+    "sha256_cert_fingerprints": ["D9:A3:25:72:71:83:D8:EA:42:1D:75:E0:4F:80:F4:3D:95:FC:6A:AA:F4:71:D6:C3:B0:1E:ED:70:85:AB:AC:E8"]
   }
 }]
