@@ -8,11 +8,11 @@
     <style>
         :root {
             --primary: #2563eb; --primary-hover: #1d4ed8;
-            --success: #16a34a; --danger: #dc2626; --warning: #f59e0b;
+            --success: #16a34a; --danger: #dc2626;
             --bg: #f4f7fb; --text: #172033; --border: #e5eaf2; --card-bg: #ffffff;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: Tahoma, Arial, sans-serif; }
-        body { background-color: var(--bg); color: var(--text); line-height: 1.7; }
+        body { background-color: var(--bg); color: var(--text); line-height: 1.7; padding-bottom: 60px; }
         a { text-decoration: none; color: var(--primary); }
         button { font-family: inherit; cursor: pointer; }
         
@@ -20,144 +20,128 @@
         header { background: var(--card-bg); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.03); }
         .header-inner { max-width: 1200px; margin: 0 auto; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
         .logo { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 900; color: var(--primary); cursor: pointer; }
-        /* استایل عکس لوگو */
-        .logo-img { width: 45px; height: 45px; object-fit: contain; border-radius: 8px; }
+        .logo-img { width: 40px; height: 40px; object-fit: contain; border-radius: 8px; }
         
         /* Buttons */
-        .btn { padding: 10px 18px; border-radius: 8px; border: none; font-weight: bold; font-size: 14px; transition: 0.2s; display: inline-block; text-align: center; }
-        .btn:hover { transform: translateY(-1px); }
+        .btn { padding: 10px 18px; border-radius: 8px; border: none; font-weight: bold; font-size: 14px; transition: 0.2s; display: inline-flex; align-items: center; justify-content: center; gap: 5px;}
+        .btn:hover { opacity: 0.9; }
         .btn-primary { background: var(--primary); color: white; }
-        .btn-primary:hover { background: var(--primary-hover); }
         .btn-success { background: var(--success); color: white; }
         .btn-danger { background: var(--danger); color: white; }
-        .btn-outline { background: transparent; border: 1px solid var(--primary); color: var(--primary); }
-        .btn-sm { padding: 6px 12px; font-size: 12px; }
+        .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
+        .btn-sm { padding: 8px 12px; font-size: 13px; }
 
 
-        /* Layout & Cards */
+        /* Layout */
         .container { max-width: 1200px; margin: 20px auto; padding: 0 15px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
-        .card { background: var(--card-bg); border-radius: 12px; padding: 20px; border: 1px solid var(--border); box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 15px; }
+        .card { background: var(--card-bg); border-radius: 12px; padding: 15px; border: 1px solid var(--border); }
         
-        /* Business Cards */
-        .biz-card { background: white; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; transition: 0.2s; cursor: pointer; }
-        .biz-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .biz-img-placeholder { width: 100%; height: 160px; display: flex; align-items: center; justify-content: center; font-size: 40px; background: #f1f5f9; color: #94a3b8; }
-        .biz-body { padding: 15px; flex-grow: 1; display: flex; flex-direction: column; }
-        .biz-title { font-size: 18px; font-weight: bold; margin-bottom: 8px; }
-        .biz-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
-        .badge { background: #eff6ff; color: var(--primary); padding: 4px 8px; border-radius: 6px; font-size: 12px; }
+        /* Product Cards (Grid) */
+        .product-card { background: white; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; transition: 0.2s; cursor: pointer; }
+        .product-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .product-img { width: 100%; height: 180px; object-fit: cover; background: #f1f5f9; }
+        .product-body { padding: 15px; flex-grow: 1; display: flex; flex-direction: column; }
+        .product-title { font-size: 15px; font-weight: bold; margin-bottom: 10px; height: 44px; overflow: hidden; line-height: 1.4;}
+        .product-price { font-size: 16px; color: var(--success); font-weight: bold; margin-top: auto;}
+        .product-meta { font-size: 12px; color: #64748b; margin-bottom: 5px; }
+
+
+        /* Detail Page */
+        .detail-header { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 30px;}
+        .detail-img-wrapper { flex: 1; min-width: 300px; max-width: 500px; background: white; border-radius: 12px; padding: 20px; text-align: center; border: 1px solid var(--border);}
+        .detail-img { width: 100%; max-height: 400px; object-fit: contain; }
+        .detail-info { flex: 1; min-width: 300px; }
+        .detail-price { font-size: 24px; color: var(--success); font-weight: bold; margin: 15px 0; }
+        .detail-desc { background: white; padding: 20px; border-radius: 12px; border: 1px solid var(--border); margin-bottom: 20px;}
         
-        /* Hero */
-        .hero { background: linear-gradient(135deg, var(--primary), #1e40af); color: white; padding: 45px 20px; border-radius: 16px; text-align: center; margin-bottom: 30px; }
-        .hero h1 { font-size: 32px; margin-bottom: 10px; }
-        
-        /* Forms */
-        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .form-group { margin-bottom: 15px; display: flex; flex-direction: column; gap: 5px; position: relative; }
-        .form-group.full { grid-column: 1 / -1; }
-        .form-group label { font-size: 13px; font-weight: bold; color: #475569; }
+        /* Seller Box (Like Digikala) */
+        .seller-box { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 20px;}
+        .seller-info h4 { font-size: 16px; margin-bottom: 5px; color: var(--text);}
+        .seller-info p { font-size: 13px; color: #64748b; }
+        .seller-actions { display: flex; gap: 10px; }
+
+
+        /* Forms & Modals */
+        .form-group { margin-bottom: 15px; display: flex; flex-direction: column; gap: 5px; }
         .form-control { padding: 10px; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; outline: none; width: 100%; }
-        .form-control:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+        .form-control:focus { border-color: var(--primary); }
         textarea.form-control { resize: vertical; min-height: 100px; }
-
-
-        /* Password Eye Icon */
-        .password-wrapper { position: relative; width: 100%; }
-        .password-wrapper input { padding-left: 40px; } /* فاصله برای آیکون چشم */
-        .toggle-password { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 18px; user-select: none; }
-
-
-        /* Modals */
-        .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; z-index: 2000; padding: 15px; }
-        .modal-content { background: white; border-radius: 12px; width: 100%; max-width: 600px; max-height: 90vh; overflow-y: auto; padding: 25px; position: relative; }
-        .close-btn { position: absolute; top: 15px; left: 15px; background: #f1f5f9; border: none; width: 35px; height: 35px; border-radius: 50%; font-size: 18px; display: flex; align-items: center; justify-content: center; }
-
-
+        .alert { padding: 12px; border-radius: 8px; margin-bottom: 15px; font-size: 14px; }
+        .alert-error { background: #fef2f2; color: #b91c1c; }
+        .alert-success { background: #f0fdf4; color: #15803d; }
+        .alert-info { background: #eff6ff; color: #1d4ed8; }
+        
         /* Utilities */
         .hidden { display: none !important; }
         .text-center { text-align: center; }
         .mt-10 { margin-top: 10px; } .mt-20 { margin-top: 20px; } .mb-20 { margin-bottom: 20px; }
-        .detail-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
-        .service-item { display: flex; justify-content: space-between; align-items: center; padding: 12px; background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 8px; }
-        .alert { padding: 12px; border-radius: 8px; margin-bottom: 15px; font-size: 14px; }
-        .alert-info { background: #eff6ff; color: #1d4ed8; }
-        .alert-error { background: #fef2f2; color: #b91c1c; }
-        .alert-success { background: #f0fdf4; color: #15803d; }
-        .loading { text-align: center; padding: 30px; color: #64748b; }
+        .loading { text-align: center; padding: 40px; color: #64748b; font-size: 16px; }
+        
+        /* Password Eye */
+        .password-wrapper { position: relative; width: 100%; }
+        .password-wrapper input { padding-left: 40px; }
+        .toggle-password { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 18px; user-select: none; }
 
 
-        @media (max-width: 768px) { .form-grid { grid-template-columns: 1fr; } .hero h1 { font-size: 24px; } }
+        @media (max-width: 768px) { 
+            .grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
+            .product-img { height: 140px; }
+            .detail-header { flex-direction: column; }
+        }
     </style>
 </head>
 <body>
 
 
-    <!-- HEADER -->
     <header>
         <div class="header-inner">
             <div class="logo" onclick="navigateTo('homePage')">
-                <!-- آدرس عکس لوگو: باید عکسی که فرستادی رو با اسم logo.png در کنار فایل html آپلود کنی -->
                 <img src="logo.png" alt="نیازیار" class="logo-img" onerror="this.style.display='none'">
                 نیازیار
             </div>
             <div>
-                <button class="btn btn-outline" onclick="openSellerDashboard()">👤 داشبورد من</button>
-                <button id="headerAuthButton" class="btn btn-primary" onclick="openAuth()">ورود</button>
+                <button class="btn btn-outline btn-sm" onclick="openSellerDashboard()">👤 داشبورد من</button>
+                <button id="headerAuthButton" class="btn btn-primary btn-sm" onclick="openAuth()">ورود</button>
             </div>
         </div>
     </header>
 
 
     <main class="container">
-        <!-- HOME PAGE -->
+        
+        <!-- 1. HOME PAGE (Products List) -->
         <section id="homePage">
-            <div class="hero">
-                <h1>دایرکتوری هوشمند کسب‌وکارها</h1>
-                <p class="mt-10">رستوران، سالن زیبایی، تعمیرگاه و هر خدمات دیگری را در شهر خود پیدا کنید.</p>
-                <button class="btn btn-primary mt-20" style="background:white; color:var(--primary);" onclick="navigateTo('buyerPage')">🔍 شروع جستجو</button>
+            <div class="card mb-20 text-center">
+                <h2 class="mb-20">جستجوی محصولات و خدمات</h2>
+                <div style="display:flex; gap:10px; max-width: 600px; margin: 0 auto;">
+                    <input type="text" id="searchInput" class="form-control" placeholder="مثلا: آبکش، چلوکباب، رنگ مو...">
+                    <button class="btn btn-primary" onclick="searchProducts()">🔍 جستجو</button>
+                </div>
             </div>
             
-            <div class="section">
-                <h2 class="mb-20">دسته‌بندی‌های اصلی</h2>
-                <div id="homeCategories" class="grid"></div>
-            </div>
+            <h3 class="mb-20">آخرین محصولات ثبت شده</h3>
+            <div id="homeProductsGrid" class="grid"></div>
         </section>
 
 
-        <!-- BUYER PAGE -->
-        <section id="buyerPage" class="hidden">
-            <div class="card mb-20">
-                <h2 class="mb-20">جستجوی کسب‌وکار</h2>
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label>دسته‌بندی اصلی</label>
-                        <select id="buyerCategory" class="form-control">
-                            <option value="">همه دسته‌ها</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>استان</label>
-                        <select id="buyerProvince" class="form-control" onchange="buyerProvinceChanged()">
-                            <option value="">همه استان‌ها</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>شهر</label>
-                        <select id="buyerCity" class="form-control">
-                            <option value="">همه شهرها</option>
-                        </select>
-                    </div>
-                </div>
-                <button class="btn btn-primary" style="width:100%" onclick="searchBusinesses()">🔍 جستجو</button>
-            </div>
-
-
-            <div id="buyerResults"></div>
+        <!-- 2. PRODUCT DETAIL PAGE -->
+        <section id="productDetailPage" class="hidden">
+            <button class="btn btn-outline mb-20" onclick="history.back()">← بازگشت</button>
+            <div id="productDetailContent"></div>
         </section>
 
 
-        <!-- SELLER DASHBOARD -->
+        <!-- 3. BUSINESS PROFILE PAGE (Storefront) -->
+        <section id="storefrontPage" class="hidden">
+            <button class="btn btn-outline mb-20" onclick="history.back()">← بازگشت</button>
+            <div id="storefrontHeader" class="card mb-20"></div>
+            <h3 class="mb-20">محصولات این ویترین</h3>
+            <div id="storefrontProductsGrid" class="grid"></div>
+        </section>
+
+
+        <!-- 4. SELLER DASHBOARD -->
         <section id="sellerDashboardPage" class="hidden">
             <div class="card mb-20">
                 <div style="display:flex; justify-content:space-between; align-items:center;">
@@ -165,7 +149,6 @@
                     <button class="btn btn-danger btn-sm" onclick="logoutUser()">خروج</button>
                 </div>
                 <div id="sellerWelcome" class="alert alert-info mt-10">در حال دریافت اطلاعات...</div>
-                
                 <div class="mt-20">
                     <button class="btn btn-success" onclick="navigateTo('createBusinessPage')">➕ ثبت ویترین جدید</button>
                 </div>
@@ -174,112 +157,99 @@
 
             <div class="mb-20">
                 <h3>ویترین‌های من</h3>
-                <div id="myBusinessesResults" class="grid mt-20"></div>
+                <div id="myBusinessesResults" class="mt-20"></div>
             </div>
         </section>
 
 
-        <!-- CREATE BUSINESS FORM -->
+        <!-- 5. CREATE BUSINESS FORM -->
         <section id="createBusinessPage" class="hidden">
-            <div class="card">
-                <h2 class="mb-20">ثبت ویترین جدید</h2>
+            <div class="card" style="max-width: 600px; margin: 0 auto;">
+                <h2 class="mb-20">ثبت ویترین (اطلاعات مغازه)</h2>
                 <div id="businessFormMessage"></div>
-                
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label>نام ویترین (مثلا رستوران خلیفه)</label>
-                        <input type="text" id="bizName" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label>دسته‌بندی</label>
-                        <select id="bizCategory" class="form-control">
-                            <option value="">انتخاب کنید</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>استان</label>
-                        <select id="bizProvince" class="form-control" onchange="bizProvinceChanged()">
-                            <option value="">انتخاب کنید</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>شهر</label>
-                        <select id="bizCity" class="form-control">
-                            <option value="">انتخاب کنید</option>
-                        </select>
-                    </div>
-                    <div class="form-group full">
-                        <label>آدرس دقیق</label>
-                        <input type="text" id="bizAddress" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label>تلفن ثابت</label>
-                        <input type="text" id="bizPhone" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label>موبایل</label>
-                        <input type="text" id="bizMobile" class="form-control">
-                    </div>
-                    <div class="form-group full">
-                        <label>توضیحات (اختیاری)</label>
-                        <textarea id="bizDescription" class="form-control"></textarea>
-                    </div>
+                <div class="form-group">
+                    <label>نام ویترین (مثلا فروشگاه پلاسکو)</label>
+                    <input type="text" id="bizName" class="form-control">
                 </div>
-                
-                <button id="saveBizButton" class="btn btn-success mt-20" style="width:100%" onclick="saveBusiness()">💾 ثبت ویترین</button>
-                <button class="btn btn-outline mt-10" style="width:100%" onclick="navigateTo('sellerDashboardPage')">انصراف</button>
+                <div class="form-group">
+                    <label>دسته‌بندی</label>
+                    <select id="bizCategory" class="form-control"></select>
+                </div>
+                <div class="form-group">
+                    <label>استان</label>
+                    <select id="bizProvince" class="form-control" onchange="bizProvinceChanged()"></select>
+                </div>
+                <div class="form-group">
+                    <label>شهر</label>
+                    <select id="bizCity" class="form-control"></select>
+                </div>
+                <div class="form-group">
+                    <label>آدرس دقیق</label>
+                    <input type="text" id="bizAddress" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>تلفن ثابت</label>
+                    <input type="text" id="bizPhone" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>موبایل</label>
+                    <input type="text" id="bizMobile" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>توضیحات مغازه (اختیاری)</label>
+                    <textarea id="bizDescription" class="form-control"></textarea>
+                </div>
+                <button id="saveBizButton" class="btn btn-success" style="width:100%" onclick="saveBusiness()">💾 ثبت ویترین</button>
             </div>
         </section>
 
 
-        <!-- MANAGE SERVICES (For a Business) -->
+        <!-- 6. MANAGE SERVICES (Products inside a Business) -->
         <section id="manageServicesPage" class="hidden">
             <div class="card mb-20">
-                <button class="btn btn-outline btn-sm mb-20" onclick="navigateTo('sellerDashboardPage')">← بازگشت</button>
-                <h2 id="manageServicesTitle">مدیریت محصولات/منو</h2>
+                <button class="btn btn-outline btn-sm mb-20" onclick="navigateTo('sellerDashboardPage')">← بازگشت به داشبورد</button>
+                <h2 id="manageServicesTitle">مدیریت محصولات</h2>
                 
-                <div class="form-grid mt-20" style="background:#f8fafc; padding:15px; border-radius:8px;">
-                    <div class="form-group full">
-                        <label>عنوان (مثلا چلوکباب یا رنگ مو)</label>
-                        <input type="text" id="srvTitle" class="form-control">
+                <div class="mt-20" style="background:#f8fafc; padding:15px; border-radius:8px; border: 1px solid #e2e8f0;">
+                    <h4 class="mb-20">افزودن محصول جدید</h4>
+                    <div class="form-group">
+                        <label>عنوان محصول (الزامی)</label>
+                        <input type="text" id="srvTitle" class="form-control" placeholder="مثلا آبکش فلزی">
                     </div>
                     <div class="form-group">
-                        <label>قیمت (تومان)</label>
-                        <input type="number" id="srvPrice" class="form-control">
+                        <label>قیمت (تومان) - الزامی</label>
+                        <input type="number" id="srvPrice" class="form-control" placeholder="مثلا 150000">
                     </div>
                     <div class="form-group">
-                        <label>توضیحات</label>
-                        <input type="text" id="srvDescription" class="form-control">
+                        <label>توضیحات و مشخصات</label>
+                        <input type="text" id="srvDescription" class="form-control" placeholder="مثلا جنس استیل، سایز بزرگ">
                     </div>
-                    <div class="form-group full">
-                        <label>عکس محصول (اختیاری)</label>
+                    <div class="form-group">
+                        <label>عکس محصول</label>
                         <input type="file" id="srvImage" class="form-control" accept="image/*">
                     </div>
-                    <div class="form-group full">
-                        <button class="btn btn-primary" onclick="saveService()">➕ افزودن به ویترین</button>
-                    </div>
+                    <button class="btn btn-primary" onclick="saveService()">➕ ثبت محصول</button>
                 </div>
             </div>
 
 
             <div>
-                <h3>محصولات فعلی این ویترین</h3>
+                <h3>محصولات فعلی شما</h3>
                 <div id="currentServicesList" class="grid mt-20"></div>
             </div>
         </section>
 
 
-        <!-- AUTH PAGE -->
+        <!-- 7. AUTH PAGE -->
         <section id="authPage" class="hidden">
             <div class="card" style="max-width:400px; margin: 0 auto;">
                 <h2 class="text-center mb-20">ورود / ثبت‌نام</h2>
                 <div id="authMessage"></div>
                 
-                <!-- LOGIN FORM -->
                 <div id="loginForm">
                     <div class="form-group">
                         <label>شماره موبایل</label>
-                        <input type="tel" id="loginPhone" class="form-control" placeholder="مثلا 09123456789">
+                        <input type="tel" id="loginPhone" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>رمز عبور</label>
@@ -292,7 +262,6 @@
                     <p class="text-center mt-20"><a href="#" onclick="switchAuth('register')">حساب ندارید؟ ثبت‌نام کنید</a></p>
                 </div>
                 
-                <!-- REGISTER FORM -->
                 <div id="registerForm" class="hidden">
                     <div class="form-group">
                         <label>نام و نام خانوادگی</label>
@@ -300,7 +269,7 @@
                     </div>
                     <div class="form-group">
                         <label>شماره موبایل</label>
-                        <input type="tel" id="registerPhone" class="form-control" placeholder="مثلا 09123456789">
+                        <input type="tel" id="registerPhone" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>رمز عبور (حداقل ۸ کاراکتر)</label>
@@ -317,85 +286,65 @@
     </main>
 
 
-    <!-- MODAL FOR VIEWING BUSINESS -->
-    <div id="detailModal" class="modal hidden" onclick="closeModalOutside(event)">
-        <div class="modal-content">
-            <button class="close-btn" onclick="closeDetailModal()">×</button>
-            <div id="detailContent"></div>
-        </div>
-    </div>
-
-
     <div id="toastContainer" style="position:fixed; bottom:20px; left:20px; z-index:5000;"></div>
 
 
     <script>
-        // آدرس جدید بک‌اند (v12)
+        // ⚠️ آدرس API خود را اینجا وارد کنید
         const API_URL = "https://script.google.com/macros/s/AKfycbzUTz6dkk-b4PU9O28__oqcjYLYseDaASrduGVk5bYQLa5ZP7jfT_bbvyfSk05v3uB8QQ/exec";
-        const STORAGE_TOKEN = "niyazyar_token";
-        const STORAGE_USER = "niyazyar_user";
-
-
+        
         let categoriesData = [];
         let locationsData = [];
         let currentUser = null;
         let currentManagingBizId = null;
 
 
-        // ================= INIT & NAVIGATION =================
+        // ================= INIT & NAVIGATION (حل مشکل Back) =================
         document.addEventListener("DOMContentLoaded", async () => {
             restoreAuth();
             await initializeData();
             updateHeader();
             
-            // مدیریت دکمه بازگشت مرورگر (Back)
+            // مدیریت دکمه بازگشت گوشی
             window.addEventListener('popstate', (event) => {
                 if (event.state && event.state.pageId) {
-                    showPageDirectly(event.state.pageId);
+                    showPageDirectly(event.state.pageId, event.state.params);
                 } else {
                     showPageDirectly('homePage');
                 }
             });
             
-            // صفحه اولیه
             history.replaceState({ pageId: 'homePage' }, '', '#homePage');
             showPageDirectly('homePage');
         });
 
 
-        // تابع جدید برای جابه‌جایی بین صفحات و ثبت در تاریخچه مرورگر
-        function navigateTo(pageId) {
-            history.pushState({ pageId: pageId }, '', '#' + pageId);
-            showPageDirectly(pageId);
+        function navigateTo(pageId, params = {}) {
+            // برای جلوگیری از باز شدن مجدد یک صفحه
+            if(history.state && history.state.pageId === pageId && JSON.stringify(history.state.params) === JSON.stringify(params)) return;
+            
+            history.pushState({ pageId, params }, '', '#' + pageId);
+            showPageDirectly(pageId, params);
         }
 
 
-        // تابع اصلی نمایش صفحه (بدون ثبت در تاریخچه)
-        function showPageDirectly(pageId) {
-            ["homePage", "buyerPage", "sellerDashboardPage", "createBusinessPage", "manageServicesPage", "authPage"].forEach(id => {
+        async function showPageDirectly(pageId, params = {}) {
+            ["homePage", "productDetailPage", "storefrontPage", "sellerDashboardPage", "createBusinessPage", "manageServicesPage", "authPage"].forEach(id => {
                 const el = document.getElementById(id);
                 if (el) el.classList.toggle("hidden", id !== pageId);
             });
             window.scrollTo({ top: 0, behavior: "smooth" });
 
 
-            // اگر صفحه داشبورد است، بارگذاری شود
-            if (pageId === 'sellerDashboardPage' && isLoggedIn()) {
+            if (pageId === 'homePage') {
+                loadAllProducts();
+            } else if (pageId === 'productDetailPage') {
+                loadProductDetail(params.productId);
+            } else if (pageId === 'storefrontPage') {
+                loadStorefront(params.bizId);
+            } else if (pageId === 'sellerDashboardPage' && isLoggedIn()) {
                 loadSellerDashboard();
             }
-        }
-
-
-        async function initializeData() {
-            try {
-                const [cats, locs] = await Promise.all([apiGet("categories"), apiGet("locations")]);
-                categoriesData = cats.categories || [];
-                locationsData = locs.locations || [];
-                
-                fillCategorySelectors();
-                fillLocationSelectors();
-                renderHomeCategories();
-            } catch (e) { console.error(e); showToast("خطا در دریافت اطلاعات اولیه", "error"); }
         }
 
 
@@ -419,62 +368,51 @@
         }
 
 
+        async function initializeData() {
+            try {
+                const [cats, locs] = await Promise.all([apiGet("categories"), apiGet("locations")]);
+                categoriesData = cats.categories || [];
+                locationsData = locs.locations || [];
+                fillLocationSelectors();
+            } catch (e) { console.error(e); showToast("خطا در دریافت اطلاعات اولیه", "error"); }
+        }
+
+
         // ================= AUTH =================
         function restoreAuth() {
             try {
-                const token = localStorage.getItem(STORAGE_TOKEN);
-                const user = localStorage.getItem(STORAGE_USER);
+                const token = localStorage.getItem("niyazyar_token");
+                const user = localStorage.getItem("niyazyar_user");
                 if (token && user) currentUser = JSON.parse(user);
             } catch (e) { clearAuth(); }
         }
-
-
         function isLoggedIn() { return !!currentUser; }
-        function getToken() { return localStorage.getItem(STORAGE_TOKEN) || ""; }
-
-
+        function getToken() { return localStorage.getItem("niyazyar_token") || ""; }
         function saveAuth(token, user) {
-            localStorage.setItem(STORAGE_TOKEN, token);
-            localStorage.setItem(STORAGE_USER, JSON.stringify(user));
-            currentUser = user;
-            updateHeader();
+            localStorage.setItem("niyazyar_token", token);
+            localStorage.setItem("niyazyar_user", JSON.stringify(user));
+            currentUser = user; updateHeader();
         }
-
-
         function clearAuth() {
-            localStorage.removeItem(STORAGE_TOKEN);
-            localStorage.removeItem(STORAGE_USER);
-            currentUser = null;
-            updateHeader();
+            localStorage.removeItem("niyazyar_token");
+            localStorage.removeItem("niyazyar_user");
+            currentUser = null; updateHeader();
         }
-
-
         function updateHeader() {
             const btn = document.getElementById("headerAuthButton");
             btn.textContent = isLoggedIn() ? "👤 حساب من" : "ورود";
             btn.onclick = isLoggedIn() ? openSellerDashboard : openAuth;
         }
-
-
         function openAuth() { navigateTo("authPage"); }
-        
         function switchAuth(type) {
             document.getElementById("loginForm").classList.toggle("hidden", type !== "login");
             document.getElementById("registerForm").classList.toggle("hidden", type !== "register");
             document.getElementById("authMessage").innerHTML = "";
         }
-
-
-        // نمایش/مخفی کردن رمز عبور
         function togglePassword(inputId, icon) {
             const input = document.getElementById(inputId);
-            if (input.type === "password") {
-                input.type = "text";
-                icon.textContent = "🙈"; // آیکون بسته
-            } else {
-                input.type = "password";
-                icon.textContent = "👁️"; // آیکون باز
-            }
+            if (input.type === "password") { input.type = "text"; icon.textContent = "🙈"; } 
+            else { input.type = "password"; icon.textContent = "👁️"; }
         }
 
 
@@ -482,10 +420,7 @@
             const name = document.getElementById("registerName").value;
             const phone = document.getElementById("registerPhone").value;
             const pass = document.getElementById("registerPassword").value;
-            
             if(!name || !phone || !pass) return showAuthMsg("لطفا همه فیلدها را پر کنید.", "error");
-
-
             try {
                 const res = await apiPost({ action: "register", name, phone, password: pass });
                 saveAuth(res.token, res.user);
@@ -498,10 +433,7 @@
         async function loginUser() {
             const phone = document.getElementById("loginPhone").value;
             const pass = document.getElementById("loginPassword").value;
-            
             if(!phone || !pass) return showAuthMsg("لطفا همه فیلدها را پر کنید.", "error");
-
-
             try {
                 const res = await apiPost({ action: "login", phone, password: pass });
                 saveAuth(res.token, res.user);
@@ -509,193 +441,231 @@
                 showToast("ورود موفق", "success");
             } catch (e) { showAuthMsg(e.message, "error"); }
         }
-
-
         function logoutUser() { clearAuth(); navigateTo("homePage"); showToast("خارج شدید", "success"); }
         function openSellerDashboard() { if (!isLoggedIn()) openAuth(); else navigateTo("sellerDashboardPage"); }
+        function showAuthMsg(msg, type) { document.getElementById("authMessage").innerHTML = `<div class="alert alert-${type}">${msg}</div>`; }
 
 
-        function showAuthMsg(msg, type) {
-            document.getElementById("authMessage").innerHTML = `<div class="alert alert-${type}">${msg}</div>`;
-        }
-
-
-        // ================= LOCATIONS (اصلاح شده) =================
-        function fillLocationSelectors() {
-            if (!locationsData || locationsData.length === 0) return;
-            
-            // پیدا کردن کلید استان و شهر
-            const provKey = Object.keys(locationsData[0]).find(k => k.includes("استان") || k.includes("province"));
-            const cityKey = Object.keys(locationsData[0]).find(k => k.includes("شهر") || k.includes("city"));
-
-
-            if (!provKey || !cityKey) {
-                console.error("هدرهای استان و شهر پیدا نشد.");
-                return;
-            }
-
-
-            const provs = [...new Set(locationsData.map(l => l[provKey]))].filter(Boolean);
-            const selects = [document.getElementById("buyerProvince"), document.getElementById("bizProvince")];
-            
-            selects.forEach(sel => {
-                if (!sel) return;
-                sel.innerHTML = '<option value="">انتخاب استان</option>';
-                provs.sort().forEach(p => sel.innerHTML += `<option value="${p}">${p}</option>`);
-            });
-        }
-
-
-        function buyerProvinceChanged() { fillCities("buyerProvince", "buyerCity"); }
-        function bizProvinceChanged() { fillCities("bizProvince", "bizCity"); }
-
-
-        function fillCities(provId, cityId) {
-            const prov = document.getElementById(provId).value;
-            const citySel = document.getElementById(cityId);
-            citySel.innerHTML = '<option value="">انتخاب شهر</option>';
-            if (!prov) return;
-
-
-            const provKey = Object.keys(locationsData[0]).find(k => k.includes("استان") || k.includes("province"));
-            const cityKey = Object.keys(locationsData[0]).find(k => k.includes("شهر") || k.includes("city"));
-
-
-            // استخراج شهرهای یکتا برای استان انتخاب شده
-            const cities = [...new Set(locationsData
-                .filter(l => l[provKey] === prov)
-                .map(l => l[cityKey]))].filter(Boolean);
-                
-            cities.sort().forEach(c => citySel.innerHTML += `<option value="${c}">${c}</option>`);
-        }
-
-
-        // ================= HOME & SEARCH =================
-        function renderHomeCategories() {
-            const container = document.getElementById("homeCategories");
-            container.innerHTML = "";
-            categoriesData.forEach(c => {
-                const card = document.createElement("div");
-                card.className = "card text-center";
-                card.style.cursor = "pointer";
-                card.innerHTML = `<h3 style="font-size:16px;">${c.category}</h3>`;
-                card.onclick = () => {
-                    navigateTo("buyerPage");
-                    document.getElementById("buyerCategory").value = c.id;
-                    searchBusinesses();
-                };
-                container.appendChild(card);
-            });
-        }
-
-
-        function fillCategorySelectors() {
-            const selects = [document.getElementById("buyerCategory"), document.getElementById("bizCategory")];
-            selects.forEach(sel => {
-                if (!sel) return;
-                sel.innerHTML = '<option value="">انتخاب دسته</option>';
-                categoriesData.forEach(c => sel.innerHTML += `<option value="${c.id}">${c.category}</option>`);
-            });
-        }
-
-
-        async function searchBusinesses() {
-            const resContainer = document.getElementById("buyerResults");
-            resContainer.innerHTML = '<div class="loading">در حال جستجو...</div>';
+        // ================= PRODUCTS & SEARCH (Home Page) =================
+        async function loadAllProducts() {
+            const grid = document.getElementById("homeProductsGrid");
+            grid.innerHTML = '<div class="loading">در حال دریافت محصولات...</div>';
             
             try {
-                const res = await apiGet("businesses", {
-                    category_id: document.getElementById("buyerCategory").value,
-                    province: document.getElementById("buyerProvince").value,
-                    city: document.getElementById("buyerCity").value
-                });
-
-
-                if (!res.businesses.length) {
-                    resContainer.innerHTML = '<div class="alert alert-info">موردی یافت نشد.</div>';
+                // درخواست به بک‌اند برای گرفتن تمام محصولات
+                const res = await apiGet("services"); 
+                if (!res.services || res.services.length === 0) {
+                    grid.innerHTML = '<div class="alert alert-info">هنوز محصولی ثبت نشده است.</div>';
                     return;
                 }
 
 
-                let html = `<div class="alert alert-success">${res.businesses.length} کسب‌وکار پیدا شد.</div><div class="grid">`;
-                res.businesses.forEach(b => {
+                // برای اینکه نام مغازه و شهر رو هم داشته باشیم، باید اطلاعات مغازه‌ها رو هم بگیریم
+                const bizRes = await apiGet("businesses");
+                const businesses = bizRes.businesses || [];
+
+
+                let html = "";
+                res.services.forEach(s => {
+                    // پیدا کردن اطلاعات مغازه مربوط به این محصول
+                    const biz = businesses.find(b => b.id === s.business_id) || { name: "نامشخص", city: "-" };
+                    
+                    // اصلاح لینک عکس برای نمایش درست در مرورگر
+                    let imgUrl = s.image_url ? s.image_url.replace('uc?export=view&id=', 'thumbnail?id=') : '';
+                    let imgHtml = imgUrl ? `<img src="${imgUrl}" class="product-img" loading="lazy">` : `<div class="product-img" style="display:flex;align-items:center;justify-content:center;font-size:40px;">📦</div>`;
+
+
                     html += `
-                        <div class="biz-card" onclick='openBusinessDetail(${JSON.stringify(b).replace(/'/g, "&#39;")})'>
-                            <div class="biz-img-placeholder">🏢</div>
-                            <div class="biz-body">
-                                <div class="biz-title">${b.name}</div>
-                                <div class="biz-meta">
-                                    <span class="badge">${b.province}</span>
-                                    <span class="badge">${b.city}</span>
-                                </div>
-                                <small style="color:#64748b">${b.description || ''}</small>
+                        <div class="product-card" onclick="navigateTo('productDetailPage', {productId: '${s.id}', bizId: '${s.business_id}'})">
+                            ${imgHtml}
+                            <div class="product-body">
+                                <div class="product-title">${s.title}</div>
+                                <div class="product-meta">🏢 ${biz.name} | 📍 ${biz.city}</div>
+                                <div class="product-price">${s.price ? Number(s.price).toLocaleString() + ' تومان' : 'توافقی'}</div>
                             </div>
                         </div>
                     `;
                 });
-                html += `</div>`;
-                resContainer.innerHTML = html;
+                grid.innerHTML = html;
             } catch (e) {
-                resContainer.innerHTML = `<div class="alert alert-error">${e.message}</div>`;
+                grid.innerHTML = `<div class="alert alert-error">خطا: ${e.message}</div>`;
             }
         }
 
 
-        async function openBusinessDetail(b) {
-            const modal = document.getElementById("detailModal");
-            const content = document.getElementById("detailContent");
-            content.innerHTML = '<div class="loading">در حال دریافت منو...</div>';
-            modal.classList.remove("hidden");
+        async function searchProducts() {
+            const q = document.getElementById("searchInput").value.trim().toLowerCase();
+            if(!q) return loadAllProducts(); // اگر خالی بود همه رو نشون بده
+
+
+            const grid = document.getElementById("homeProductsGrid");
+            grid.innerHTML = '<div class="loading">در حال جستجو...</div>';
 
 
             try {
-                const res = await apiGet("services", { business_id: b.id });
-                let html = `<h2>${b.name}</h2>`;
-                html += `<div class="detail-row"><span>شهر</span><span>${b.city}</span></div>`;
-                html += `<div class="detail-row"><span>آدرس</span><span>${b.address || '-'}</span></div>`;
-                html += `<div class="detail-row"><span>تلفن</span><span>${b.phone || '-'}</span></div>`;
+                const res = await apiGet("services");
+                const bizRes = await apiGet("businesses");
+                const businesses = bizRes.businesses || [];
                 
-                html += `<h3 class="mt-20">لیست محصولات/منو</h3>`;
-                if (res.services.length) {
-                    res.services.forEach(s => {
-                        let imgHtml = s.image_url ? `<img src="${s.image_url}" style="width:50px;height:50px;object-fit:cover;border-radius:6px;margin-left:10px;">` : '';
-                        html += `<div class="service-item">
-                            <div style="display:flex; align-items:center;">
-                                ${imgHtml}
-                                <div>
-                                    <strong>${s.title}</strong>
-                                    <div style="font-size:12px; color:#64748b">${s.description || ''}</div>
-                                </div>
-                            </div>
-                            <span style="color:var(--success); font-weight:bold; white-space:nowrap;">${Number(s.price).toLocaleString()} تومان</span>
-                        </div>`;
-                    });
-                } else {
-                    html += `<div class="alert alert-info">هنوز محصولی ثبت نشده است.</div>`;
+                // فیلتر محصولات بر اساس کلمه جستجو
+                const filtered = res.services.filter(s => s.title.toLowerCase().includes(q) || (s.description && s.description.toLowerCase().includes(q)));
+
+
+                if (filtered.length === 0) {
+                    grid.innerHTML = '<div class="alert alert-info">محصولی با این نام یافت نشد.</div>';
+                    return;
                 }
-                content.innerHTML = html;
+
+
+                let html = "";
+                filtered.forEach(s => {
+                    const biz = businesses.find(b => b.id === s.business_id) || { name: "نامشخص", city: "-" };
+                    let imgUrl = s.image_url ? s.image_url.replace('uc?export=view&id=', 'thumbnail?id=') : '';
+                    let imgHtml = imgUrl ? `<img src="${imgUrl}" class="product-img" loading="lazy">` : `<div class="product-img" style="display:flex;align-items:center;justify-content:center;font-size:40px;">📦</div>`;
+
+
+                    html += `
+                        <div class="product-card" onclick="navigateTo('productDetailPage', {productId: '${s.id}', bizId: '${s.business_id}'})">
+                            ${imgHtml}
+                            <div class="product-body">
+                                <div class="product-title">${s.title}</div>
+                                <div class="product-meta">🏢 ${biz.name} | 📍 ${biz.city}</div>
+                                <div class="product-price">${s.price ? Number(s.price).toLocaleString() + ' تومان' : 'توافقی'}</div>
+                            </div>
+                        </div>
+                    `;
+                });
+                grid.innerHTML = html;
             } catch (e) {
-                content.innerHTML = `<div class="alert alert-error">${e.message}</div>`;
+                grid.innerHTML = `<div class="alert alert-error">خطا: ${e.message}</div>`;
             }
         }
 
 
-        function closeDetailModal() { document.getElementById("detailModal").classList.add("hidden"); }
-        function closeModalOutside(e) { if (e.target.id === "detailModal") closeDetailModal(); }
+        // ================= PRODUCT DETAIL PAGE (صفحه کامل محصول) =================
+        async function loadProductDetail(productId) {
+            const container = document.getElementById("productDetailContent");
+            container.innerHTML = '<div class="loading">در حال دریافت اطلاعات...</div>';
+
+
+            try {
+                const res = await apiGet("services");
+                const product = res.services.find(s => String(s.id) === String(productId));
+                if (!product) throw new Error("محصول یافت نشد.");
+
+
+                const bizRes = await apiGet("businesses");
+                const biz = bizRes.businesses.find(b => String(b.id) === String(product.business_id)) || {};
+                
+                let imgUrl = product.image_url ? product.image_url.replace('uc?export=view&id=', 'thumbnail?id=') : '';
+                let imgHtml = imgUrl ? `<img src="${imgUrl}" class="detail-img">` : `<div style="font-size:80px; padding:50px;">📦</div>`;
+                
+                let displayPrice = product.price ? `${Number(product.price).toLocaleString()} تومان` : 'قیمت توافقی';
+
+
+                container.innerHTML = `
+                    <div class="detail-header">
+                        <div class="detail-img-wrapper">${imgHtml}</div>
+                        <div class="detail-info">
+                            <h2 style="font-size:24px; margin-bottom:10px;">${product.title}</h2>
+                            <div class="detail-price">${displayPrice}</div>
+                            
+                            <div class="detail-desc">
+                                <h4 style="margin-bottom:10px;">مشخصات و توضیحات:</h4>
+                                <p style="color:#475569;">${product.description || 'توضیحاتی ثبت نشده است.'}</p>
+                            </div>
+
+
+                            <!-- باکس فروشنده شبیه دیجی کالا -->
+                            <div class="seller-box">
+                                <div class="seller-info">
+                                    <h4>🏢 ${biz.name || 'فروشگاه'}</h4>
+                                    <p>📍 ${biz.city || '-'} | ${biz.province || ''}</p>
+                                    <p>📞 ${biz.mobile || biz.phone || '-'}</p>
+                                </div>
+                                <div class="seller-actions">
+                                    <a href="tel:${biz.mobile || biz.phone}" class="btn btn-outline">📞 تماس</a>
+                                    <button class="btn btn-primary" onclick="navigateTo('storefrontPage', {bizId: '${biz.id}'})">مشاهده ویترین</button>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                `;
+            } catch (e) {
+                container.innerHTML = `<div class="alert alert-error">خطا: ${e.message}</div>`;
+            }
+        }
+
+
+        // ================= STOREFRONT PAGE (ویترین فروشنده) =================
+        async function loadStorefront(bizId) {
+            document.getElementById("storefrontHeader").innerHTML = '<div class="loading">در حال دریافت...</div>';
+            document.getElementById("storefrontProductsGrid").innerHTML = '';
+
+
+            try {
+                const bizRes = await apiGet("businesses");
+                const biz = bizRes.businesses.find(b => String(b.id) === String(bizId));
+                if (!biz) throw new Error("فروشگاه یافت نشد.");
+
+
+                document.getElementById("storefrontHeader").innerHTML = `
+                    <div style="text-align:center; padding: 20px 0;">
+                        <h2 style="font-size:24px; color:var(--primary); margin-bottom:10px;">🏢 ${biz.name}</h2>
+                        <p style="color:#475569; margin-bottom:5px;">📍 ${biz.province}، ${biz.city} - ${biz.address || ''}</p>
+                        <p style="color:#475569;">📞 ${biz.mobile || biz.phone || '-'}</p>
+                        <p style="font-size:13px; color:#64748b; margin-top:10px;">${biz.description || ''}</p>
+                    </div>
+                `;
+
+
+                const srvRes = await apiGet("services", { business_id: bizId });
+                const products = srvRes.services || [];
+
+
+                if (products.length === 0) {
+                    document.getElementById("storefrontProductsGrid").innerHTML = '<div class="alert alert-info">این فروشگاه هنوز محصولی ثبت نکرده است.</div>';
+                    return;
+                }
+
+
+                let html = "";
+                products.forEach(s => {
+                    let imgUrl = s.image_url ? s.image_url.replace('uc?export=view&id=', 'thumbnail?id=') : '';
+                    let imgHtml = imgUrl ? `<img src="${imgUrl}" class="product-img" loading="lazy">` : `<div class="product-img" style="display:flex;align-items:center;justify-content:center;font-size:40px;">📦</div>`;
+
+
+                    html += `
+                        <div class="product-card" onclick="navigateTo('productDetailPage', {productId: '${s.id}', bizId: '${s.business_id}'})">
+                            ${imgHtml}
+                            <div class="product-body">
+                                <div class="product-title">${s.title}</div>
+                                <div class="product-price" style="margin-top:10px;">${s.price ? Number(s.price).toLocaleString() + ' تومان' : 'توافقی'}</div>
+                            </div>
+                        </div>
+                    `;
+                });
+                document.getElementById("storefrontProductsGrid").innerHTML = html;
+
+
+            } catch (e) {
+                document.getElementById("storefrontHeader").innerHTML = `<div class="alert alert-error">خطا: ${e.message}</div>`;
+            }
+        }
 
 
         // ================= SELLER DASHBOARD =================
         async function loadSellerDashboard() {
             if (!isLoggedIn()) return;
             document.getElementById("sellerWelcome").textContent = `خوش آمدید ${currentUser.name}`;
-            
             const container = document.getElementById("myBusinessesResults");
             container.innerHTML = '<div class="loading">در حال دریافت...</div>';
             
             try {
                 const res = await apiGet("my_businesses", { token: getToken() });
-                if (!res.businesses.length) {
-                    container.innerHTML = '<div class="alert alert-info">هنوز ویترینی نساخته‌اید.</div>';
+                if (!res.businesses || res.businesses.length === 0) {
+                    container.innerHTML = '<div class="alert alert-info">هنوز ویترینی نساخته‌اید. روی دکمه بالا کلیک کنید.</div>';
                     return;
                 }
 
@@ -703,10 +673,15 @@
                 let html = "";
                 res.businesses.forEach(b => {
                     html += `
-                        <div class="card">
-                            <h3>${b.name}</h3>
-                            <p style="color:#64748b; font-size:13px;">شهر: ${b.city}</p>
-                            <button class="btn btn-primary btn-sm mt-10" onclick="openManageServices('${b.id}', '${b.name}')">مدیریت محصولات / منو</button>
+                        <div class="card" style="margin-bottom:15px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+                            <div>
+                                <h3 style="color:var(--primary);">${b.name}</h3>
+                                <p style="color:#64748b; font-size:13px;">📍 ${b.province}، ${b.city}</p>
+                            </div>
+                            <div style="display:flex; gap:10px;">
+                                <button class="btn btn-primary btn-sm" onclick="openManageServices('${b.id}', '${b.name}')">مدیریت محصولات</button>
+                                <button class="btn btn-outline btn-sm" onclick="navigateTo('storefrontPage', {bizId: '${b.id}'})">مشاهده ویترین</button>
+                            </div>
                         </div>
                     `;
                 });
@@ -717,14 +692,37 @@
         }
 
 
-        function openCreateBusiness() {
-            document.getElementById("bizName").value = "";
-            document.getElementById("bizAddress").value = "";
-            document.getElementById("bizPhone").value = "";
-            document.getElementById("bizMobile").value = "";
-            document.getElementById("bizDescription").value = "";
-            document.getElementById("businessFormMessage").innerHTML = "";
-            navigateTo("createBusinessPage");
+        // ================= CREATE BUSINESS =================
+        function fillLocationSelectors() {
+            if (!locationsData || locationsData.length === 0) return;
+            const provKey = Object.keys(locationsData[0]).find(k => k.includes("استان") || k.includes("province"));
+            const cityKey = Object.keys(locationsData[0]).find(k => k.includes("شهر") || k.includes("city"));
+            if (!provKey || !cityKey) return;
+
+
+            const provs = [...new Set(locationsData.map(l => l[provKey]))].filter(Boolean);
+            const sel = document.getElementById("bizProvince");
+            sel.innerHTML = '<option value="">انتخاب استان</option>';
+            provs.sort().forEach(p => sel.innerHTML += `<option value="${p}">${p}</option>`);
+
+
+            const catSel = document.getElementById("bizCategory");
+            catSel.innerHTML = '<option value="">انتخاب دسته</option>';
+            categoriesData.forEach(c => catSel.innerHTML += `<option value="${c.id}">${c.category}</option>`);
+        }
+
+
+        function bizProvinceChanged() {
+            const prov = document.getElementById("bizProvince").value;
+            const citySel = document.getElementById("bizCity");
+            citySel.innerHTML = '<option value="">انتخاب شهر</option>';
+            if (!prov) return;
+
+
+            const provKey = Object.keys(locationsData[0]).find(k => k.includes("استان") || k.includes("province"));
+            const cityKey = Object.keys(locationsData[0]).find(k => k.includes("شهر") || k.includes("city"));
+            const cities = [...new Set(locationsData.filter(l => l[provKey] === prov).map(l => l[cityKey]))].filter(Boolean);
+            cities.sort().forEach(c => citySel.innerHTML += `<option value="${c}">${c}</option>`);
         }
 
 
@@ -732,7 +730,7 @@
             const btn = document.getElementById("saveBizButton");
             btn.disabled = true; btn.textContent = "در حال ثبت...";
             try {
-                const res = await apiPost({
+                await apiPost({
                     action: "create_business", token: getToken(),
                     name: document.getElementById("bizName").value,
                     category_id: document.getElementById("bizCategory").value,
@@ -753,15 +751,14 @@
         }
 
 
-        // ================= SERVICES MANAGEMENT =================
+        // ================= MANAGE SERVICES (Add Products) =================
         function openManageServices(bizId, bizName) {
             currentManagingBizId = bizId;
-            document.getElementById("manageServicesTitle").textContent = `مدیریت ${bizName}`;
+            document.getElementById("manageServicesTitle").textContent = `مدیریت محصولات ${bizName}`;
             document.getElementById("srvTitle").value = "";
             document.getElementById("srvPrice").value = "";
             document.getElementById("srvDescription").value = "";
             document.getElementById("srvImage").value = "";
-            
             navigateTo("manageServicesPage");
             loadCurrentServices();
         }
@@ -772,13 +769,19 @@
             container.innerHTML = '<div class="loading">در حال دریافت...</div>';
             try {
                 const res = await apiGet("services", { business_id: currentManagingBizId });
-                if (!res.services.length) {
-                    container.innerHTML = '<p class="text-center">محصولی ثبت نشده است.</p>';
+                if (!res.services || res.services.length === 0) {
+                    container.innerHTML = '<div class="alert alert-info">محصولی ثبت نکرده‌اید.</div>';
                     return;
                 }
                 let html = "";
                 res.services.forEach(s => {
-                    html += `<div class="card"><strong>${s.title}</strong> - ${Number(s.price).toLocaleString()} تومان</div>`;
+                    html += `
+                        <div class="card">
+                            <h4 style="color:var(--primary)">${s.title}</h4>
+                            <p style="color:var(--success); font-weight:bold; margin:5px 0;">${s.price ? Number(s.price).toLocaleString() + ' تومان' : 'توافقی'}</p>
+                            <p style="font-size:12px; color:#64748b;">${s.description || ''}</p>
+                        </div>
+                    `;
                 });
                 container.innerHTML = html;
             } catch (e) { container.innerHTML = `<div class="alert alert-error">${e.message}</div>`; }
@@ -788,11 +791,12 @@
         async function saveService() {
             const title = document.getElementById("srvTitle").value;
             const price = document.getElementById("srvPrice").value;
-            if (!title || !price) return alert("عنوان و قیمت الزامی است.");
+            if (!title || !price) return alert("عنوان و قیمت محصول الزامی است.");
 
 
             const fileInput = document.getElementById("srvImage");
             let imageUrl = "";
+            const btn = event.target; btn.disabled = true; btn.textContent = "در حال ثبت...";
 
 
             try {
@@ -825,6 +829,8 @@
                 loadCurrentServices();
             } catch (e) {
                 alert(e.message);
+            } finally {
+                btn.disabled = false; btn.textContent = "➕ ثبت محصول";
             }
         }
 
