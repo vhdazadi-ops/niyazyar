@@ -1,0 +1,2063 @@
+﻿<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>نیازیار</title>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<style>
+:root{
+  --primary:#2563eb; --primary-hover:#1d4ed8; --primary-light:#eff6ff;
+  --success:#10b981; --danger:#ef4444; --warning:#f59e0b; --info:#0ea5e9;
+  --text:#0f172a; --text-muted:#64748b;
+  --bg:#f8fafc; --card:#ffffff; --border:#e2e8f0;
+  --radius:12px; --radius-lg:16px;
+  --shadow:0 1px 3px rgba(15,23,42,.06);
+  --shadow-md:0 4px 16px rgba(15,23,42,.08);
+  --shadow-lg:0 10px 40px rgba(15,23,42,.15);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;}
+body{font-family:'Vazirmatn',system-ui,-apple-system,sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.6;font-size:14.5px;
+  -webkit-font-smoothing:antialiased;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;}
+input,select,textarea{font-family:inherit;font-size:14px;}
+a{text-decoration:none;color:inherit;}
+.hidden{display:none !important;}
+
+
+/* ---------- Layout ---------- */
+.app{min-height:100vh;display:flex;flex-direction:column;}
+.header{background:#fff;border-bottom:1px solid var(--border);
+  padding:12px 20px;display:flex;justify-content:space-between;align-items:center;
+  position:sticky;top:0;z-index:50;box-shadow:var(--shadow);}
+.header-inner{display:flex;justify-content:space-between;align-items:center;
+  width:100%;max-width:1200px;margin:0 auto;gap:16px;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;
+  color:var(--primary);cursor:pointer;}
+.logo-icon{width:38px;height:38px;border-radius:10px;
+  background:linear-gradient(135deg,var(--primary),#7c3aed);
+  display:grid;place-items:center;color:#fff;font-size:18px;}
+.header-actions{display:flex;gap:8px;align-items:center;}
+.container{max-width:1200px;margin:0 auto;padding:24px 20px;width:100%;}
+
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  padding:9px 18px;border-radius:10px;font-size:13.5px;font-weight:600;
+  transition:.15s;white-space:nowrap;}
+.btn:disabled{opacity:.5;cursor:not-allowed;}
+.btn-primary{background:var(--primary);color:#fff;}
+.btn-primary:hover:not(:disabled){background:var(--primary-hover);}
+.btn-outline{background:#fff;border:1.5px solid var(--primary);color:var(--primary);}
+.btn-outline:hover:not(:disabled){background:var(--primary-light);}
+.btn-ghost{background:#f1f5f9;color:var(--text);}
+.btn-ghost:hover:not(:disabled){background:#e2e8f0;}
+.btn-danger{background:#fee2e2;color:var(--danger);}
+.btn-danger:hover:not(:disabled){background:#fecaca;}
+.btn-sm{padding:6px 12px;font-size:12.5px;border-radius:8px;}
+.btn-block{width:100%;}
+.btn-icon{width:34px;height:34px;padding:0;border-radius:8px;}
+
+
+/* ---------- Cards ---------- */
+.card{background:var(--card);border-radius:var(--radius-lg);
+  border:1px solid var(--border);padding:20px;box-shadow:var(--shadow);}
+.card-title{font-size:17px;font-weight:700;margin-bottom:14px;}
+.card-header{display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:16px;gap:12px;}
+
+
+/* ---------- Forms ---------- */
+.form-group{margin-bottom:14px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:#334155;}
+.label .req{color:var(--danger);}
+.input,select.input,textarea.input{width:100%;padding:10px 12px;
+  border:1.5px solid var(--border);border-radius:10px;background:#f8fafc;
+  font-size:13.5px;transition:.15s;}
+.input:focus{outline:none;border-color:var(--primary);background:#fff;
+  box-shadow:0 0 0 3px rgba(37,99,235,.12);}
+.input:disabled{opacity:.6;cursor:not-allowed;}
+textarea.input{min-height:80px;resize:vertical;}
+.help{font-size:11.5px;color:var(--text-muted);margin-top:4px;}
+
+
+/* ---------- Modal ---------- */
+.modal-mask{position:fixed;inset:0;background:rgba(15,23,42,.6);
+  backdrop-filter:blur(4px);z-index:1000;display:grid;place-items:center;padding:16px;
+  animation:fadeIn .2s;}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal{background:#fff;border-radius:var(--radius-lg);width:100%;max-width:560px;
+  max-height:90vh;display:flex;flex-direction:column;box-shadow:var(--shadow-lg);
+  animation:slideUp .25s;}
+@keyframes slideUp{from{transform:translateY(20px);opacity:0}to{transform:none;opacity:1}}
+.modal-head{padding:18px 22px;border-bottom:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.modal-head h3{font-size:17px;font-weight:800;}
+.modal-body{padding:20px 22px;overflow-y:auto;flex:1;}
+.modal-foot{padding:14px 22px;border-top:1px solid var(--border);
+  display:flex;gap:10px;justify-content:flex-start;}
+.close-btn{background:#f1f5f9;width:32px;height:32px;border-radius:8px;
+  display:grid;place-items:center;color:var(--text-muted);}
+
+
+/* ---------- Toast ---------- */
+.toast-root{position:fixed;top:16px;left:16px;z-index:2000;
+  display:flex;flex-direction:column;gap:8px;}
+.toast{background:#fff;border-radius:12px;padding:12px 16px;
+  box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:10px;
+  border-right:4px solid var(--primary);min-width:260px;max-width:400px;
+  animation:slideIn .3s;font-size:13.5px;}
+.toast.success{border-right-color:var(--success);}
+.toast.error{border-right-color:var(--danger);}
+.toast.warning{border-right-color:var(--warning);}
+@keyframes slideIn{from{transform:translateX(-30px);opacity:0}to{transform:none;opacity:1}}
+
+
+/* ---------- Auth screen ---------- */
+.auth-wrap{min-height:100vh;display:grid;place-items:center;padding:20px;
+  background:radial-gradient(1200px 600px at 20% 0%,#c7d2fe,transparent 55%),
+             radial-gradient(1000px 500px at 100% 100%,#a5f3fc,transparent 55%),
+             linear-gradient(135deg,#f8fafc,#eef2ff);}
+.auth-card{width:100%;max-width:420px;background:#fff;border-radius:22px;
+  padding:32px 28px;box-shadow:var(--shadow-lg);}
+.auth-logo{width:56px;height:56px;border-radius:16px;
+  background:linear-gradient(135deg,var(--primary),#7c3aed);
+  display:grid;place-items:center;color:#fff;margin:0 auto 16px;font-size:24px;
+  box-shadow:0 8px 24px rgba(37,99,235,.35);}
+.auth-title{text-align:center;font-size:22px;font-weight:800;margin-bottom:4px;}
+.auth-sub{text-align:center;color:var(--text-muted);margin-bottom:24px;font-size:13px;}
+.auth-tabs{display:flex;background:#f1f5f9;border-radius:12px;padding:4px;
+  margin-bottom:18px;}
+.auth-tabs button{flex:1;padding:9px;border-radius:9px;color:var(--text-muted);
+  font-weight:600;font-size:13.5px;transition:.2s;}
+.auth-tabs button.active{background:#fff;color:var(--primary);
+  box-shadow:0 2px 8px rgba(15,23,42,.06);}
+
+
+/* ---------- Dashboard ---------- */
+.dash-wrap{display:grid;grid-template-columns:240px 1fr;min-height:calc(100vh - 63px);}
+.sidebar{background:linear-gradient(180deg,#1e293b,#0f172a);color:#fff;
+  padding:18px 14px;display:flex;flex-direction:column;gap:4px;
+  position:sticky;top:63px;height:calc(100vh - 63px);}
+.sidebar-item{display:flex;align-items:center;gap:10px;padding:10px 14px;
+  border-radius:10px;color:#cbd5e1;font-weight:500;font-size:14px;
+  transition:.2s;text-align:right;width:100%;cursor:pointer;}
+.sidebar-item:hover{background:rgba(255,255,255,.08);color:#fff;}
+.sidebar-item.active{background:rgba(255,255,255,.14);color:#fff;font-weight:600;}
+.sidebar-sep{height:1px;background:rgba(255,255,255,.1);margin:10px 8px;}
+.dash-main{padding:24px;overflow-x:hidden;}
+
+
+/* ---------- Lists ---------- */
+.list-empty{text-align:center;padding:40px 20px;color:var(--text-muted);
+  background:#f8fafc;border:2px dashed var(--border);border-radius:var(--radius);
+  font-size:13.5px;}
+.list-item{display:flex;justify-content:space-between;align-items:center;
+  padding:14px 16px;border:1px solid var(--border);border-radius:12px;
+  background:#fff;transition:.15s;gap:12px;margin-bottom:10px;}
+.list-item:hover{border-color:#cbd5e1;box-shadow:var(--shadow);}
+.list-info{flex:1;min-width:0;}
+.list-title{font-weight:700;font-size:14.5px;margin-bottom:3px;}
+.list-meta{color:var(--text-muted);font-size:12.5px;
+  display:flex;gap:10px;flex-wrap:wrap;}
+.list-actions{display:flex;gap:6px;flex-shrink:0;}
+
+
+/* ---------- Badges ---------- */
+.badge{display:inline-block;padding:2px 9px;border-radius:999px;
+  font-size:11.5px;font-weight:600;}
+.badge-green{background:#dcfce7;color:#166534;}
+.badge-gray{background:#f1f5f9;color:#475569;}
+.badge-red{background:#fee2e2;color:#991b1b;}
+.badge-yellow{background:#fef3c7;color:#92400e;}
+.badge-blue{background:#dbeafe;color:#1e40af;}
+
+
+/* ---------- Public Home ---------- */
+.hero{background:linear-gradient(135deg,var(--primary),#4f46e5);
+  color:#fff;border-radius:var(--radius-lg);padding:36px 24px;text-align:center;
+  margin-bottom:24px;box-shadow:var(--shadow-md);}
+.hero h1{font-size:24px;font-weight:800;margin-bottom:8px;}
+.hero p{opacity:.9;font-size:14.5px;margin-bottom:20px;}
+.search-box{max-width:600px;margin:0 auto;display:flex;background:#fff;
+  border-radius:12px;padding:5px;box-shadow:var(--shadow-lg);}
+.search-box input{flex:1;border:none;outline:none;padding:12px 16px;
+  font-size:14.5px;background:transparent;}
+.search-box button{background:var(--success);color:#fff;padding:0 22px;
+  border-radius:10px;font-weight:700;font-size:14px;}
+.section-title{font-size:18px;font-weight:800;margin:24px 0 14px;}
+
+
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));
+  gap:10px;margin-bottom:24px;}
+.cat-card{background:#fff;border:1px solid var(--border);border-radius:12px;
+  padding:14px 10px;text-align:center;font-weight:600;font-size:13px;
+  color:#334155;transition:.15s;cursor:pointer;}
+.cat-card:hover{border-color:var(--primary);color:var(--primary);
+  transform:translateY(-2px);box-shadow:var(--shadow-md);}
+
+
+.srv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:14px;}
+.srv-card{background:#fff;border:1px solid var(--border);border-radius:14px;
+  overflow:hidden;display:flex;flex-direction:column;transition:.15s;}
+.srv-card:hover{box-shadow:var(--shadow-md);border-color:#cbd5e1;}
+.srv-img{height:140px;background:#f1f5f9;display:flex;align-items:center;
+  justify-content:center;color:#cbd5e1;font-size:32px;overflow:hidden;}
+.srv-img img{width:100%;height:100%;object-fit:cover;}
+.srv-body{padding:12px 14px;flex:1;display:flex;flex-direction:column;}
+.srv-name{font-weight:700;font-size:14.5px;margin-bottom:4px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.srv-biz{font-size:12px;color:var(--text-muted);margin-bottom:6px;}
+.srv-price{color:var(--primary);font-weight:800;font-size:14.5px;
+  margin-top:auto;padding-top:8px;}
+.srv-action{background:var(--primary-light);color:var(--primary);
+  padding:7px;border-radius:8px;font-weight:700;font-size:12.5px;
+  text-align:center;margin-top:8px;}
+
+
+/* ---------- Misc ---------- */
+.kv{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:13.5px;}
+.kv dt{color:var(--text-muted);}
+.kv dd{font-weight:600;}
+.media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));
+  gap:10px;}
+.media-thumb{position:relative;border-radius:12px;overflow:hidden;
+  background:#f1f5f9;aspect-ratio:1;cursor:pointer;}
+.media-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+.media-thumb .primary-tag{position:absolute;top:6px;right:6px;
+  background:var(--success);color:#fff;font-size:10px;padding:2px 7px;
+  border-radius:6px;font-weight:700;}
+.media-thumb .media-actions{position:absolute;inset:auto 0 0 0;
+  background:linear-gradient(transparent,rgba(0,0,0,.65));padding:6px;
+  display:flex;gap:4px;justify-content:flex-end;}
+.media-thumb .media-actions button{background:rgba(255,255,255,.95);
+  padding:5px;border-radius:6px;font-size:11px;color:#0f172a;}
+
+
+.tabs{display:flex;gap:4px;background:#f1f5f9;padding:4px;
+  border-radius:10px;margin-bottom:16px;width:fit-content;}
+.tabs button{padding:8px 16px;border-radius:7px;color:var(--text-muted);
+  font-weight:600;font-size:13px;transition:.15s;}
+.tabs button.active{background:#fff;color:var(--primary);
+  box-shadow:0 2px 6px rgba(15,23,42,.06);}
+
+
+.spinner{display:inline-block;width:14px;height:14px;
+  border:2px solid rgba(255,255,255,.3);border-top-color:#fff;
+  border-radius:50%;animation:spin .8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.spinner-dark{border-color:var(--border);border-top-color:var(--primary);}
+.loading-page{display:grid;place-items:center;padding:40px;color:var(--text-muted);}
+.loading-page .spinner{width:32px;height:32px;border-width:3px;}
+
+
+@media (max-width: 768px) {
+  .dash-wrap{grid-template-columns:1fr;}
+  .sidebar{position:fixed;inset:63px auto 0 0;width:240px;z-index:100;
+    transform:translateX(-100%);transition:.25s;}
+  .sidebar.open{transform:translateX(0);}
+  .dash-main{padding:16px;}
+  .form-row{grid-template-columns:1fr;}
+  .container{padding:16px;}
+  .hero{padding:24px 16px;}
+  .hero h1{font-size:20px;}
+  .header-inner{padding:0;}
+  .mobile-menu{display:inline-flex !important;}
+}
+.mobile-menu{display:none;}
+</style>
+</head>
+<body>
+
+
+<div id="root"></div>
+<div id="modal-root"></div>
+<div id="toast-root" class="toast-root"></div>
+
+
+<script>
+/*********************************************************
+ * STATE
+ *********************************************************/
+const STATE = {
+  token: localStorage.getItem("niyazyar_token") || "",
+  user: null,
+  view: "home",              // home | auth | dashboard | businesses | services | media | messages | profile
+  authTab: "login",          // login | register
+  currentBusinessId: null,
+  data: {
+    categories: [],
+    subcategories: [],
+    subbranches: [],
+    provinces: [],
+    cities: {},              // cache by province_id
+    businesses: [],
+    services: [],
+    media: [],
+    receivedMessages: [],
+    sentMessages: [],
+    publicServices: [],
+    publicBusiness: null,
+    publicService: null
+  },
+  messagesTab: "received",
+  mediaTab: "business",      // business | service
+  mediaType: "gallery"
+};
+
+
+const BASE_URL = (function () {
+  const href = window.location.href;
+  const qIdx = href.indexOf("?");
+  const hashIdx = href.indexOf("#");
+  let end = href.length;
+  if (qIdx >= 0 && qIdx < end) end = qIdx;
+  if (hashIdx >= 0 && hashIdx < end) end = hashIdx;
+  return href.substring(0, end);
+})();
+
+
+/*********************************************************
+ * API
+ *********************************************************/
+async function apiGet(action, params = {}) {
+  try {
+    const url = new URL(BASE_URL);
+    url.searchParams.set("action", action);
+    for (const k in params) {
+      if (params[k] !== undefined && params[k] !== null && params[k] !== "") {
+        url.searchParams.set(k, String(params[k]));
+      }
+    }
+    const res = await fetch(url.toString(), { method: "GET", redirect: "follow" });
+    return await res.json();
+  } catch (e) {
+    return { ok: false, message: "خطای شبکه: " + e.message, data: null };
+  }
+}
+
+
+async function apiPost(action, data = {}) {
+  try {
+    const payload = Object.assign({ action }, data);
+    if (STATE.token && !payload.token) payload.token = STATE.token;
+    const res = await fetch(BASE_URL, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload),
+      redirect: "follow"
+    });
+    const json = await res.json();
+    if (json && json.ok === false && /UNAUTHORIZED|نشست|توکن/i.test(json.message || "")) {
+      // session expired
+      setTimeout(() => forceLogout(), 1500);
+    }
+    return json;
+  } catch (e) {
+    return { ok: false, message: "خطای شبکه: " + e.message, data: null };
+  }
+}
+
+
+/*********************************************************
+ * HELPERS
+ *********************************************************/
+function escapeHtml(s) {
+  return String(s == null ? "" : s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+
+function formatPrice(p, type) {
+  if (type === "free") return "رایگان";
+  if (type === "contact") return "تماس بگیرید";
+  if (type === "negotiable") return "توافقی";
+  if (type === "starting_from") return "از " + Number(p || 0).toLocaleString("fa-IR") + " تومان";
+  if (!p && p !== 0) return "—";
+  return Number(p).toLocaleString("fa-IR") + " تومان";
+}
+
+
+function formatDate(s) {
+  if (!s) return "—";
+  try {
+    const d = new Date(s);
+    if (isNaN(d)) return s;
+    return d.toLocaleString("fa-IR", { dateStyle: "short", timeStyle: "short" });
+  } catch (e) { return s; }
+}
+
+
+function toast(msg, type = "info") {
+  if (!msg) return;
+  const el = document.createElement("div");
+  el.className = "toast " + type;
+  const icons = { success: "✓", error: "✕", warning: "!", info: "i" };
+  el.innerHTML = `<strong>${icons[type] || "i"}</strong><span>${escapeHtml(msg)}</span>`;
+  document.getElementById("toast-root").appendChild(el);
+  setTimeout(() => {
+    el.style.opacity = "0";
+    el.style.transform = "translateX(-20px)";
+    el.style.transition = "all .3s";
+    setTimeout(() => el.remove(), 300);
+  }, 3500);
+}
+
+
+function openModal(title, bodyHtml, footerHtml) {
+  document.getElementById("modal-root").innerHTML = `
+    <div class="modal-mask" onclick="if(event.target===this)closeModal()">
+      <div class="modal">
+        <div class="modal-head">
+          <h3>${escapeHtml(title)}</h3>
+          <button class="close-btn" onclick="closeModal()">✕</button>
+        </div>
+        <div class="modal-body">${bodyHtml}</div>
+        ${footerHtml ? `<div class="modal-foot">${footerHtml}</div>` : ""}
+      </div>
+    </div>`;
+}
+
+
+function closeModal() {
+  document.getElementById("modal-root").innerHTML = "";
+}
+
+
+function confirmDialog(msg) {
+  return new Promise(resolve => {
+    openModal("تأیید",
+      `<p>${escapeHtml(msg)}</p>`,
+      `<button class="btn btn-danger" id="cfm-yes">تأیید</button>
+       <button class="btn btn-ghost" id="cfm-no">انصراف</button>`);
+    document.getElementById("cfm-yes").onclick = () => { closeModal(); resolve(true); };
+    document.getElementById("cfm-no").onclick = () => { closeModal(); resolve(false); };
+  });
+}
+
+
+function readFileAsDataURL(file) {
+  return new Promise((resolve, reject) => {
+    const r = new FileReader();
+    r.onload = () => resolve(r.result);
+    r.onerror = reject;
+    r.readAsDataURL(file);
+  });
+}
+
+
+function setLoading(btn, loadingText) {
+  if (!btn) return () => {};
+  const original = btn.innerHTML;
+  btn.disabled = true;
+  btn.innerHTML = `<span class="spinner"></span> ${escapeHtml(loadingText || "لطفاً صبر کنید...")}`;
+  return () => {
+    btn.disabled = false;
+    btn.innerHTML = original;
+  };
+}
+
+
+/*********************************************************
+ * AUTH
+ *********************************************************/
+async function handleLogin(e) {
+  e.preventDefault();
+  const btn = document.getElementById("login-btn");
+  const restore = setLoading(btn, "در حال ورود...");
+  const fd = new FormData(e.target);
+  try {
+    const phone = String(fd.get("phone") || "").trim();
+    const password = String(fd.get("password") || "");
+    const res = await apiPost("login", { phone, password });
+    if (!res.ok) throw new Error(res.message || "ورود ناموفق");
+    STATE.token = res.token;
+    STATE.user = res.user || null;
+    localStorage.setItem("niyazyar_token", STATE.token);
+    toast("ورود موفق", "success");
+    STATE.view = "dashboard";
+    render();
+  } catch (err) {
+    toast(err.message, "error");
+  } finally {
+    restore();
+  }
+}
+
+
+async function handleRegister(e) {
+  e.preventDefault();
+  const btn = document.getElementById("register-btn");
+  const restore = setLoading(btn, "در حال ثبت‌نام...");
+  const fd = new FormData(e.target);
+  try {
+    const payload = {
+      name: String(fd.get("name") || "").trim(),
+      phone: String(fd.get("phone") || "").trim(),
+      password: String(fd.get("password") || ""),
+      email: String(fd.get("email") || "").trim()
+    };
+    const res = await apiPost("register", payload);
+    if (!res.ok) throw new Error(res.message || "ثبت‌نام ناموفق");
+    toast("ثبت‌نام موفق. حالا وارد شوید.", "success");
+    STATE.authTab = "login";
+    render();
+  } catch (err) {
+    toast(err.message, "error");
+  } finally {
+    restore();
+  }
+}
+
+
+async function doLogout() {
+  if (STATE.token) {
+    try { await apiPost("logout"); } catch (e) {}
+  }
+  forceLogout();
+}
+
+
+function forceLogout() {
+  STATE.token = "";
+  STATE.user = null;
+  STATE.data.businesses = [];
+  STATE.currentBusinessId = null;
+  localStorage.removeItem("niyazyar_token");
+  STATE.view = "home";
+  render();
+}
+
+
+async function refreshProfile() {
+  const res = await apiPost("get_profile");
+  if (res.ok && res.data) {
+    STATE.user = res.data;
+    return true;
+  }
+  return false;
+}
+
+
+/*********************************************************
+ * DATA LOADERS
+ *********************************************************/
+async function loadCategories() {
+  const res = await apiGet("categories_tree");
+  if (res.ok && res.data) {
+    STATE.data.categories = res.data.categories || [];
+    STATE.data.subcategories = res.data.subcategories || [];
+    STATE.data.subbranches = res.data.subbranches || [];
+  }
+}
+
+
+async function loadProvinces() {
+  if (STATE.data.provinces.length) return STATE.data.provinces;
+  const res = await apiGet("locations", { type: "province" });
+  if (res.ok && Array.isArray(res.data)) {
+    STATE.data.provinces = res.data;
+  }
+  return STATE.data.provinces;
+}
+
+
+async function loadCities(provinceId) {
+  if (!provinceId) return [];
+  if (STATE.data.cities[provinceId]) return STATE.data.cities[provinceId];
+  const res = await apiGet("locations", { type: "city", parent_id: provinceId });
+  const cities = (res.ok && Array.isArray(res.data)) ? res.data : [];
+  STATE.data.cities[provinceId] = cities;
+  return cities;
+}
+
+
+async function loadMyBusinesses() {
+  const res = await apiPost("get_my_businesses", { page: 1, limit: 50 });
+  if (res.ok && Array.isArray(res.data)) {
+    STATE.data.businesses = res.data;
+  } else {
+    STATE.data.businesses = [];
+  }
+  return STATE.data.businesses;
+}
+
+
+async function loadMyServices(businessId) {
+  if (!businessId) {
+    STATE.data.services = [];
+    return [];
+  }
+  const res = await apiPost("get_my_services", {
+    business_id: businessId, page: 1, limit: 100
+  });
+  if (res.ok && Array.isArray(res.data)) {
+    STATE.data.services = res.data;
+  } else {
+    STATE.data.services = [];
+  }
+  return STATE.data.services;
+}
+
+
+async function loadMedia(ownerType, ownerId) {
+  const res = await apiPost("get_media", {
+    owner_type: ownerType, owner_id: ownerId
+  });
+  if (res.ok && Array.isArray(res.data)) {
+    STATE.data.media = res.data;
+  } else {
+    STATE.data.media = [];
+  }
+  return STATE.data.media;
+}
+
+
+async function loadReceivedMessages() {
+  const res = await apiPost("get_received_messages", { page: 1, limit: 50 });
+  STATE.data.receivedMessages = (res.ok && Array.isArray(res.data)) ? res.data : [];
+  return STATE.data.receivedMessages;
+}
+
+
+async function loadSentMessages() {
+  const res = await apiPost("get_sent_messages", { page: 1, limit: 50 });
+  STATE.data.sentMessages = (res.ok && Array.isArray(res.data)) ? res.data : [];
+  return STATE.data.sentMessages;
+}
+
+
+async function loadPublicServices(filters = {}) {
+  const res = await apiGet("search_services", Object.assign({ page: 1, limit: 24 }, filters));
+  if (res.ok && Array.isArray(res.data)) {
+    STATE.data.publicServices = res.data;
+  } else {
+    STATE.data.publicServices = [];
+  }
+  return STATE.data.publicServices;
+}
+
+
+/*********************************************************
+ * RENDER — ROOT
+ *********************************************************/
+function render() {
+  const root = document.getElementById("root");
+  root.innerHTML = "";
+
+
+  if (STATE.view === "auth") {
+    root.innerHTML = renderAuth();
+    return;
+  }
+
+
+  const isLoggedIn = !!STATE.token;
+
+
+  let body = "";
+  switch (STATE.view) {
+    case "home":       body = renderPublicHome(); break;
+    case "dashboard":  if (!isLoggedIn) { STATE.view = "auth"; return render(); } body = renderDashboard(); break;
+    case "businesses": body = renderBusinesses(); break;
+    case "services":   body = renderServices(); break;
+    case "media":      body = renderMedia(); break;
+    case "messages":   body = renderMessages(); break;
+    case "profile":    body = renderProfile(); break;
+    default:           body = renderPublicHome();
+  }
+
+
+  root.innerHTML = `
+    <div class="app">
+      ${renderHeader()}
+      ${STATE.view === "home" ? `<div class="container">${body}</div>` : body}
+    </div>`;
+
+
+  // بعد از رندر، داده‌های async را بارگذاری کن
+  mountView();
+}
+
+
+function renderHeader() {
+  const isLoggedIn = !!STATE.token;
+  return `
+    <header class="header">
+      <div class="header-inner">
+        <div class="logo" onclick="navigate('home')">
+          <div class="logo-icon">ن</div>
+          <span>نیازیار</span>
+        </div>
+        <div class="header-actions">
+          ${isLoggedIn ? `
+            <button class="btn btn-ghost btn-sm" onclick="navigate('dashboard')">داشبورد</button>
+            <button class="btn btn-outline btn-sm" onclick="doLogout()">خروج</button>
+          ` : `
+            <button class="btn btn-ghost btn-sm" onclick="gotoAuth('login')">ورود</button>
+            <button class="btn btn-primary btn-sm" onclick="gotoAuth('register')">ثبت‌نام</button>
+          `}
+        </div>
+      </div>
+    </header>`;
+}
+
+
+/*********************************************************
+ * VIEW — AUTH
+ *********************************************************/
+function renderAuth() {
+  const isLogin = STATE.authTab === "login";
+  return `
+    <div class="auth-wrap">
+      <div class="auth-card">
+        <div class="auth-logo">ن</div>
+        <h1 class="auth-title">نیازیار</h1>
+        <p class="auth-sub">پلتفرم مدیریت کسب‌وکار و خدمات</p>
+
+
+        <div class="auth-tabs">
+          <button class="${isLogin ? "active" : ""}" onclick="switchAuth('login')">ورود</button>
+          <button class="${!isLogin ? "active" : ""}" onclick="switchAuth('register')">ثبت‌نام</button>
+        </div>
+
+
+        ${isLogin ? `
+          <form onsubmit="handleLogin(event)">
+            <div class="form-group">
+              <label class="label">شماره موبایل</label>
+              <input class="input" name="phone" type="tel" placeholder="09xxxxxxxxx"
+                     pattern="09[0-9]{9}" required>
+            </div>
+            <div class="form-group">
+              <label class="label">رمز عبور</label>
+              <input class="input" name="password" type="password" required>
+            </div>
+            <button class="btn btn-primary btn-block" type="submit" id="login-btn">
+              ورود
+            </button>
+          </form>
+        ` : `
+          <form onsubmit="handleRegister(event)">
+            <div class="form-group">
+              <label class="label">نام و نام خانوادگی</label>
+              <input class="input" name="name" required maxlength="100">
+            </div>
+            <div class="form-group">
+              <label class="label">شماره موبایل</label>
+              <input class="input" name="phone" type="tel" placeholder="09xxxxxxxxx"
+                     pattern="09[0-9]{9}" required>
+            </div>
+            <div class="form-group">
+              <label class="label">ایمیل (اختیاری)</label>
+              <input class="input" name="email" type="email">
+            </div>
+            <div class="form-group">
+              <label class="label">رمز عبور</label>
+              <input class="input" name="password" type="password"
+                     minlength="8" maxlength="128" required>
+              <div class="help">حداقل ۸ کاراکتر</div>
+            </div>
+            <button class="btn btn-primary btn-block" type="submit" id="register-btn">
+              ثبت‌نام
+            </button>
+          </form>
+        `}
+
+
+        <div style="text-align:center;margin-top:18px;">
+          <button class="btn btn-ghost btn-sm" onclick="navigate('home')">
+            ← بازگشت به صفحه اصلی
+          </button>
+        </div>
+      </div>
+    </div>`;
+}
+
+
+function switchAuth(tab) {
+  STATE.authTab = tab;
+  STATE.view = "auth";
+  render();
+}
+
+
+function gotoAuth(tab) {
+  STATE.authTab = tab || "login";
+  STATE.view = "auth";
+  render();
+}
+
+
+/*********************************************************
+ * VIEW — PUBLIC HOME
+ *********************************************************/
+function renderPublicHome() {
+  return `
+    <section class="hero">
+      <h1>هر چیزی که نیاز داری، همین‌جاست</h1>
+      <p>کسب‌وکارها و خدمات را جستجو کنید</p>
+      <form class="search-box" onsubmit="handlePublicSearch(event)">
+        <input type="text" name="q" id="search-input"
+               placeholder="جستجوی خدمت، محصول یا کسب‌وکار..." />
+        <button type="submit">جستجو</button>
+      </form>
+    </section>
+
+
+    <h2 class="section-title">دسته‌بندی‌ها</h2>
+    <div class="cat-grid" id="cat-grid">
+      <div class="loading-page"><div class="spinner spinner-dark"></div></div>
+    </div>
+
+
+    <h2 class="section-title" id="services-title">آخرین خدمات</h2>
+    <div class="srv-grid" id="srv-grid">
+      <div class="loading-page"><div class="spinner spinner-dark"></div></div>
+    </div>
+  `;
+}
+
+
+async function loadHomeData() {
+  const catGrid = document.getElementById("cat-grid");
+  const srvGrid = document.getElementById("srv-grid");
+  if (!catGrid || !srvGrid) return;
+
+
+  if (!STATE.data.categories.length) {
+    await loadCategories();
+  }
+
+
+  catGrid.innerHTML = STATE.data.categories.length
+    ? STATE.data.categories.map(c => `
+        <div class="cat-card" onclick="filterByCategory('${escapeHtml(c.category_id)}', '${escapeHtml(c.category_name)}')">
+          ${escapeHtml(c.category_name)}
+        </div>
+      `).join("")
+    : `<div class="list-empty" style="grid-column:1/-1">دسته‌بندی فعالی وجود ندارد</div>`;
+
+
+  await loadPublicServices({});
+  renderServiceGrid(STATE.data.publicServices, srvGrid);
+}
+
+
+function renderServiceGrid(items, container) {
+  if (!items.length) {
+    container.innerHTML = `<div class="list-empty" style="grid-column:1/-1">
+      نتیجه‌ای یافت نشد</div>`;
+    return;
+  }
+
+
+  container.innerHTML = items.map((item, idx) => {
+    const s = item.service || {};
+    const b = item.business || {};
+    return `
+      <div class="srv-card" onclick="showPublicService(${idx})">
+        <div class="srv-img">
+          ${s.image_url ? `<img src="${escapeHtml(s.image_url)}" alt="" loading="lazy">` : "📦"}
+        </div>
+        <div class="srv-body">
+          <div class="srv-name">${escapeHtml(s.item_name || "")}</div>
+          <div class="srv-biz">${escapeHtml(b.business_name || "")}</div>
+          <div class="srv-price">${formatPrice(s.price, s.price_type)}</div>
+          <div class="srv-action">مشاهده جزئیات</div>
+        </div>
+      </div>`;
+  }).join("");
+}
+
+
+async function handlePublicSearch(e) {
+  e.preventDefault();
+  const q = String(new FormData(e.target).get("q") || "").trim();
+  const srvGrid = document.getElementById("srv-grid");
+  const titleEl = document.getElementById("services-title");
+  if (srvGrid) srvGrid.innerHTML = `<div class="loading-page"><div class="spinner spinner-dark"></div></div>`;
+  if (titleEl) titleEl.textContent = q ? `نتایج: ${q}` : "آخرین خدمات";
+  await loadPublicServices(q ? { query: q } : {});
+  if (srvGrid) renderServiceGrid(STATE.data.publicServices, srvGrid);
+}
+
+
+async function filterByCategory(catId, catName) {
+  const srvGrid = document.getElementById("srv-grid");
+  const titleEl = document.getElementById("services-title");
+  if (srvGrid) srvGrid.innerHTML = `<div class="loading-page"><div class="spinner spinner-dark"></div></div>`;
+  if (titleEl) titleEl.textContent = `دسته: ${catName}`;
+  await loadPublicServices({ category_id: catId });
+  if (srvGrid) renderServiceGrid(STATE.data.publicServices, srvGrid);
+}
+
+
+function showPublicService(idx) {
+  const item = STATE.data.publicServices[idx];
+  if (!item) return;
+  const s = item.service || {};
+  const b = item.business || {};
+
+
+  const phone = b.phone || b.mobile || "";
+  const callLink = phone ? `<a class="btn btn-outline" href="tel:${escapeHtml(phone)}">تماس: ${escapeHtml(phone)}</a>` : "";
+
+
+  openModal(
+    s.item_name || "جزئیات",
+    `
+      ${s.image_url ? `<img src="${escapeHtml(s.image_url)}" style="width:100%;border-radius:12px;margin-bottom:14px;">` : ""}
+      <h3 style="margin-bottom:10px;font-size:16px;">${escapeHtml(s.item_name || "")}</h3>
+      <p style="color:var(--text-muted);font-size:13px;margin-bottom:16px;">
+        ${escapeHtml(s.description || "بدون توضیحات")}
+      </p>
+      <dl class="kv" style="margin-bottom:16px;">
+        <dt>قیمت:</dt><dd>${formatPrice(s.price, s.price_type)}</dd>
+        ${s.brand ? `<dt>برند:</dt><dd>${escapeHtml(s.brand)}</dd>` : ""}
+        ${s.unit ? `<dt>واحد:</dt><dd>${escapeHtml(s.unit)}</dd>` : ""}
+        <dt>کسب‌وکار:</dt><dd>${escapeHtml(b.business_name || "")}</dd>
+        ${b.address ? `<dt>آدرس:</dt><dd>${escapeHtml(b.address)}</dd>` : ""}
+      </dl>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        ${callLink}
+        <button class="btn btn-primary" onclick="openSendMessage('${escapeHtml(b.business_id || "")}', '${escapeHtml(s.service_id || "")}')">
+          ارسال پیام
+        </button>
+      </div>
+    `,
+    `<button class="btn btn-ghost" onclick="closeModal()">بستن</button>`
+  );
+}
+
+
+function openSendMessage(bizId, srvId) {
+  const loggedIn = !!STATE.token;
+  openModal(
+    "ارسال پیام",
+    `
+      <form id="msg-form">
+        ${!loggedIn ? `
+          <div class="form-group">
+            <label class="label">نام شما</label>
+            <input class="input" name="guest_name" required>
+          </div>
+          <div class="form-group">
+            <label class="label">موبایل شما</label>
+            <input class="input" name="guest_phone" type="tel"
+                   pattern="09[0-9]{9}" required>
+          </div>
+        ` : ""}
+        <div class="form-group">
+          <label class="label">متن پیام</label>
+          <textarea class="input" name="message_text" required maxlength="2000"></textarea>
+        </div>
+      </form>
+    `,
+    `<button class="btn btn-primary" id="msg-send-btn" onclick="doSendMessage('${escapeHtml(bizId)}', '${escapeHtml(srvId || "")}')">ارسال</button>
+     <button class="btn btn-ghost" onclick="closeModal()">انصراف</button>`
+  );
+}
+
+
+async function doSendMessage(bizId, srvId) {
+  const btn = document.getElementById("msg-send-btn");
+  const restore = setLoading(btn, "ارسال...");
+  const fd = new FormData(document.getElementById("msg-form"));
+  try {
+    const payload = {
+      business_id: bizId,
+      service_id: srvId || "",
+      message_text: String(fd.get("message_text") || "").trim()
+    };
+    if (!STATE.token) {
+      payload.guest_name = String(fd.get("guest_name") || "").trim();
+      payload.guest_phone = String(fd.get("guest_phone") || "").trim();
+    }
+    const res = await apiPost("send_message", payload);
+    if (!res.ok) throw new Error(res.message || "ارسال ناموفق");
+    toast("پیام ارسال شد", "success");
+    closeModal();
+  } catch (err) {
+    toast(err.message, "error");
+  } finally {
+    restore();
+  }
+}
+
+
+/*********************************************************
+ * VIEW — DASHBOARD
+ *********************************************************/
+function renderDashboard() {
+  return `
+    <div class="dash-wrap">
+      ${renderSidebar()}
+      <main class="dash-main">
+        <div class="card">
+          <h2 class="card-title">خوش آمدید، ${escapeHtml(STATE.user?.name || "کاربر")}</h2>
+          <p style="color:var(--text-muted);font-size:13.5px;margin-bottom:20px;">
+            از منوی سمت راست برای مدیریت کسب‌وکارها، خدمات و پیام‌ها استفاده کنید.
+          </p>
+          <div id="dash-stats" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;">
+            <div class="loading-page"><div class="spinner spinner-dark"></div></div>
+          </div>
+        </div>
+      </main>
+    </div>`;
+}
+
+
+async function loadDashboardStats() {
+  const el = document.getElementById("dash-stats");
+  if (!el) return;
+
+
+  await loadMyBusinesses();
+  const bizCount = STATE.data.businesses.length;
+
+
+  const unreadRes = await apiPost("get_unread_count");
+  const unreadCount = (unreadRes.ok && unreadRes.data) ? (unreadRes.data.unread_count || 0) : 0;
+
+
+  el.innerHTML = `
+    <div style="padding:14px;background:var(--primary-light);border-radius:10px;">
+      <div style="font-size:11px;color:var(--text-muted);">کسب‌وکارها</div>
+      <div style="font-size:22px;font-weight:800;color:var(--primary);">${bizCount}</div>
+    </div>
+    <div style="padding:14px;background:#fef3c7;border-radius:10px;">
+      <div style="font-size:11px;color:var(--text-muted);">پیام‌های نخوانده</div>
+      <div style="font-size:22px;font-weight:800;color:#92400e;">${unreadCount}</div>
+    </div>
+    <div style="padding:14px;background:#dcfce7;border-radius:10px;">
+      <div style="font-size:11px;color:var(--text-muted);">وضعیت</div>
+      <div style="font-size:16px;font-weight:800;color:#166534;">فعال</div>
+    </div>
+  `;
+}
+
+
+/*********************************************************
+ * SIDEBAR
+ *********************************************************/
+function renderSidebar() {
+  const items = [
+    { id: "dashboard", label: "داشبورد" },
+    { id: "businesses", label: "کسب‌وکارها" },
+    { id: "services",   label: "خدمات" },
+    { id: "media",      label: "رسانه‌ها" },
+    { id: "messages",   label: "پیام‌ها" },
+    { id: "profile",    label: "پروفایل" }
+  ];
+  return `
+    <aside class="sidebar" id="sidebar">
+      ${items.map(i => `
+        <button class="sidebar-item ${STATE.view === i.id ? "active" : ""}"
+                onclick="navigate('${i.id}')">
+          ${i.label}
+        </button>
+      `).join("")}
+      <div class="sidebar-sep"></div>
+      <button class="sidebar-item" onclick="navigate('home')">
+        بازگشت به سایت
+      </button>
+      <button class="sidebar-item" onclick="doLogout()">خروج</button>
+    </aside>`;
+}
+
+
+/*********************************************************
+ * VIEW — BUSINESSES
+ *********************************************************/
+function renderBusinesses() {
+  return `
+    <div class="dash-wrap">
+      ${renderSidebar()}
+      <main class="dash-main">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">کسب‌وکارهای من</h2>
+            <button class="btn btn-primary btn-sm" onclick="openBusinessForm()">
+              + کسب‌وکار جدید
+            </button>
+          </div>
+          <div id="biz-list">
+            <div class="loading-page"><div class="spinner spinner-dark"></div></div>
+          </div>
+        </div>
+      </main>
+    </div>`;
+}
+
+
+async function loadBusinessesList() {
+  const el = document.getElementById("biz-list");
+  if (!el) return;
+  await loadMyBusinesses();
+  if (!STATE.data.businesses.length) {
+    el.innerHTML = `<div class="list-empty">هنوز کسب‌وکاری ثبت نکرده‌اید</div>`;
+    return;
+  }
+  el.innerHTML = STATE.data.businesses.map(b => `
+    <div class="list-item">
+      <div class="list-info">
+        <div class="list-title">${escapeHtml(b.business_name || "")}</div>
+        <div class="list-meta">
+          ${b.phone ? `<span>${escapeHtml(b.phone)}</span>` : ""}
+          ${b.mobile ? `<span>${escapeHtml(b.mobile)}</span>` : ""}
+          <span class="badge ${b.verification_status === "verified" ? "badge-green" : "badge-yellow"}">
+            ${b.verification_status === "verified" ? "تأیید شده" : "در انتظار"}
+          </span>
+        </div>
+      </div>
+      <div class="list-actions">
+        <button class="btn btn-sm btn-ghost"
+                onclick="openBusinessForm('${escapeHtml(b.business_id)}')">ویرایش</button>
+        <button class="btn btn-sm btn-danger"
+                onclick="deleteBusiness('${escapeHtml(b.business_id)}')">حذف</button>
+      </div>
+    </div>
+  `).join("");
+}
+
+
+async function openBusinessForm(businessId) {
+  await Promise.all([loadCategories(), loadProvinces()]);
+
+
+  const biz = businessId
+    ? STATE.data.businesses.find(b => b.business_id === businessId)
+    : null;
+
+
+  const isEdit = !!biz;
+  const cats = STATE.data.categories || [];
+  const subs = STATE.data.subcategories.filter(s => s.category_id === biz?.category_id);
+  const brs = STATE.data.subbranches.filter(s => s.subcategory_id === biz?.subcategory_id);
+  const provinces = STATE.data.provinces;
+  const cities = biz?.province_id ? await loadCities(biz.province_id) : [];
+
+
+  openModal(
+    isEdit ? "ویرایش کسب‌وکار" : "کسب‌وکار جدید",
+    `
+      <form id="biz-form">
+        <div class="form-group">
+          <label class="label">نام کسب‌وکار <span class="req">*</span></label>
+          <input class="input" name="business_name" required maxlength="150"
+                 value="${escapeHtml(biz?.business_name || "")}">
+        </div>
+        <div class="form-group">
+          <label class="label">توضیحات</label>
+          <textarea class="input" name="business_description" maxlength="3000">${escapeHtml(biz?.business_description || "")}</textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="label">دسته اصلی <span class="req">*</span></label>
+            <select class="input" name="category_id" id="biz-cat" required>
+              <option value="">انتخاب...</option>
+              ${cats.map(c => `<option value="${escapeHtml(c.category_id)}"
+                ${biz?.category_id === c.category_id ? "selected" : ""}>
+                ${escapeHtml(c.category_name)}</option>`).join("")}
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="label">زیردسته</label>
+            <select class="input" name="subcategory_id" id="biz-sub">
+              <option value="">—</option>
+              ${subs.map(s => `<option value="${escapeHtml(s.subcategory_id)}"
+                ${biz?.subcategory_id === s.subcategory_id ? "selected" : ""}>
+                ${escapeHtml(s.subcategory_name)}</option>`).join("")}
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="label">زیرشاخه</label>
+          <select class="input" name="subbranch_id" id="biz-branch">
+            <option value="">—</option>
+            ${brs.map(s => `<option value="${escapeHtml(s.subbranch_id)}"
+              ${biz?.subbranch_id === s.subbranch_id ? "selected" : ""}>
+              ${escapeHtml(s.subbranch_name)}</option>`).join("")}
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="label">استان</label>
+            <select class="input" name="province_id" id="biz-prov">
+              <option value="">انتخاب...</option>
+              ${provinces.map(p => `<option value="${escapeHtml(p.location_id)}"
+                ${biz?.province_id === p.location_id ? "selected" : ""}>
+                ${escapeHtml(p.location_name)}</option>`).join("")}
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="label">شهر</label>
+            <select class="input" name="city_id" id="biz-city">
+              <option value="">—</option>
+              ${cities.map(c => `<option value="${escapeHtml(c.location_id)}"
+                ${biz?.city_id === c.location_id ? "selected" : ""}>
+                ${escapeHtml(c.location_name)}</option>`).join("")}
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="label">آدرس</label>
+          <input class="input" name="address" maxlength="500"
+                 value="${escapeHtml(biz?.address || "")}">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="label">تلفن ثابت</label>
+            <input class="input" name="phone" placeholder="021xxxxxxxx"
+                   value="${escapeHtml(biz?.phone || "")}">
+          </div>
+          <div class="form-group">
+            <label class="label">موبایل</label>
+            <input class="input" name="mobile" placeholder="09xxxxxxxxx"
+                   value="${escapeHtml(biz?.mobile || "")}">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="label">وب‌سایت</label>
+            <input class="input" name="website" placeholder="https://..."
+                   value="${escapeHtml(biz?.website || "")}">
+          </div>
+          <div class="form-group">
+            <label class="label">اینستاگرام</label>
+            <input class="input" name="instagram" placeholder="@username"
+                   value="${escapeHtml(biz?.instagram || "")}">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="label">ساعات کاری</label>
+          <input class="input" name="working_hours" maxlength="200"
+                 placeholder="۹ صبح تا ۹ شب"
+                 value="${escapeHtml(typeof biz?.working_hours === "string" ? biz.working_hours : "")}">
+        </div>
+      </form>
+    `,
+    `<button class="btn btn-primary" id="biz-save-btn"
+             onclick="saveBusiness('${escapeHtml(biz?.business_id || "")}')">
+      ${isEdit ? "ذخیره" : "ایجاد"}
+    </button>
+    <button class="btn btn-ghost" onclick="closeModal()">انصراف</button>`
+  );
+
+
+  // Cascading dropdowns
+  const catEl = document.getElementById("biz-cat");
+  const subEl = document.getElementById("biz-sub");
+  const brEl = document.getElementById("biz-branch");
+  const provEl = document.getElementById("biz-prov");
+  const cityEl = document.getElementById("biz-city");
+
+
+  catEl.onchange = () => {
+    const subs2 = STATE.data.subcategories.filter(s => s.category_id === catEl.value);
+    subEl.innerHTML = `<option value="">—</option>` +
+      subs2.map(s => `<option value="${escapeHtml(s.subcategory_id)}">${escapeHtml(s.subcategory_name)}</option>`).join("");
+    brEl.innerHTML = `<option value="">—</option>`;
+  };
+
+
+  subEl.onchange = () => {
+    const brs2 = STATE.data.subbranches.filter(s => s.subcategory_id === subEl.value);
+    brEl.innerHTML = `<option value="">—</option>` +
+      brs2.map(s => `<option value="${escapeHtml(s.subbranch_id)}">${escapeHtml(s.subbranch_name)}</option>`).join("");
+  };
+
+
+  provEl.onchange = async () => {
+    cityEl.innerHTML = `<option value="">در حال بارگذاری...</option>`;
+    const list = await loadCities(provEl.value);
+    cityEl.innerHTML = `<option value="">—</option>` +
+      list.map(c => `<option value="${escapeHtml(c.location_id)}">${escapeHtml(c.location_name)}</option>`).join("");
+  };
+}
+
+
+async function saveBusiness(businessId) {
+  const btn = document.getElementById("biz-save-btn");
+  const restore = setLoading(btn, "ذخیره...");
+  const fd = new FormData(document.getElementById("biz-form"));
+
+
+  const payload = {};
+  [
+    "business_name", "business_slug", "business_description",
+    "category_id", "subcategory_id", "subbranch_id",
+    "province_id", "city_id", "address", "phone", "mobile",
+    "website", "instagram", "working_hours"
+  ].forEach(k => {
+    const v = String(fd.get(k) || "").trim();
+    if (v) payload[k] = v;
+  });
+
+
+  if (!payload.category_id) {
+    toast("دسته اصلی الزامی است", "error");
+    restore();
+    return;
+  }
+
+
+  if (!payload.phone && !payload.mobile) {
+    toast("حداقل یکی از شماره تماس‌ها الزامی است", "error");
+    restore();
+    return;
+  }
+
+
+  try {
+    const action = businessId ? "update_business" : "create_business";
+    if (businessId) payload.business_id = businessId;
+
+
+    const res = await apiPost(action, payload);
+    if (!res.ok) throw new Error(res.message || "ذخیره ناموفق");
+    toast(businessId ? "ذخیره شد" : "کسب‌وکار ایجاد شد", "success");
+    closeModal();
+    STATE.view = "businesses";
+    render();
+  } catch (err) {
+    toast(err.message, "error");
+  } finally {
+    restore();
+  }
+}
+
+
+async function deleteBusiness(businessId) {
+  if (!(await confirmDialog("آیا از حذف این کسب‌وکار مطمئن هستید؟ تمام خدمات آن نیز غیرفعال خواهند شد."))) return;
+  try {
+    const res = await apiPost("delete_business", { business_id: businessId });
+    if (!res.ok) throw new Error(res.message || "حذف ناموفق");
+    toast("حذف شد", "success");
+    STATE.view = "businesses";
+    render();
+  } catch (err) {
+    toast(err.message, "error");
+  }
+}
+
+
+/*********************************************************
+ * VIEW — SERVICES
+ *********************************************************/
+function renderServices() {
+  return `
+    <div class="dash-wrap">
+      ${renderSidebar()}
+      <main class="dash-main">
+        <div class="card" style="margin-bottom:14px;">
+          <div class="form-group" style="margin:0;">
+            <label class="label">انتخاب کسب‌وکار</label>
+            <select class="input" id="svc-biz-select" onchange="onServiceBusinessChange()">
+              <option value="">در حال بارگذاری...</option>
+            </select>
+          </div>
+        </div>
+
+
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">خدمات و محصولات</h2>
+            <button class="btn btn-primary btn-sm" onclick="openServiceForm()">
+              + خدمت جدید
+            </button>
+          </div>
+          <div id="svc-list">
+            <div class="loading-page"><div class="spinner spinner-dark"></div></div>
+          </div>
+        </div>
+      </main>
+    </div>`;
+}
+
+
+async function loadServicesView() {
+  const sel = document.getElementById("svc-biz-select");
+  if (!sel) return;
+
+
+  await loadMyBusinesses();
+  if (!STATE.data.businesses.length) {
+    sel.innerHTML = `<option value="">هیچ کسب‌وکاری ندارید</option>`;
+    document.getElementById("svc-list").innerHTML =
+      `<div class="list-empty">ابتدا یک کسب‌وکار بسازید</div>`;
+    return;
+  }
+
+
+  sel.innerHTML = STATE.data.businesses.map(b => `
+    <option value="${escapeHtml(b.business_id)}"
+      ${STATE.currentBusinessId === b.business_id ? "selected" : ""}>
+      ${escapeHtml(b.business_name)}
+    </option>`).join("");
+
+
+  if (!STATE.currentBusinessId || !STATE.data.businesses.find(b => b.business_id === STATE.currentBusinessId)) {
+    STATE.currentBusinessId = STATE.data.businesses[0].business_id;
+    sel.value = STATE.currentBusinessId;
+  }
+
+
+  await loadMyServices(STATE.currentBusinessId);
+  renderServicesList();
+}
+
+
+function onServiceBusinessChange() {
+  const sel = document.getElementById("svc-biz-select");
+  STATE.currentBusinessId = sel.value;
+  loadMyServices(STATE.currentBusinessId).then(renderServicesList);
+}
+
+
+function renderServicesList() {
+  const el = document.getElementById("svc-list");
+  if (!el) return;
+
+
+  const services = STATE.data.services;
+  if (!services.length) {
+    el.innerHTML = `<div class="list-empty">هنوز خدمتی ثبت نشده است</div>`;
+    return;
+  }
+
+
+  el.innerHTML = services.map(s => `
+    <div class="list-item">
+      <div class="list-info">
+        <div class="list-title">${escapeHtml(s.item_name || "")}</div>
+        <div class="list-meta">
+          <span>${formatPrice(s.price, s.price_type)}</span>
+          <span class="badge badge-blue">${escapeHtml(s.item_type || "")}</span>
+          <span class="badge ${s.availability === "available" ? "badge-green" : "badge-gray"}">
+            ${escapeHtml(s.availability || "")}
+          </span>
+        </div>
+      </div>
+      <div class="list-actions">
+        <button class="btn btn-sm btn-ghost"
+                onclick="openServiceForm('${escapeHtml(s.service_id)}')">ویرایش</button>
+        <button class="btn btn-sm btn-danger"
+                onclick="deleteService('${escapeHtml(s.service_id)}')">حذف</button>
+      </div>
+    </div>
+  `).join("");
+}
+
+
+async function openServiceForm(serviceId) {
+  const isEdit = !!serviceId;
+  const s = isEdit
+    ? STATE.data.services.find(x => x.service_id === serviceId)
+    : null;
+
+
+  if (!STATE.currentBusinessId) {
+    toast("ابتدا یک کسب‌وکار انتخاب کنید", "warning");
+    return;
+  }
+
+
+  openModal(
+    isEdit ? "ویرایش خدمت" : "خدمت جدید",
+    `
+      <form id="svc-form">
+        <div class="form-group">
+          <label class="label">نام خدمت <span class="req">*</span></label>
+          <input class="input" name="item_name" required minlength="2" maxlength="100"
+                 value="${escapeHtml(s?.item_name || "")}">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="label">نوع</label>
+            <select class="input" name="item_type">
+              ${["service", "product", "menu"].map(t => `
+                <option value="${t}" ${s?.item_type === t ? "selected" : ""}>
+                  ${t === "service" ? "خدمت" : t === "product" ? "محصول" : "آیتم منو"}
+                </option>`).join("")}
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="label">نوع قیمت</label>
+            <select class="input" name="price_type" id="svc-ptype">
+              ${[
+                ["fixed", "ثابت"],
+                ["starting_from", "از مبلغ"],
+                ["negotiable", "توافقی"],
+                ["free", "رایگان"],
+                ["contact", "تماس بگیرید"]
+              ].map(([k, v]) => `
+                <option value="${k}" ${s?.price_type === k ? "selected" : ""}>${v}</option>`).join("")}
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="label">قیمت</label>
+            <input class="input" name="price" type="number" min="0"
+                   value="${escapeHtml(String(s?.price || ""))}">
+          </div>
+          <div class="form-group">
+            <label class="label">قیمت با تخفیف</label>
+            <input class="input" name="discount_price" type="number" min="0"
+                   value="${escapeHtml(String(s?.discount_price || ""))}">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="label">توضیحات</label>
+          <textarea class="input" name="description" maxlength="3000">${escapeHtml(s?.description || "")}</textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="label">واحد</label>
+            <input class="input" name="unit" maxlength="50"
+                   value="${escapeHtml(s?.unit || "")}">
+          </div>
+          <div class="form-group">
+            <label class="label">موجودی</label>
+            <select class="input" name="availability">
+              ${[
+                ["available", "موجود"],
+                ["unavailable", "ناموجود"],
+                ["on_request", "در صورت سفارش"],
+                ["preorder", "پیش‌سفارش"]
+              ].map(([k, v]) => `
+                <option value="${k}" ${s?.availability === k ? "selected" : ""}>${v}</option>`).join("")}
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="label">برند</label>
+          <input class="input" name="brand" maxlength="100"
+                 value="${escapeHtml(s?.brand || "")}">
+        </div>
+      </form>
+    `,
+    `<button class="btn btn-primary" id="svc-save-btn"
+             onclick="saveService('${escapeHtml(serviceId || "")}')">
+      ${isEdit ? "ذخیره" : "ایجاد"}
+    </button>
+    <button class="btn btn-ghost" onclick="closeModal()">انصراف</button>`
+  );
+}
+
+
+async function saveService(serviceId) {
+  const btn = document.getElementById("svc-save-btn");
+  const restore = setLoading(btn, "ذخیره...");
+  const fd = new FormData(document.getElementById("svc-form"));
+
+
+  const payload = {
+    business_id: STATE.currentBusinessId,
+    item_name: String(fd.get("item_name") || "").trim(),
+    item_type: String(fd.get("item_type") || "service"),
+    price_type: String(fd.get("price_type") || "fixed"),
+    availability: String(fd.get("availability") || "available"),
+    description: String(fd.get("description") || "").trim(),
+    unit: String(fd.get("unit") || "").trim(),
+    brand: String(fd.get("brand") || "").trim()
+  };
+
+
+  const price = String(fd.get("price") || "").trim();
+  if (price) payload.price = price;
+
+
+  const dp = String(fd.get("discount_price") || "").trim();
+  if (dp) payload.discount_price = dp;
+
+
+  if (serviceId) payload.service_id = serviceId;
+
+
+  try {
+    const action = serviceId ? "update_service" : "create_service";
+    const res = await apiPost(action, payload);
+    if (!res.ok) throw new Error(res.message || "ذخیره ناموفق");
+    toast(serviceId ? "ذخیره شد" : "خدمت ایجاد شد", "success");
+    closeModal();
+    await loadMyServices(STATE.currentBusinessId);
+    renderServicesList();
+  } catch (err) {
+    toast(err.message, "error");
+  } finally {
+    restore();
+  }
+}
+
+
+async function deleteService(serviceId) {
+  if (!(await confirmDialog("خدمت حذف شود؟"))) return;
+  try {
+    const res = await apiPost("delete_service", { service_id: serviceId });
+    if (!res.ok) throw new Error(res.message || "حذف ناموفق");
+    toast("حذف شد", "success");
+    await loadMyServices(STATE.currentBusinessId);
+    renderServicesList();
+  } catch (err) {
+    toast(err.message, "error");
+  }
+}
+
+
+/*********************************************************
+ * VIEW — MEDIA
+ *********************************************************/
+function renderMedia() {
+  return `
+    <div class="dash-wrap">
+      ${renderSidebar()}
+      <main class="dash-main">
+        <div class="card" style="margin-bottom:14px;">
+          <div class="form-group" style="margin:0;">
+            <label class="label">انتخاب کسب‌وکار</label>
+            <select class="input" id="med-biz-select" onchange="onMediaBusinessChange()">
+              <option value="">در حال بارگذاری...</option>
+            </select>
+          </div>
+        </div>
+
+
+        <div class="card" style="margin-bottom:14px;">
+          <div class="card-header">
+            <h2 class="card-title">لوگو و کاور</h2>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <label class="btn btn-primary btn-sm" style="cursor:pointer;">
+              آپلود لوگو
+              <input type="file" hidden accept="image/*"
+                     onchange="handleMediaUpload(this, 'logo')">
+            </label>
+            <label class="btn btn-primary btn-sm" style="cursor:pointer;">
+              آپلود کاور
+              <input type="file" hidden accept="image/*"
+                     onchange="handleMediaUpload(this, 'cover')">
+            </label>
+          </div>
+          <div class="media-grid" id="media-special" style="margin-top:14px;">
+            <div class="list-empty" style="grid-column:1/-1">در حال بارگذاری...</div>
+          </div>
+        </div>
+
+
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">گالری</h2>
+            <label class="btn btn-primary btn-sm" style="cursor:pointer;">
+              افزودن به گالری
+              <input type="file" hidden accept="image/*"
+                     onchange="handleMediaUpload(this, 'gallery')">
+            </label>
+          </div>
+          <div class="media-grid" id="media-gallery">
+            <div class="list-empty" style="grid-column:1/-1">در حال بارگذاری...</div>
+          </div>
+        </div>
+      </main>
+    </div>`;
+}
+
+
+async function loadMediaView() {
+  const sel = document.getElementById("med-biz-select");
+  if (!sel) return;
+
+
+  await loadMyBusinesses();
+  if (!STATE.data.businesses.length) {
+    sel.innerHTML = `<option value="">هیچ کسب‌وکاری ندارید</option>`;
+    document.getElementById("media-special").innerHTML =
+      `<div class="list-empty" style="grid-column:1/-1">ابتدا کسب‌وکار بسازید</div>`;
+    document.getElementById("media-gallery").innerHTML = "";
+    return;
+  }
+
+
+  sel.innerHTML = STATE.data.businesses.map(b => `
+    <option value="${escapeHtml(b.business_id)}"
+      ${STATE.currentBusinessId === b.business_id ? "selected" : ""}>
+      ${escapeHtml(b.business_name)}
+    </option>`).join("");
+
+
+  if (!STATE.currentBusinessId || !STATE.data.businesses.find(b => b.business_id === STATE.currentBusinessId)) {
+    STATE.currentBusinessId = STATE.data.businesses[0].business_id;
+    sel.value = STATE.currentBusinessId;
+  }
+
+
+  await loadMedia("business", STATE.currentBusinessId);
+  renderMediaGrid();
+}
+
+
+function onMediaBusinessChange() {
+  STATE.currentBusinessId = document.getElementById("med-biz-select").value;
+  loadMedia("business", STATE.currentBusinessId).then(renderMediaGrid);
+}
+
+
+function renderMediaGrid() {
+  const media = STATE.data.media;
+  const special = media.filter(m => m.media_type === "logo" || m.media_type === "cover");
+  const gallery = media.filter(m => m.media_type === "gallery" || m.media_type === "image");
+
+
+  const specialEl = document.getElementById("media-special");
+  const galleryEl = document.getElementById("media-gallery");
+
+
+  if (specialEl) {
+    specialEl.innerHTML = special.length ? special.map(m => mediaCardHtml(m)).join("")
+      : `<div class="list-empty" style="grid-column:1/-1">بدون لوگو یا کاور</div>`;
+  }
+  if (galleryEl) {
+    galleryEl.innerHTML = gallery.length ? gallery.map(m => mediaCardHtml(m)).join("")
+      : `<div class="list-empty" style="grid-column:1/-1">بدون تصویر</div>`;
+  }
+}
+
+
+function mediaCardHtml(m) {
+  return `
+    <div class="media-thumb">
+      <img src="${escapeHtml(m.media_url || "")}" alt="" loading="lazy">
+      ${m.is_primary ? `<span class="primary-tag">اصلی</span>` : ""}
+      <div class="media-actions">
+        ${!m.is_primary ? `<button onclick="event.stopPropagation();setPrimaryMedia('${escapeHtml(m.media_id)}')" title="اصلی کن">★</button>` : ""}
+        <button onclick="event.stopPropagation();deleteMedia('${escapeHtml(m.media_id)}')" title="حذف">✕</button>
+      </div>
+    </div>`;
+}
+
+
+async function handleMediaUpload(inputEl, mediaType) {
+  const file = inputEl.files[0];
+  inputEl.value = "";
+  if (!file) return;
+
+
+  if (file.size > 2 * 1024 * 1024) {
+    toast("حجم تصویر باید کمتر از ۲ مگابایت باشد", "error");
+    return;
+  }
+
+
+  try {
+    const dataUrl = await readFileAsDataURL(file);
+    const m = dataUrl.match(/^data:([^;]+);base64,/);
+    const mimeType = m ? m[1] : file.type;
+
+
+    toast("در حال آپلود...", "info");
+    const res = await apiPost("upload_business_media", {
+      business_id: STATE.currentBusinessId,
+      media_type: mediaType,
+      file_name: file.name || "image",
+      mime_type: mimeType,
+      file_data: dataUrl
+    });
+
+
+    if (!res.ok) throw new Error(res.message || "آپلود ناموفق");
+    toast("آپلود شد", "success");
+    await loadMedia("business", STATE.currentBusinessId);
+    renderMediaGrid();
+  } catch (err) {
+    toast(err.message, "error");
+  }
+}
+
+
+async function setPrimaryMedia(mediaId) {
+  try {
+    const res = await apiPost("set_primary_media", { media_id: mediaId });
+    if (!res.ok) throw new Error(res.message || "تنظیم ناموفق");
+    toast("تنظیم شد", "success");
+    await loadMedia("business", STATE.currentBusinessId);
+    renderMediaGrid();
+  } catch (err) {
+    toast(err.message, "error");
+  }
+}
+
+
+async function deleteMedia(mediaId) {
+  if (!(await confirmDialog("تصویر حذف شود؟"))) return;
+  try {
+    const res = await apiPost("delete_media", { media_id: mediaId });
+    if (!res.ok) throw new Error(res.message || "حذف ناموفق");
+    toast("حذف شد", "success");
+    await loadMedia("business", STATE.currentBusinessId);
+    renderMediaGrid();
+  } catch (err) {
+    toast(err.message, "error");
+  }
+}
+
+
+/*********************************************************
+ * VIEW — MESSAGES
+ *********************************************************/
+function renderMessages() {
+  return `
+    <div class="dash-wrap">
+      ${renderSidebar()}
+      <main class="dash-main">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">پیام‌ها</h2>
+          </div>
+          <div class="tabs">
+            <button class="${STATE.messagesTab === "received" ? "active" : ""}"
+                    onclick="switchMessagesTab('received')">دریافتی</button>
+            <button class="${STATE.messagesTab === "sent" ? "active" : ""}"
+                    onclick="switchMessagesTab('sent')">ارسالی</button>
+          </div>
+          <div id="msgs-list">
+            <div class="loading-page"><div class="spinner spinner-dark"></div></div>
+          </div>
+        </div>
+      </main>
+    </div>`;
+}
+
+
+async function loadMessagesView() {
+  if (STATE.messagesTab === "received") {
+    await loadReceivedMessages();
+  } else {
+    await loadSentMessages();
+  }
+  renderMessagesList();
+}
+
+
+function switchMessagesTab(tab) {
+  STATE.messagesTab = tab;
+  renderMessages();
+  loadMessagesView();
+}
+
+
+function renderMessagesList() {
+  const el = document.getElementById("msgs-list");
+  if (!el) return;
+
+
+  const messages = STATE.messagesTab === "received"
+    ? STATE.data.receivedMessages
+    : STATE.data.sentMessages;
+
+
+  if (!messages.length) {
+    el.innerHTML = `<div class="list-empty">پیامی وجود ندارد</div>`;
+    return;
+  }
+
+
+  el.innerHTML = messages.map(m => {
+    const guest = m.guest;
+    const sender = guest ? guest.name : (m.sender_id || "");
+    const preview = String(m.message_text || "").substring(0, 80);
+    const isUnread = STATE.messagesTab === "received" && m.is_read === false;
+
+
+    return `
+      <div class="list-item" onclick="openMessage('${escapeHtml(m.message_id)}')">
+        <div class="list-info">
+          <div class="list-title">
+            ${escapeHtml(STATE.messagesTab === "received" ? sender : "به " + (m.receiver_id || ""))}
+            ${isUnread ? `<span class="badge badge-blue" style="margin-right:6px;">جدید</span>` : ""}
+          </div>
+          <div class="list-meta">
+            <span>${escapeHtml(preview)}...</span>
+            <span>${formatDate(m.created_at)}</span>
+          </div>
+        </div>
+      </div>`;
+  }).join("");
+}
+
+
+async function openMessage(messageId) {
+  try {
+    const res = await apiPost("get_message_details", { message_id: messageId });
+    if (!res.ok || !res.data) throw new Error(res.message || "یافت نشد");
+
+
+    const m = res.data;
+    const guest = m.guest;
+    const isReceived = STATE.messagesTab === "received";
+
+
+    openModal("جزئیات پیام",
+      `
+        <dl class="kv" style="margin-bottom:14px;">
+          <dt>متن:</dt>
+          <dd style="font-weight:400;white-space:pre-wrap;">${escapeHtml(m.message_text || "")}</dd>
+          ${guest ? `
+            <dt>نام فرستنده:</dt><dd>${escapeHtml(guest.name)}</dd>
+            <dt>موبایل:</dt><dd>${escapeHtml(guest.phone)}</dd>
+          ` : ""}
+          <dt>تاریخ:</dt><dd>${formatDate(m.created_at)}</dd>
+          <dt>وضعیت:</dt>
+          <dd>${m.is_read ? "خوانده شده" : "خوانده نشده"}</dd>
+        </dl>
+      `,
+      `
+        ${isReceived && !m.is_read ? `<button class="btn btn-primary btn-sm" onclick="markMessageRead('${escapeHtml(messageId)}')">علامت خوانده</button>` : ""}
+        <button class="btn btn-danger btn-sm" onclick="deleteMessageAction('${escapeHtml(messageId)}')">حذف</button>
+        <button class="btn btn-ghost btn-sm" onclick="closeModal()">بستن</button>
+      `
+    );
+  } catch (err) {
+    toast(err.message, "error");
+  }
+}
+
+
+async function markMessageRead(messageId) {
+  try {
+    const res = await apiPost("mark_message_read", { message_id: messageId });
+    if (!res.ok) throw new Error(res.message || "خطا");
+    toast("علامت‌گذاری شد", "success");
+    closeModal();
+    await loadMessagesView();
+  } catch (err) {
+    toast(err.message, "error");
+  }
+}
+
+
+async function deleteMessageAction(messageId) {
+  if (!(await confirmDialog("پیام حذف شود؟"))) return;
+  try {
+    const res = await apiPost("delete_message", { message_id: messageId });
+    if (!res.ok) throw new Error(res.message || "خطا");
+    toast("حذف شد", "success");
+    closeModal();
+    await loadMessagesView();
+  } catch (err) {
+    toast(err.message, "error");
+  }
+}
+
+
+/*********************************************************
+ * VIEW — PROFILE
+ *********************************************************/
+function renderProfile() {
+  const u = STATE.user || {};
+  return `
+    <div class="dash-wrap">
+      ${renderSidebar()}
+      <main class="dash-main">
+        <div class="card" style="max-width:640px;">
+          <h2 class="card-title">اطلاعات حساب</h2>
+          <dl class="kv">
+            <dt>شناسه:</dt><dd>${escapeHtml(u.user_id || "—")}</dd>
+            <dt>نام:</dt><dd>${escapeHtml(u.name || "—")}</dd>
+            <dt>موبایل:</dt><dd>${escapeHtml(u.phone || "—")}</dd>
+            <dt>ایمیل:</dt><dd>${escapeHtml(u.email || "—")}</dd>
+            <dt>نقش:</dt><dd>${escapeHtml(u.role || "—")}</dd>
+            <dt>وضعیت:</dt>
+            <dd><span class="badge badge-green">${escapeHtml(u.status || "active")}</span></dd>
+            <dt>تاریخ عضویت:</dt><dd>${formatDate(u.created_at)}</dd>
+            <dt>آخرین ورود:</dt><dd>${formatDate(u.last_login)}</dd>
+          </dl>
+          <div style="margin-top:20px;">
+            <button class="btn btn-danger" onclick="doLogout()">خروج از حساب</button>
+          </div>
+        </div>
+      </main>
+    </div>`;
+}
+
+
+/*********************************************************
+ * NAVIGATION & MOUNT
+ *********************************************************/
+function navigate(view) {
+  STATE.view = view;
+  render();
+  window.scrollTo(0, 0);
+}
+
+
+function mountView() {
+  switch (STATE.view) {
+    case "home":
+      loadHomeData();
+      break;
+    case "dashboard":
+      loadDashboardStats();
+      break;
+    case "businesses":
+      loadBusinessesList();
+      break;
+    case "services":
+      loadServicesView();
+      break;
+    case "media":
+      loadMediaView();
+      break;
+    case "messages":
+      loadMessagesView();
+      break;
+    case "profile":
+      // هیچ داده‌ای لازم نیست - user از STATE خوانده می‌شود
+      break;
+  }
+}
+
+
+/*********************************************************
+ * INIT
+ *********************************************************/
+async function init() {
+  // بررسی اعتبار توکن
+  if (STATE.token) {
+    const ok = await refreshProfile();
+    if (!ok) {
+      STATE.token = "";
+      localStorage.removeItem("niyazyar_token");
+    }
+  }
+
+
+  // بارگذاری اولیه دسته‌بندی‌ها
+  await loadCategories();
+
+
+  STATE.view = STATE.token ? "dashboard" : "home";
+  render();
+}
+
+
+window.addEventListener("error", function (e) {
+  console.error("Global error:", e.error || e.message);
+});
+
+
+document.addEventListener("DOMContentLoaded", init);
+</script>
+
+
+</body>
+</html>
