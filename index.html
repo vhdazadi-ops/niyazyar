@@ -1,0 +1,531 @@
+﻿<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#155eef">
+<title>نیازیـار | دایرکتوری هوشمند کسب‌وکارها و خدمات</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<style>
+:root{--blue:#155eef;--blue2:#0b45bd;--ink:#172033;--muted:#667085;--line:#e7ebf2;--bg:#f5f7fb;--card:#fff;--green:#079455;--red:#d92d20;--shadow:0 12px 32px rgba(16,24,40,.07);--radius:18px}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.hidden{display:none!important}.wrap{width:min(1160px,calc(100% - 32px));margin:auto}
+.topbar{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:21px;color:var(--blue);cursor:pointer}
+.brandmark{width:39px;height:39px;border-radius:13px;background:linear-gradient(145deg,#3984ff,#1047c5);color:#fff;display:grid;place-items:center;font-size:22px}
+.navlinks{display:flex;gap:8px;align-items:center}
+.navlinks button,.linkbtn{border:0;background:transparent;color:#344054;padding:10px 13px;border-radius:11px;transition:.2s}
+.navlinks button:hover,.linkbtn:hover{background:#f0f4ff;color:var(--blue)}
+.btn{border:0;border-radius:12px;background:var(--blue);color:white;padding:11px 17px;font-weight:700;box-shadow:0 5px 14px #155eef25;transition:.2s}
+.btn:hover{background:var(--blue2)}
+.btn.secondary{background:#eef4ff;color:var(--blue);box-shadow:none}
+.btn.ghost{background:#fff;color:#344054;border:1px solid var(--line);box-shadow:none}
+.btn.danger{background:#fff0ee;color:var(--red);box-shadow:none}
+.btn.small{padding:8px 12px;font-size:13px}
+.hero{padding:54px 0 34px;background:radial-gradient(circle at 80% 10%,#dceaff 0,transparent 36%),linear-gradient(120deg,#f7faff,#edf4ff)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+.eyebrow{color:var(--blue);font-weight:800;font-size:13px}
+.hero h1{font-size:clamp(29px,5vw,48px);line-height:1.5;margin:9px 0 10px}
+.hero p{color:var(--muted);font-size:16px;line-height:2;margin:0 0 22px}
+.hero-art{min-height:245px;border-radius:28px;background:linear-gradient(140deg,#1359df,#4a95ff);color:white;padding:28px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 22px 45px #155eef30;overflow:hidden;position:relative}
+.hero-art:after{content:"";position:absolute;width:260px;height:260px;border:1px solid #ffffff45;border-radius:50%;left:-65px;top:-100px;box-shadow:0 0 0 30px #ffffff10,0 0 0 65px #ffffff0c}
+.hero-art strong{font-size:27px;z-index:1}
+.hero-art span{z-index:1;color:#e4edff}
+.searchbox{background:#fff;padding:15px;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:9px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:13px}
+.field label{font-size:13px;color:#475467;font-weight:700}
+.field input,.field select,.field textarea,.searchbox input,.searchbox select{width:100%;border:1px solid #d9e0eb;border-radius:11px;padding:11px 12px;background:#fff;color:var(--ink);outline:none;min-width:0;transition:.2s}
+.field textarea{min-height:95px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus,.searchbox input:focus,.searchbox select:focus{border-color:#84adff;box-shadow:0 0 0 3px #155eef18}
+.section{padding:34px 0}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:15px;margin-bottom:18px}
+.section h2{margin:0;font-size:23px}
+.muted{color:var(--muted)}
+.categories{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.cat{border:1px solid var(--line);background:#fff;border-radius:16px;padding:17px 10px;text-align:center;transition:.2s;cursor:pointer}
+.cat:hover{border-color:#9dbdff;transform:translateY(-3px);box-shadow:var(--shadow)}
+.cat .ico{font-size:27px;display:block;margin-bottom:8px}
+.cat b{font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 3px 12px #10182808;transition:.2s}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.card-body{padding:16px}
+.cover{height:155px;background:linear-gradient(130deg,#eaf1ff,#d5e4ff);display:grid;place-items:center;color:#6b91d8;font-size:42px;overflow:hidden}
+.cover img{width:100%;height:100%;object-fit:cover}
+.card h3{margin:0 0 7px;font-size:17px}
+.meta{font-size:13px;color:var(--muted);line-height:1.9}
+.price{font-weight:900;color:var(--blue);margin-top:9px}
+.pill{display:inline-block;padding:4px 9px;border-radius:30px;background:#eef4ff;color:#2459bd;font-size:11px;margin:3px}
+.empty{background:#fff;border:1px dashed #cfd7e5;border-radius:16px;padding:28px;text-align:center;color:var(--muted)}
+.footer{background:#101d35;color:#d8e3f7;padding:32px 0;margin-top:30px}
+.footer small{color:#9db0ce}
+.page{padding:28px 0 60px;min-height:65vh}
+.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 4px 16px #10182808}
+.panel h2,.panel h3{margin-top:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.tab{border:1px solid var(--line);background:#fff;padding:9px 14px;border-radius:11px;color:#475467;transition:.2s}
+.tab:hover{background:#f8fafc}
+.tab.active{background:#eaf1ff;color:var(--blue);border-color:#c7d9ff;font-weight:800}
+.toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:15px}
+.tablewrap{overflow:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:right;padding:12px;border-bottom:1px solid var(--line);white-space:nowrap}
+th{color:#667085;background:#f9fafb}
+.modal{position:fixed;inset:0;background:#10182880;z-index:60;display:grid;place-items:center;padding:16px;backdrop-filter:blur(3px)}
+.modalbox{width:min(520px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:20px;padding:22px;box-shadow:0 25px 70px #0003;animation:slideUp .25s}
+@keyframes slideUp{from{transform:translateY(20px);opacity:0}to{transform:none;opacity:1}}
+.modalhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
+.close{border:0;background:#f2f4f7;border-radius:10px;width:34px;height:34px;transition:.2s}
+.close:hover{background:#e4e7ec;color:var(--red)}
+.toast{position:fixed;bottom:20px;right:50%;transform:translateX(50%);z-index:90;background:#172033;color:#fff;padding:12px 18px;border-radius:12px;box-shadow:var(--shadow);max-width:90%;font-size:14px;animation:slideUp .3s}
+.toast.error{background:#b42318}
+.spinner{width:18px;height:18px;border:2px solid #ffffff70;border-top-color:#fff;border-radius:50%;display:inline-block;animation:spin .7s linear infinite;vertical-align:middle}
+@keyframes spin{to{transform:rotate(360deg)}}
+.detail-layout{display:grid;grid-template-columns:1.3fr .7fr;gap:18px}
+.detail-image{height:280px;border-radius:18px;background:#eaf1ff;overflow:hidden}
+.detail-image img{width:100%;height:100%;object-fit:cover}
+.mobilemenu{display:none}
+.userchip{font-size:13px;color:#475467;background:#f2f4f7;padding:8px 11px;border-radius:30px}
+
+
+/* Password Eye Icon */
+.password-wrapper{position:relative}
+.password-wrapper input{padding-left:42px}
+.eye-btn{position:absolute;left:10px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:18px;color:var(--muted);padding:4px;display:flex;align-items:center;justify-content:center;transition:.2s}
+.eye-btn:hover{color:var(--blue)}
+
+
+@media(max-width:850px){.hero-grid{grid-template-columns:1fr}.hero-art{min-height:170px}.searchbox{grid-template-columns:1fr 1fr}.categories{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:repeat(2,1fr)}.detail-layout{grid-template-columns:1fr}.navlinks{gap:0}.navlinks button{padding:8px}.two{grid-template-columns:1fr}}
+@media(max-width:560px){.wrap{width:min(100% - 22px,1160px)}.nav{height:62px}.brand{font-size:18px}.navlinks button{font-size:12px;padding:7px}.navlinks .optional{display:none}.hero{padding:32px 0 25px}.searchbox{grid-template-columns:1fr}.categories{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.three{grid-template-columns:1fr}.section{padding:25px 0}.panel{padding:15px}.hero-art strong{font-size:22px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+ <div class="wrap nav">
+  <div class="brand" onclick="go('home')"><span class="brandmark">ن</span><span>نیازیـار</span></div>
+  <nav class="navlinks">
+   <button onclick="go('home')">خانه</button><button onclick="go('search')">جست‌وجو</button>
+   <button class="optional" onclick="go('dashboard')">پنل من</button>
+   <button id="authNav" class="btn small" onclick="openAuth('login')">ورود / ثبت‌نام</button>
+   <button id="logoutNav" class="linkbtn hidden" onclick="logout()">خروج</button>
+  </nav>
+ </div>
+</header>
+<main id="app"></main>
+<footer class="footer"><div class="wrap"><div style="font-size:20px;font-weight:900;margin-bottom:8px">نیازیـار</div><div>دایرکتوری هوشمند کسب‌وکارها و خدمات</div><p><small>راهی ساده برای پیدا کردن خدمات و معرفی کسب‌وکارها</small></p></div></footer>
+<div id="modal" class="modal hidden" onclick="if(event.target===this)closeModal()"><div class="modalbox"><div class="modalhead"><strong id="modalTitle">ورود</strong><button class="close" onclick="closeModal()">✕</button></div><div id="modalContent"></div></div></div>
+<div id="toast" class="toast hidden"></div>
+<script>
+"use strict";
+
+
+/* آدرس وب‌اپ Apps Script (در صورت اجرا از خارج از Apps Script) */
+const API_URL = "https://script.google.com/macros/s/AKfycbyjPc4aJh7UK_DkHUsglAAYyGHhVODUcFrxJAY6Wnw_KSVCymqzEaVI85zmewLpQR1mcg/exec";
+const TOKEN_KEY = "niyazyar_token_v20";
+
+
+const state = {
+  page:"home", token:localStorage.getItem(TOKEN_KEY)||"", user:null,
+  categories:[],subcategories:[],subbranches:[],locations:[],
+  results:[],businesses:[],services:[],media:[],messages:[],
+  selectedBusiness:null,selectedService:null,activeTab:"businesses",
+  filters:{q:"",category_id:"",subcategory_id:"",subbranch_id:"",province_id:"",city_id:"",item_type:"",sort:"newest"},
+  busy:false
+};
+
+
+const $ = id => document.getElementById(id);
+const esc = v => String(v==null?"":v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const faNum = v => String(v==null?"":v).replace(/\d/g,d=>"۰۱۲۳۴۵۶۷۸۹"[d]);
+
+
+function toast(message,error=false){
+  const t=$("toast");
+  t.textContent=message;
+  t.className="toast"+(error?" error":"");
+  t.classList.remove("hidden");
+  clearTimeout(toast.timer);
+  toast.timer=setTimeout(()=>t.classList.add("hidden"),3500);
+}
+
+
+function togglePassword(inputId, btn) {
+  const input = document.getElementById(inputId);
+  if (!input) return;
+  if (input.type === "password") {
+    input.type = "text";
+    btn.textContent = "🙈"; 
+  } else {
+    input.type = "password";
+    btn.textContent = "👁️"; 
+  }
+}
+
+
+function normalizeResponse(r){
+ if(r==null) return {ok:false,message:"پاسخی از سرور دریافت نشد."};
+ if(typeof r==="string"){try{r=JSON.parse(r)}catch(_){return {ok:false,message:r}}}
+ if(r.ok===false||r.success===false) return {ok:false,message:r.message||(r.error&&r.error.message)||"درخواست ناموفق بود.",raw:r};
+ if(r.ok===true && r.data!==undefined) return {ok:true,data:r.data,message:r.message||""};
+ if(r.success===true && r.data!==undefined) return {ok:true,data:r.data,message:r.message||""};
+ return {ok:true,data:r.data!==undefined?r.data:r,message:r.message||""};
+}
+
+
+function gasCall(method,action,payload){
+ return new Promise((resolve,reject)=>{
+  if(!window.google||!google.script||!google.script.run){reject(new Error("اتصال مستقیم Google Apps Script در دسترس نیست."));return}
+  const runner=google.script.run.withSuccessHandler(resolve).withFailureHandler(e=>reject(new Error(e&&e.message||"خطای ارتباط با سرور")));
+  if(method==="GET") runner.v20HandleGetAction(action,payload||{});
+  else runner.v20HandlePostAction(action,Object.assign({action},payload||{}));
+ });
+}
+
+
+async function request(method,action,payload={}){
+ try{
+  let raw;
+  if(window.google&&google.script&&google.script.run){
+   raw=await gasCall(method,action,payload);
+  }else{
+   if(!API_URL) throw new Error("نشانی API تنظیم نشده است.");
+   let url=API_URL;
+   if(method==="GET"){
+    const q=new URLSearchParams(Object.assign({action},payload));
+    url+=(url.includes("?")?"&":"?")+q.toString();
+    const res=await fetch(url,{method:"GET",redirect:"follow"});
+    raw=await res.json();
+   }else{
+    const res=await fetch(url,{method:"POST",redirect:"follow",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(Object.assign({action},payload))});
+    raw=await res.json();
+   }
+  }
+  const out=normalizeResponse(raw);
+  if(!out.ok) throw new Error(out.message);
+  return out.data;
+ }catch(e){throw e instanceof Error?e:new Error(String(e))}
+}
+
+
+function unwrapArray(v,keys=[]){
+ if(Array.isArray(v))return v;
+ if(!v||typeof v!=="object")return [];
+ for(const k of keys){if(Array.isArray(v[k]))return v[k]}
+ if(v.data!==undefined)return unwrapArray(v.data,keys);
+ if(v.items!==undefined)return unwrapArray(v.items,keys);
+ return [];
+}
+
+
+function objectData(v){if(!v||typeof v!=="object")return {};if(v.data&&typeof v.data==="object"&&!Array.isArray(v.data))return v.data;return v}
+function money(v){if(v===null||v===undefined||v==="")return "تماس بگیرید";const n=Number(v);return Number.isFinite(n)?faNum(n.toLocaleString("en-US"))+" تومان":esc(v)}
+function locationName(id){const x=state.locations.find(a=>String(a.location_id)===String(id));return x?x.location_name:""}
+function catName(id){const x=state.categories.find(a=>String(a.category_id)===String(id));return x?x.category_name:""}
+function subName(id){const x=state.subcategories.find(a=>String(a.subcategory_id)===String(id));return x?x.subcategory_name:""}
+
+
+function renderHeader(){
+ $("authNav").classList.toggle("hidden",!!state.token);
+ $("logoutNav").classList.toggle("hidden",!state.token);
+}
+
+
+async function loadTaxonomy(){
+ try{
+  const [tree,loc]=await Promise.all([request("GET","categories_tree"),request("GET","locations")]);
+  const t=objectData(tree);
+  state.categories=unwrapArray(t.categories,["categories"]);
+  state.subcategories=unwrapArray(t.subcategories,["subcategories"]);
+  state.subbranches=unwrapArray(t.subbranches,["subbranches"]);
+  state.locations=unwrapArray(loc,["locations","items"]);
+ }catch(e){console.warn(e);toast("دریافت دسته‌بندی‌ها یا موقعیت‌ها ناموفق بود: "+e.message,true)}
+}
+
+
+async function loadProfile(){
+ if(!state.token)return;
+ try{const p=objectData(await request("POST","get_profile",{token:state.token}));state.user=p.user||p.profile||p}
+ catch(e){state.token="";state.user=null;localStorage.removeItem(TOKEN_KEY);renderHeader()}
+}
+
+
+function go(page){state.page=page;render();if(page==="dashboard"&&state.token)loadDashboard()}
+
+
+function render(){
+ renderHeader();
+ const app=$("app");
+ if(state.page==="home")app.innerHTML=homeView();
+ else if(state.page==="search")app.innerHTML=searchView();
+ else if(state.page==="business")app.innerHTML=businessView();
+ else if(state.page==="service")app.innerHTML=serviceView();
+ else if(state.page==="dashboard")app.innerHTML=dashboardView();
+ else app.innerHTML=homeView();
+}
+
+
+function categoryCards(){
+ const icons=["🍽️","💇","🚗","🛠️","🏠","🛍️"];
+ const preferred=["خوراک و کافه","سالن زیبایی","خودرو","خدمات فنی","املاک","فروشگاه‌ها"];
+ const rows=preferred.map((n,i)=>{const c=state.categories.find(x=>String(x.category_name||"").trim()===n);return c||{category_name:n,category_id:""}});
+ return rows.map((c,i)=>`<button class="cat" onclick="${c.category_id?`setCategory('${esc(c.category_id)}')`:`go('search')`}"><span class="ico">${icons[i]}</span><b>${esc(c.category_name)}</b></button>`).join("");
+}
+
+
+function homeView(){
+ return `<section class="hero"><div class="wrap hero-grid"><div><div class="eyebrow">دایرکتوری هوشمند کسب‌وکارها و خدمات</div><h1>هر نیازی،<br>یک راه ساده برای پیدا کردن</h1><p>کسب‌وکارها، فروشگاه‌ها و خدمات موردنیازتان را جست‌وجو کنید؛ یا کسب‌وکار خود را در نیازیـار معرفی کنید.</p><div class="searchbox"><input id="homeQ" placeholder="نام خدمت، محصول یا کسب‌وکار..." onkeydown="if(event.key==='Enter')homeSearch()"><select id="homeProvince">${provinceOptions()}</select><select id="homeType"><option value="">همه موارد</option><option value="service">خدمات</option><option value="product">محصولات</option></select><button class="btn" onclick="homeSearch()">جست‌وجو</button></div></div><div class="hero-art"><strong>نیازیـار<br>یارِ پیدا کردن نیازها</strong><span>معرفی کسب‌وکار • جست‌وجوی خدمات • ارتباط مستقیم</span></div></div></section>
+ <section class="section"><div class="wrap"><div class="section-head"><div><h2>دسته‌بندی‌ها</h2><div class="muted">از دسته موردنظر شروع کنید</div></div><button class="btn ghost small" onclick="go('search')">همه دسته‌ها</button></div><div class="categories">${categoryCards()}</div></div></section>
+ <section class="section"><div class="wrap"><div class="section-head"><div><h2>جدیدترین خدمات و محصولات</h2><div class="muted">آخرین موارد ثبت‌شده در نیازیـار</div></div><button class="btn secondary small" onclick="go('search')">مشاهده همه</button></div><div id="homeResults" class="grid"><div class="empty">در حال دریافت اطلاعات...</div></div></div></section>`;
+}
+
+
+function provinceOptions(selected=""){return `<option value="">همه استان‌ها</option>`+state.locations.filter(x=>String(x.location_type).toLowerCase()==="province").map(x=>`<option value="${esc(x.location_id)}" ${String(x.location_id)===String(selected)?"selected":""}>${esc(x.location_name)}</option>`).join("")}
+function cityOptions(provinceId="",selected=""){return `<option value="">همه شهرها</option>`+state.locations.filter(x=>String(x.location_type).toLowerCase()==="city"&&String(x.parent_id)===String(provinceId)).map(x=>`<option value="${esc(x.location_id)}" ${String(x.location_id)===String(selected)?"selected":""}>${esc(x.location_name)}</option>`).join("")}
+function categoryOptions(selected=""){return `<option value="">همه دسته‌ها</option>`+state.categories.map(x=>`<option value="${esc(x.category_id)}" ${String(x.category_id)===String(selected)?"selected":""}>${esc(x.category_name)}</option>`).join("")}
+function subcategoryOptions(catId="",selected=""){return `<option value="">همه زیردسته‌ها</option>`+state.subcategories.filter(x=>!catId||String(x.category_id)===String(catId)).map(x=>`<option value="${esc(x.subcategory_id)}" ${String(x.subcategory_id)===String(selected)?"selected":""}>${esc(x.subcategory_name)}</option>`).join("")}
+function subbranchOptions(subId="",selected=""){return `<option value="">همه شاخه‌ها</option>`+state.subbranches.filter(x=>!subId||String(x.subcategory_id)===String(subId)).map(x=>`<option value="${esc(x.subbranch_id)}" ${String(x.subbranch_id)===String(selected)?"selected":""}>${esc(x.subbranch_name)}</option>`).join("")}
+
+
+function setCategory(id){state.filters.category_id=id;go("search");setTimeout(()=>searchNow(),0)}
+function homeSearch(){state.filters.q=$("homeQ")?.value||"";state.filters.province_id=$("homeProvince")?.value||"";state.filters.item_type=$("homeType")?.value||"";go("search");setTimeout(searchNow,0)}
+
+
+function searchView(){
+ const f=state.filters;
+ return `<div class="page"><div class="wrap"><div class="section-head"><div><h2>جست‌وجوی خدمات و محصولات</h2><div class="muted">فیلترها را انتخاب کنید تا نتایج دقیق‌تری ببینید.</div></div></div><div class="panel" style="margin-bottom:18px"><div class="two"><div class="field"><label>عبارت جست‌وجو</label><input id="fQ" value="${esc(f.q)}" placeholder="مثلاً تعمیر موبایل، کافه، آرایشگاه..."></div><div class="field"><label>نوع مورد</label><select id="fType"><option value="">همه</option><option value="service" ${f.item_type==="service"?"selected":""}>خدمات</option><option value="product" ${f.item_type==="product"?"selected":""}>محصولات</option></select></div></div><div class="three"><div class="field"><label>دسته اصلی</label><select id="fCat" onchange="updateFilterSubs()">${categoryOptions(f.category_id)}</select></div><div class="field"><label>زیردسته</label><select id="fSub" onchange="updateFilterBranches()">${subcategoryOptions(f.category_id,f.subcategory_id)}</select></div><div class="field"><label>شاخه</label><select id="fBranch">${subbranchOptions(f.subcategory_id,f.subbranch_id)}</select></div><div class="field"><label>استان</label><select id="fProvince" onchange="updateFilterCities()">${provinceOptions(f.province_id)}</select></div><div class="field"><label>شهر</label><select id="fCity">${cityOptions(f.province_id,f.city_id)}</select></div><div class="field"><label>مرتب‌سازی</label><select id="fSort"><option value="newest">جدیدترین</option><option value="price_asc">ارزان‌ترین</option><option value="price_desc">گران‌ترین</option></select></div></div><button class="btn" onclick="applyFilters()">اعمال فیلتر و جست‌وجو</button> <button class="btn ghost" onclick="clearFilters()">پاک‌کردن فیلترها</button></div><div class="toolbar"><strong id="resultCount">نتایج جست‌وجو</strong><span class="muted" id="searchStatus"></span></div><div id="searchResults" class="grid"><div class="empty">برای مشاهده نتایج، جست‌وجو را اجرا کنید.</div></div></div></div>`;
+}
+
+
+function updateFilterSubs(){const c=$("fCat").value;$("fSub").innerHTML=subcategoryOptions(c);$("fBranch").innerHTML=subbranchOptions("")}
+function updateFilterBranches(){const s=$("fSub").value;$("fBranch").innerHTML=subbranchOptions(s)}
+function updateFilterCities(){const p=$("fProvince").value;$("fCity").innerHTML=cityOptions(p)}
+function applyFilters(){state.filters={q:$("fQ").value,category_id:$("fCat").value,subcategory_id:$("fSub").value,subbranch_id:$("fBranch").value,province_id:$("fProvince").value,city_id:$("fCity").value,item_type:$("fType").value,sort:$("fSort").value};searchNow()}
+function clearFilters(){state.filters={q:"",category_id:"",subcategory_id:"",subbranch_id:"",province_id:"",city_id:"",item_type:"",sort:"newest"};render();setTimeout(searchNow,0)}
+
+
+async function searchNow(){
+ const box=$("searchResults");if(!box)return;
+ box.innerHTML='<div class="empty"><span class="spinner" style="border-color:#c7d9ff;border-top-color:#155eef"></span> در حال جست‌وجو...</div>';
+ $("searchStatus").textContent="در حال دریافت";
+ try{
+  const f=state.filters;const data=await request("GET","search_services",Object.fromEntries(Object.entries(f).filter(([k,v])=>v!==""&&v!=null)));
+  const d=objectData(data);state.results=unwrapArray(d,["items","services","results"]);
+  $("resultCount").textContent=faNum(state.results.length)+" نتیجه";
+  $("searchStatus").textContent="";
+  box.innerHTML=state.results.length?state.results.map(serviceCard).join(""):'<div class="empty" style="grid-column:1/-1">موردی مطابق جست‌وجوی شما پیدا نشد.</div>';
+ }catch(e){box.innerHTML=`<div class="empty" style="grid-column:1/-1">${esc(e.message)}</div>`;$("searchStatus").textContent="خطا"}
+}
+
+
+function serviceCard(s){
+ const img=s.image_url||s.cover_url||"";
+ return `<article class="card"><div class="cover">${img?`<img src="${esc(img)}" alt="" loading="lazy" onerror="this.parentNode.textContent='نیازیـار'">`:"⌕"}</div><div class="card-body"><span class="pill">${s.item_type==="product"?"محصول":"خدمت"}</span><h3>${esc(s.item_name||"بدون عنوان")}</h3><div class="meta">${esc(s.business_name||"")}</div><div class="meta">${esc(s.city_name||locationName(s.city_id)||"")} ${s.province_name?"، "+esc(s.province_name):""}</div><div class="price">${money(s.price)}</div><button class="btn secondary small" style="margin-top:12px" onclick="openService('${esc(s.service_id)}')">مشاهده جزئیات</button></div></article>`;
+}
+
+
+async function loadHomeResults(){
+ try{const d=await request("GET","search_services",{sort:"newest",page:1,limit:6});const o=objectData(d);const rows=unwrapArray(o,["items","services","results"]);const el=$("homeResults");if(el)el.innerHTML=rows.length?rows.slice(0,6).map(serviceCard).join(""):'<div class="empty" style="grid-column:1/-1">هنوز خدمتی ثبت نشده است.</div>'}
+ catch(e){const el=$("homeResults");if(el)el.innerHTML=`<div class="empty" style="grid-column:1/-1">${esc(e.message)}</div>`}
+}
+
+
+async function openService(id){
+ try{const d=objectData(await request("GET","service_details",{service_id:id}));state.selectedService=d.service||d;state.selectedBusiness=d.business||null;state.page="service";render();loadServiceExtras(id)}
+ catch(e){toast(e.message,true)}
+}
+async function loadServiceExtras(id){
+ try{const media=await request("GET","service_media",{service_id:id});state.media=unwrapArray(media,["media","items"]);render()}
+ catch(e){}
+}
+
+
+function serviceView(){
+ const s=state.selectedService||{},b=state.selectedBusiness||{};
+ return `<div class="page"><div class="wrap"><button class="linkbtn" onclick="go('search')">← بازگشت به نتایج</button><div class="detail-layout"><div class="panel"><div class="detail-image">${s.image_url?`<img src="${esc(s.image_url)}" alt="">`:"<div style='height:100%;display:grid;place-items:center;font-size:50px;color:#8aa9df'>⌕</div>"}</div><h2 style="margin:18px 0 8px">${esc(s.item_name||"جزئیات مورد")}</h2><div class="meta">${esc(s.description||"توضیحی ثبت نشده است.")}</div><div class="price">${money(s.price)}</div><div class="meta">نوع قیمت: ${esc(s.price_type||"fixed")} ${s.unit?" • واحد: "+esc(s.unit):""}</div><hr style="border:0;border-top:1px solid var(--line);margin:18px 0"><h3>تصاویر</h3><div class="three">${state.media.map(m=>`<div class="cover" style="height:90px"><img src="${esc(m.media_url)}" alt=""></div>`).join("")||'<span class="muted">تصویر دیگری ثبت نشده است.</span>'}</div></div><aside class="panel"><h3>اطلاعات کسب‌وکار</h3><h2>${esc(b.business_name||"")}</h2><div class="meta">${esc(b.address||"")}</div><div class="meta">تلفن: ${esc(b.mobile||b.phone||"ثبت نشده")}</div><div class="meta">اینستاگرام: ${esc(b.instagram||"ثبت نشده")}</div><button class="btn" style="width:100%;margin-top:15px" onclick="contactBusiness('${esc(b.business_id||s.business_id||"")}','${esc(s.service_id||"")}')">ارسال پیام به کسب‌وکار</button><button class="btn ghost" style="width:100%;margin-top:9px" onclick="openBusiness('${esc(b.business_id||s.business_id||"")}')">صفحه کسب‌وکار</button></aside></div></div></div>`;
+}
+
+
+async function openBusiness(id){
+ try{const d=objectData(await request("GET","business_details",{business_id:id}));state.selectedBusiness=d.business||d;state.businessServices=unwrapArray(d.services,["services","items"]);state.page="business";render()}
+ catch(e){toast(e.message,true)}
+}
+
+
+function businessView(){
+ const b=state.selectedBusiness||{};
+ return `<div class="page"><div class="wrap"><button class="linkbtn" onclick="go('search')">← بازگشت</button><div class="panel"><div class="detail-layout"><div><h1>${esc(b.business_name||"کسب‌وکار")}</h1><div class="meta">${esc(b.business_description||"")}</div><p>${esc(b.address||"")}</p><div class="meta">تلفن: ${esc(b.mobile||b.phone||"")}</div><div class="meta">${esc(b.instagram||"")}</div></div><div class="cover" style="height:180px">${b.cover_url?`<img src="${esc(b.cover_url)}" alt="">`:"🏬"}</div></div><button class="btn" onclick="contactBusiness('${esc(b.business_id)}','')">ارسال پیام</button></div><div class="section-head" style="margin-top:25px"><h2>خدمات و محصولات این کسب‌وکار</h2></div><div class="grid">${(state.businessServices||[]).map(serviceCard).join("")||'<div class="empty">موردی ثبت نشده است.</div>'}</div></div></div>`;
+}
+
+
+function contactBusiness(businessId,serviceId){
+ const guest=!state.token;
+ $("modalTitle").textContent="ارسال پیام";
+ $("modalContent").innerHTML=`<div class="field"><label>متن پیام</label><textarea id="msgText" maxlength="2000" placeholder="پیام خود را بنویسید..."></textarea></div>${guest?`<div class="field"><label>نام شما</label><input id="guestName"></div><div class="field"><label>شماره موبایل</label><input id="guestPhone" inputmode="numeric" placeholder="09123456789"></div>`:""}<button class="btn" onclick="sendContact('${esc(businessId)}','${esc(serviceId)}')">ارسال پیام</button>`;
+ $("modal").classList.remove("hidden");
+}
+
+
+async function sendContact(businessId,serviceId){
+ const payload={business_id:businessId,service_id:serviceId,message_text:$("msgText").value};
+ if(state.token)payload.token=state.token;else{payload.guest_name=$("guestName").value;payload.guest_phone=$("guestPhone").value}
+ try{await request("POST","send_message",payload);closeModal();toast("پیام ارسال شد")}
+ catch(e){toast(e.message,true)}
+}
+
+
+function openAuth(mode="login"){
+ $("modalTitle").textContent=mode==="register"?"ایجاد حساب کاربری":"ورود به نیازیـار";
+ $("modalContent").innerHTML=authForm(mode);
+ $("modal").classList.remove("hidden");
+}
+
+
+function authForm(mode){
+ return `<div class="tabs"><button class="tab ${mode==="login"?"active":""}" onclick="openAuth('login')">ورود</button><button class="tab ${mode==="register"?"active":""}" onclick="openAuth('register')">ثبت‌نام</button></div>${mode==="register"?`<div class="field"><label>نام و نام خانوادگی</label><input id="authName" maxlength="100"></div>`:""}<div class="field"><label>شماره موبایل</label><input id="authPhone" inputmode="tel" placeholder="09xxxxxxxxx"></div>${mode==="register"?`<div class="field"><label>ایمیل (اختیاری)</label><input id="authEmail" type="email"></div>`:""}<div class="field"><label>رمز عبور</label><div class="password-wrapper"><input id="authPassword" type="password" minlength="8" maxlength="128"><button type="button" class="eye-btn" onclick="togglePassword('authPassword', this)">👁️</button></div></div><button class="btn" style="width:100%" onclick="${mode==="register"?"register()":"login()"}">${mode==="register"?"ساخت حساب":"ورود"}</button><p class="meta">رمز عبور باید حداقل ۸ نویسه داشته باشد.</p>`;
+}
+
+
+async function login(){
+ try{const d=objectData(await request("POST","login",{phone:$("authPhone").value,password:$("authPassword").value,device_info:navigator.userAgent.slice(0,150)}));if(!d.token)throw new Error("توکن ورود در پاسخ سرور وجود ندارد.");state.token=d.token;localStorage.setItem(TOKEN_KEY,d.token);state.user=d.user||null;closeModal();renderHeader();toast("با موفقیت وارد شدید");go("dashboard");await loadDashboard()}
+ catch(e){toast(e.message,true)}
+}
+
+
+async function register(){
+ try{await request("POST","register",{name:$("authName").value,phone:$("authPhone").value,email:$("authEmail").value,password:$("authPassword").value});toast("حساب ساخته شد؛ اکنون وارد شوید");openAuth("login")}
+ catch(e){toast(e.message,true)}
+}
+
+
+async function logout(){
+ try{if(state.token)await request("POST","logout",{token:state.token})}catch(e){}
+ state.token="";state.user=null;localStorage.removeItem(TOKEN_KEY);state.businesses=[];state.services=[];renderHeader();toast("از حساب خارج شدید");go("home")
+}
+
+
+function closeModal(){$("modal").classList.add("hidden")}
+
+
+function dashboardView(){
+ if(!state.token)return `<div class="page"><div class="wrap"><div class="panel" style="max-width:520px;margin:auto;text-align:center"><h2>ورود به پنل نیازیـار</h2><p class="muted">برای مدیریت کسب‌وکارها، خدمات و پیام‌ها وارد حساب خود شوید.</p><button class="btn" onclick="openAuth('login')">ورود / ثبت‌نام</button></div></div></div>`;
+ return `<div class="page"><div class="wrap"><div class="toolbar"><div><h2 style="margin:0">پنل مدیریت</h2><span class="muted">مدیریت کسب‌وکارها و خدمات شما</span></div><button class="btn" onclick="openBusinessForm()">＋ ثبت کسب‌وکار</button></div><div class="tabs"><button class="tab ${state.activeTab==="businesses"?"active":""}" onclick="switchTab('businesses')">کسب‌وکارهای من</button><button class="tab ${state.activeTab==="services"?"active":""}" onclick="switchTab('services')">خدمات و محصولات</button><button class="tab ${state.activeTab==="messages"?"active":""}" onclick="switchTab('messages')">پیام‌ها</button><button class="tab ${state.activeTab==="profile"?"active":""}" onclick="switchTab('profile')">پروفایل</button></div><div id="dashContent">${dashboardContent()}</div></div></div>`;
+}
+
+
+function switchTab(t){state.activeTab=t;render();loadDashboardTab()}
+
+
+function dashboardContent(){
+ if(state.activeTab==="businesses")return `<div class="toolbar"><strong>کسب‌وکارهای ثبت‌شده</strong><button class="btn small" onclick="openBusinessForm()">افزودن کسب‌وکار</button></div><div id="bizList" class="grid"><div class="empty">در حال بارگذاری...</div></div>`;
+ if(state.activeTab==="services")return `<div class="toolbar"><strong>خدمات و محصولات</strong><button class="btn small" onclick="openServiceForm()">افزودن خدمت / محصول</button></div><div id="serviceList" class="grid"><div class="empty">در حال بارگذاری...</div></div>`;
+ if(state.activeTab==="messages")return `<div class="toolbar"><strong>صندوق پیام‌ها</strong><button class="btn ghost small" onclick="loadMessages()">به‌روزرسانی</button></div><div id="messageList"><div class="empty">در حال بارگذاری...</div></div>`;
+ return `<div id="profileBox" class="panel">در حال بارگذاری پروفایل...</div>`;
+}
+
+
+async function loadDashboard(){if(!state.token)return;await loadProfile();await loadDashboardTab()}
+
+
+async function loadDashboardTab(){
+ if(!state.token)return;
+ try{
+  if(state.activeTab==="businesses"){
+   const d=await request("POST","get_my_businesses",{token:state.token,page:1,limit:50});state.businesses=unwrapArray(d,["businesses","items"]);
+   const el=$("bizList");if(el)el.innerHTML=state.businesses.length?state.businesses.map(b=>`<div class="card"><div class="card-body"><h3>${esc(b.business_name)}</h3><div class="meta">${esc(b.address||"")}</div><span class="pill">${esc(b.status||"")}</span><div style="margin-top:12px;display:flex;gap:7px;flex-wrap:wrap"><button class="btn small secondary" onclick="openBusinessForm('${esc(b.business_id)}')">ویرایش</button><button class="btn small ghost" onclick="manageBusinessMedia('${esc(b.business_id)}')">تصاویر</button><button class="btn small danger" onclick="removeBusiness('${esc(b.business_id)}')">حذف</button></div></div></div>`).join(""):'<div class="empty" style="grid-column:1/-1">هنوز کسب‌وکاری ثبت نکرده‌اید.</div>';
+  }else if(state.activeTab==="services"){
+   const d=await request("POST","get_my_services",{token:state.token,page:1,limit:50});state.services=unwrapArray(d,["services","items"]);
+   const el=$("serviceList");if(el)el.innerHTML=state.services.length?state.services.map(s=>`<div class="card"><div class="card-body"><h3>${esc(s.item_name)}</h3><div class="meta">${esc(s.business_name||"")}</div><div class="price">${money(s.price)}</div><div style="margin-top:12px;display:flex;gap:7px;flex-wrap:wrap"><button class="btn small secondary" onclick="openServiceForm('${esc(s.service_id)}')">ویرایش</button><button class="btn small danger" onclick="removeService('${esc(s.service_id)}')">حذف</button></div></div></div>`).join(""):'<div class="empty" style="grid-column:1/-1">هنوز خدمتی ثبت نکرده‌اید.</div>';
+  }else if(state.activeTab==="messages"){await loadMessages()}
+  else{const el=$("profileBox");if(el)el.innerHTML=`<h3>اطلاعات حساب</h3><p>نام: ${esc(state.user?.name||"")}</p><p>موبایل: ${esc(state.user?.phone||"")}</p><p>ایمیل: ${esc(state.user?.email||"")}</p><button class="btn ghost" onclick="loadProfile().then(()=>render())">به‌روزرسانی</button>`}
+ }catch(e){const el=$("dashContent");if(el)el.innerHTML=`<div class="empty">${esc(e.message)}</div>`}
+}
+
+
+function openBusinessForm(id=""){
+ const b=state.businesses.find(x=>String(x.business_id)===String(id))||{};
+ $("modalTitle").textContent=id?"ویرایش کسب‌وکار":"ثبت کسب‌وکار جدید";
+ $("modalContent").innerHTML=`<div class="field"><label>نام کسب‌وکار *</label><input id="bName" value="${esc(b.business_name||"")}"></div><div class="field"><label>توضیحات</label><textarea id="bDesc">${esc(b.business_description||"")}</textarea></div><div class="three"><div class="field"><label>دسته اصلی *</label><select id="bCat" onchange="businessSubChange()">${categoryOptions(b.category_id)}</select></div><div class="field"><label>زیردسته</label><select id="bSub" onchange="businessBranchChange()">${subcategoryOptions(b.category_id,b.subcategory_id)}</select></div><div class="field"><label>شاخه</label><select id="bBranch">${subbranchOptions(b.subcategory_id,b.subbranch_id)}</select></div><div class="field"><label>استان</label><select id="bProvince" onchange="businessCityChange()">${provinceOptions(b.province_id)}</select></div><div class="field"><label>شهر</label><select id="bCity">${cityOptions(b.province_id,b.city_id)}</select></div><div class="field"><label>موبایل</label><input id="bMobile" value="${esc(b.mobile||"")}" inputmode="tel"></div></div><div class="field"><label>تلفن ثابت</label><input id="bPhone" value="${esc(b.phone||"")}"></div><div class="field"><label>نشانی</label><input id="bAddress" value="${esc(b.address||"")}"></div><div class="two"><div class="field"><label>وب‌سایت</label><input id="bWebsite" value="${esc(b.website||"")}" placeholder="https://"></div><div class="field"><label>اینستاگرام</label><input id="bInstagram" value="${esc(b.instagram||"")}" placeholder="username"></div></div><button class="btn" onclick="saveBusiness('${esc(id)}')">ذخیره کسب‌وکار</button>`;
+ $("modal").classList.remove("hidden");
+}
+function businessSubChange(){$("bSub").innerHTML=subcategoryOptions($("bCat").value);$("bBranch").innerHTML=subbranchOptions("")}
+function businessBranchChange(){$("bBranch").innerHTML=subbranchOptions($("bSub").value)}
+function businessCityChange(){$("bCity").innerHTML=cityOptions($("bProvince").value)}
+
+
+async function saveBusiness(id){
+ const payload={token:state.token,business_name:$("bName").value,business_description:$("bDesc").value,category_id:$("bCat").value,subcategory_id:$("bSub").value,subbranch_id:$("bBranch").value,province_id:$("bProvince").value,city_id:$("bCity").value,mobile:$("bMobile").value,phone:$("bPhone").value,address:$("bAddress").value,website:$("bWebsite").value,instagram:$("bInstagram").value};
+ try{if(id){payload.business_id=id;await request("POST","update_business",payload)}else await request("POST","create_business",payload);closeModal();toast("اطلاعات کسب‌وکار ذخیره شد");await loadDashboardTab()}
+ catch(e){toast(e.message,true)}
+}
+
+
+async function removeBusiness(id){if(!confirm("کسب‌وکار حذف شود؟"))return;try{await request("POST","delete_business",{token:state.token,business_id:id});toast("کسب‌وکار حذف شد");loadDashboardTab()}catch(e){toast(e.message,true)}}
+
+
+function openServiceForm(id=""){
+ const s=state.services.find(x=>String(x.service_id)===String(id))||{};
+ $("modalTitle").textContent=id?"ویرایش خدمت / محصول":"ثبت خدمت یا محصول";
+ $("modalContent").innerHTML=`<div class="field"><label>کسب‌وکار *</label><select id="sBiz">${state.businesses.map(b=>`<option value="${esc(b.business_id)}" ${String(b.business_id)===String(s.business_id)?"selected":""}>${esc(b.business_name)}</option>`).join("")}</select></div><div class="two"><div class="field"><label>نوع</label><select id="sType"><option value="service" ${(!s.item_type||s.item_type==="service")?"selected":""}>خدمت</option><option value="product" ${s.item_type==="product"?"selected":""}>محصول</option><option value="menu" ${s.item_type==="menu"?"selected":""}>منو</option></select></div><div class="field"><label>عنوان *</label><input id="sName" value="${esc(s.item_name||"")}"></div></div><div class="field"><label>توضیحات</label><textarea id="sDesc">${esc(s.description||"")}</textarea></div><div class="three"><div class="field"><label>قیمت</label><input id="sPrice" inputmode="decimal" value="${esc(s.price||"")}"></div><div class="field"><label>نوع قیمت</label><select id="sPriceType"><option value="fixed">ثابت</option><option value="starting_from">شروع از</option><option value="negotiable">توافقی</option><option value="free">رایگان</option><option value="contact">تماس بگیرید</option></select></div><div class="field"><label>واحد</label><input id="sUnit" value="${esc(s.unit||"")}"></div></div><div class="field"><label>برند (در صورت نیاز)</label><input id="sBrand" value="${esc(s.brand||"")}"></div><button class="btn" onclick="saveService('${esc(id)}')">ذخیره</button>`;
+ $("modal").classList.remove("hidden");
+ if(s.price_type)$("sPriceType").value=s.price_type;
+}
+
+
+async function saveService(id){
+ const payload={token:state.token,business_id:$("sBiz").value,item_type:$("sType").value,item_name:$("sName").value,description:$("sDesc").value,price:$("sPrice").value,price_type:$("sPriceType").value,unit:$("sUnit").value,brand:$("sBrand").value};
+ try{if(id){payload.service_id=id;await request("POST","update_service",payload)}else await request("POST","create_service",payload);closeModal();toast("مورد ذخیره شد");await loadDashboardTab()}
+ catch(e){toast(e.message,true)}
+}
+
+
+async function removeService(id){if(!confirm("این مورد حذف شود؟"))return;try{await request("POST","delete_service",{token:state.token,service_id:id});toast("حذف شد");loadDashboardTab()}catch(e){toast(e.message,true)}}
+
+
+function manageBusinessMedia(id){
+ $("modalTitle").textContent="مدیریت تصاویر کسب‌وکار";
+ $("modalContent").innerHTML=`<p class="meta">حداکثر حجم هر تصویر ۲ مگابایت است. فرمت‌های JPG، PNG و WEBP پشتیبانی می‌شوند.</p><div class="field"><label>نوع تصویر</label><select id="mediaType"><option value="logo">لوگو</option><option value="cover">کاور</option><option value="gallery">گالری</option></select></div><div class="field"><label>انتخاب تصویر</label><input id="mediaFile" type="file" accept="image/jpeg,image/png,image/webp"></div><button class="btn" onclick="uploadBusinessMedia('${esc(id)}')">بارگذاری تصویر</button>`;
+ $("modal").classList.remove("hidden");
+}
+
+
+async function fileBase64(file){
+ if(file.size>2*1024*1024)throw new Error("حجم تصویر نباید بیشتر از ۲ مگابایت باشد.");
+ if(!["image/jpeg","image/png","image/webp"].includes(file.type))throw new Error("فرمت تصویر باید JPG، PNG یا WEBP باشد.");
+ return new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(String(r.result).split(",")[1]);r.onerror=()=>reject(new Error("خواندن تصویر ناموفق بود."));r.readAsDataURL(file)})
+}
+
+
+async function uploadBusinessMedia(id){
+ const f=$("mediaFile").files[0];if(!f){toast("ابتدا تصویر را انتخاب کنید",true);return}
+ try{const b64=await fileBase64(f);await request("POST","upload_business_media",{token:state.token,business_id:id,media_type:$("mediaType").value,file_name:f.name,mime_type:f.type,file_data:b64});closeModal();toast("تصویر بارگذاری شد")}
+ catch(e){toast(e.message,true)}
+}
+
+
+async function loadMessages(){
+ const el=$("messageList");if(el)el.innerHTML='<div class="empty">در حال دریافت پیام‌ها...</div>';
+ try{const [received,sent]=await Promise.all([request("POST","get_received_messages",{token:state.token,page:1,limit:50}),request("POST","get_sent_messages",{token:state.token,page:1,limit:50})]);const rows=[...unwrapArray(received,["messages","items"]),...unwrapArray(sent,["messages","items"])];rows.sort((a,b)=>String(b.created_at||"").localeCompare(String(a.created_at||"")));state.messages=rows;if(el)el.innerHTML=rows.length?`<div class="panel tablewrap"><table><thead><tr><th>پیام</th><th>زمان</th><th>وضعیت</th><th>عملیات</th></tr></thead><tbody>${rows.map(m=>`<tr><td>${esc(m.message_text||"")}</td><td>${esc(m.created_at||"")}</td><td>${m.is_read?"خوانده‌شده":"جدید"}</td><td>${m.direction==="received"?`<button class="btn small secondary" onclick="readMessage('${esc(m.message_id)}')">خوانده شد</button>`:"ارسالی"} <button class="btn small danger" onclick="deleteMessage('${esc(m.message_id)}')">حذف</button></td></tr>`).join("")}</tbody></table></div>`:'<div class="empty">پیامی ندارید.</div>'}
+ catch(e){if(el)el.innerHTML=`<div class="empty">${esc(e.message)}</div>`}
+}
+
+
+async function readMessage(id){try{await request("POST","mark_message_read",{token:state.token,message_id:id});loadMessages()}catch(e){toast(e.message,true)}}
+async function deleteMessage(id){if(!confirm("پیام حذف شود؟"))return;try{await request("POST","delete_message",{token:state.token,message_id:id});loadMessages()}catch(e){toast(e.message,true)}}
+
+
+async function init(){
+ await loadTaxonomy();
+ if(state.token)await loadProfile();
+ render();
+ if(state.page==="home")loadHomeResults();
+}
+
+
+init();
+</script>
+</body>
+</html>
