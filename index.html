@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#2563eb">
+<title>نیازیار | دایرکتوری هوشمند کسب‌وکارها و خدمات</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<style>
+:root{--blue:#2563eb;--blue2:#1d4ed8;--ink:#172033;--muted:#667085;--line:#e7ebf2;--bg:#f5f7fb;--card:#fff;--green:#079455;--red:#d92d20;--shadow:0 12px 32px rgba(16,24,40,.07);--radius:18px}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.hidden{display:none!important}
+.wrap{width:min(1160px,calc(100% - 30px));margin:auto}.topbar{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}.nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{display:flex;align-items:center;gap:10px;font-size:21px;font-weight:900;color:var(--blue);cursor:pointer}.brandmark{width:40px;height:40px;border-radius:13px;background:linear-gradient(145deg,#3984ff,#1047c5);color:#fff;display:grid;place-items:center;font-size:22px}.navlinks{display:flex;gap:6px;align-items:center;flex-wrap:wrap}.navlinks button,.linkbtn{border:0;background:transparent;color:#344054;padding:9px 12px;border-radius:11px}.navlinks button:hover,.linkbtn:hover{background:#f0f4ff;color:var(--blue)}
+.btn{border:0;border-radius:12px;background:var(--blue);color:#fff;padding:11px 17px;font-weight:700;box-shadow:0 5px 14px #2563eb25}.btn:hover{background:var(--blue2)}.btn.secondary{background:#eef4ff;color:var(--blue);box-shadow:none}.btn.ghost{background:#fff;color:#344054;border:1px solid var(--line);box-shadow:none}.btn.danger{background:#fff0ee;color:var(--red);box-shadow:none}.btn.small{padding:8px 12px;font-size:13px}
+.hero{padding:48px 0 32px;background:radial-gradient(circle at 80% 10%,#dceaff 0,transparent 36%),linear-gradient(120deg,#f7faff,#edf4ff)}.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}.eyebrow{color:var(--blue);font-weight:800;font-size:13px}.hero h1{font-size:clamp(29px,5vw,46px);line-height:1.55;margin:9px 0}.hero p{color:var(--muted);line-height:2;margin:0 0 20px}.hero-art{min-height:235px;border-radius:28px;background:linear-gradient(140deg,#1359df,#4a95ff);color:#fff;padding:28px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 22px 45px #155eef30}.hero-art strong{font-size:27px}.hero-art span{color:#e4edff}
+.searchbox{background:#fff;padding:14px;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);display:grid;grid-template-columns:2fr 1fr auto;gap:9px}.field{display:flex;flex-direction:column;gap:6px;margin-bottom:13px}.field label{font-size:13px;color:#475467;font-weight:700}.field input,.field select,.field textarea,.searchbox input,.searchbox select{width:100%;border:1px solid #d9e0eb;border-radius:11px;padding:11px 12px;background:#fff;color:var(--ink);outline:none;min-width:0}.field textarea{min-height:90px;resize:vertical}.section{padding:32px 0}.section-head,.toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:17px}.section h2{margin:0;font-size:23px}.muted,.meta{color:var(--muted)}.categories{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.cat{border:1px solid var(--line);background:#fff;border-radius:16px;padding:17px 10px;text-align:center;transition:.2s}.cat:hover{border-color:#9dbdff;transform:translateY(-3px);box-shadow:var(--shadow)}.cat .ico{font-size:27px;display:block;margin-bottom:8px}.cat b{font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 3px 12px #10182808}.card-body{padding:16px}.cover{height:155px;background:linear-gradient(130deg,#eaf1ff,#d5e4ff);display:grid;place-items:center;color:#6b91d8;font-size:40px;overflow:hidden}.cover img{width:100%;height:100%;object-fit:cover}.card h3{margin:0 0 7px;font-size:17px}.meta{font-size:13px;line-height:1.9}.price{font-weight:900;color:var(--blue);margin-top:9px}.empty{background:#fff;border:1px dashed #cfd7e5;border-radius:16px;padding:25px;text-align:center;color:var(--muted);grid-column:1/-1}
+.footer{background:#101d35;color:#d8e3f7;padding:30px 0;margin-top:28px}.footer small{color:#9db0ce}.page{padding:27px 0 55px;min-height:65vh}.panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:19px;box-shadow:0 4px 16px #10182808}.panel h2,.panel h3{margin-top:0}.two{display:grid;grid-template-columns:1fr 1fr;gap:13px}.tabs,.crumbs,.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.tabs,.crumbs{margin-bottom:17px}.tab,.crumb{border:1px solid var(--line);background:#fff;padding:9px 14px;border-radius:11px;color:#475467}.tab.active,.crumb.active{background:#eaf1ff;color:var(--blue);border-color:#c7d9ff;font-weight:800}.modal{position:fixed;inset:0;background:#10182880;z-index:60;display:grid;place-items:center;padding:15px}.modalbox{width:min(600px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:20px;padding:21px;box-shadow:0 25px 70px #0003}.modalhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}.close{border:0;background:#f2f4f7;border-radius:10px;width:35px;height:35px}.toast{position:fixed;bottom:20px;right:50%;transform:translateX(50%);z-index:90;background:#172033;color:#fff;padding:12px 18px;border-radius:12px;box-shadow:var(--shadow);max-width:92%;font-size:14px}.toast.error{background:#b42318}.detail-layout{display:grid;grid-template-columns:1.25fr .75fr;gap:18px}.detail-image{height:270px;border-radius:18px;background:#eaf1ff;overflow:hidden}.detail-image img{width:100%;height:100%;object-fit:cover}.status{display:inline-block;padding:5px 10px;border-radius:30px;background:#e8f7ef;color:#067647;font-size:12px}.hint{font-size:12px;color:var(--muted);line-height:1.8}.mobilemenu{display:none}
+@media(max-width:850px){.hero-grid,.detail-layout{grid-template-columns:1fr}.hero-art{min-height:165px}.searchbox{grid-template-columns:1fr 1fr}.categories{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}}
+@media(max-width:560px){.wrap{width:calc(100% - 22px)}.nav{min-height:60px}.brand{font-size:18px}.navlinks button{font-size:12px;padding:7px}.hero{padding:30px 0 24px}.searchbox{grid-template-columns:1fr}.categories,.grid{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.section{padding:24px 0}.panel{padding:14px}.hero-art strong{font-size:22px}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="wrap nav">
+  <div class="brand" onclick="go('home')"><span class="brandmark">ن</span><span>نیازیار</span></div>
+  <nav class="navlinks">
+    <button onclick="go('home')">خانه</button><button onclick="startSearch()">جست‌وجو</button>
+    <button onclick="go('dashboard')">پنل من</button>
+    <button id="authNav" class="btn small" onclick="openAuth('login')">ورود / ثبت‌نام</button>
+    <button id="logoutNav" class="linkbtn hidden" onclick="logout()">خروج</button>
+  </nav>
+</div></header>
+<main id="app"></main>
+<footer class="footer"><div class="wrap"><b style="font-size:20px">نیازیار</b><div>دایرکتوری هوشمند کسب‌وکارها و خدمات</div><p><small>راهی ساده برای پیدا کردن خدمات و معرفی کسب‌وکارها</small></p></div></footer>
+<div id="modal" class="modal hidden" onclick="if(event.target===this)closeModal()"><div class="modalbox"><div class="modalhead"><strong id="modalTitle">ورود</strong><button class="close" onclick="closeModal()">✕</button></div><div id="modalContent"></div></div></div>
+<div id="toast" class="toast hidden"></div>
+<script>
+'use strict';
+
+/* آدرس Web App جدید؛ پس از هر Deploy جدید، همین آدرس را به‌روزرسانی کنید. */
+const API_URL = 'https://script.google.com/macros/s/AKfycbyz_jVzMr7XCKZ0vfoXzNDgraeirViQo1J6jtk9-nP3J_uNy42FfQ2zYqmEm4HGLdiZ3Q/exec';
+const TOKEN_KEY = 'niyazyar_token_v20_2_8';
+
+const state = {
+  page:'home', token:localStorage.getItem(TOKEN_KEY)||'', user:null,
+  categories:[], subcategories:[], subbranches:[], locations:[],
+  businesses:[], services:[], results:[], selectedService:null,
+  path:{category_id:'',subcategory_id:'',subbranch_id:''},
+  search:{q:''}, location:{province_id:'',city_id:''}
+};
+const $ = id => document.getElementById(id);
+const esc = v => String(v ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const faNum = v => String(v ?? '').replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[Number(d)]);
+function toast(message,error=false){
+  const el=$('toast');el.textContent=message;el.className='toast'+(error?' error':'');
+  clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.classList.add('hidden'),4200);
+}
+function unwrap(raw){
+  if(raw==null)throw Error('پاسخی از سرور دریافت نشد.');
+  if(typeof raw==='string'){try{raw=JSON.parse(raw)}catch{throw Error(raw)}}
+  if(raw.ok===false||raw.success===false){
+    let e=raw.error;let msg=raw.message||(e&&typeof e==='object'?(e.message||e.error):e)||'درخواست ناموفق بود.';
+    throw Error(String(msg));
+  }
+  return raw;
+}
+async function api(method,action,payload={}){
+  let url=API_URL, response;
+  if(method==='GET'){
+    const params=new URLSearchParams({action,...Object.fromEntries(Object.entries(payload).filter(([,v])=>v!==undefined&&v!==null&&v!=='').map(([k,v])=>[k,String(v)]))});
+    response=await fetch(url+(url.includes('?')?'&':'?')+params.toString(),{method:'GET',redirect:'follow',cache:'no-store'});
+  }else{
+    response=await fetch(url,{method:'POST',redirect:'follow',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({action,...payload})});
+  }
+  if(!response.ok)throw Error('خطای ارتباط با سرور ('+response.status+').');
+  let json;try{json=await response.json()}catch{throw Error('پاسخ سرور JSON معتبر نیست؛ انتشار Web App را بررسی کنید.')}
+  return unwrap(json);
+}
+function arr(v){return Array.isArray(v)?v:[]}
+function money(value,type){
+  if(type==='negotiable')return 'توافقی';
+  if(type==='free')return 'رایگان';
+  if(type==='contact')return 'تماس بگیرید';
+  if(value===undefined||value===null||value==='')return 'تماس بگیرید';
+  const n=Number(value);return Number.isFinite(n)?faNum(n.toLocaleString('en-US'))+' تومان':esc(value);
+}
+function locName(id){return state.locations.find(x=>String(x.location_id)===String(id))?.location_name||''}
+function catName(id){return state.categories.find(x=>String(x.category_id)===String(id))?.category_name||''}
+function subName(id){return state.subcategories.find(x=>String(x.subcategory_id)===String(id))?.subcategory_name||''}
+function branchName(id){return state.subbranches.find(x=>String(x.subbranch_id)===String(id))?.subbranch_name||''}
+function provinceOptions(selected=''){
+  return '<option value="">همه استان‌ها</option>'+state.locations.filter(x=>x.location_type==='province').map(x=>`<option value="${esc(x.location_id)}" ${String(x.location_id)===String(selected)?'selected':''}>${esc(x.location_name)}</option>`).join('');
+}
+function cityOptions(province='',selected=''){
+  return '<option value="">همه شهرها</option>'+state.locations.filter(x=>x.location_type==='city'&&String(x.parent_id)===String(province)).map(x=>`<option value="${esc(x.location_id)}" ${String(x.location_id)===String(selected)?'selected':''}>${esc(x.location_name)}</option>`).join('');
+}
+async function init(){
+  try{
+    const [tree,locations]=await Promise.all([api('GET','categories_tree'),api('GET','locations')]);
+    state.categories=arr(tree.categories);
+    state.subcategories=arr(tree.subcategories);
+    state.subbranches=arr(tree.subbranches);
+    state.locations=arr(locations);
+  }catch(e){console.error(e);toast('دریافت اطلاعات پایه ناموفق بود: '+e.message,true)}
+  if(state.token){
+    try{const p=await api('POST','get_profile',{token:state.token});state.user=p.data||p;}
+    catch(e){state.token='';state.user=null;localStorage.removeItem(TOKEN_KEY);toast('نشست قبلی معتبر نیست؛ دوباره وارد شوید.',true)}
+  }
+  render();
+  if(state.page==='home')loadHomeResults();
+}
+function updateHeader(){
+  $('authNav').classList.toggle('hidden',!!state.token);
+  $('logoutNav').classList.toggle('hidden',!state.token);
+}
+function go(page){state.page=page;render();if(page==='home')loadHomeResults();if(page==='dashboard')loadDashboard()}
+function render(){
+  updateHeader();
+  if(state.page==='home')$('app').innerHTML=homeView();
+  else if(state.page==='search')$('app').innerHTML=searchView();
+  else if(state.page==='detail')$('app').innerHTML=detailView();
+  else if(state.page==='dashboard')$('app').innerHTML=dashboardView();
+  else $('app').innerHTML=homeView();
+}
+function homeView(){
+  const icons=['🍽️','💇','🚗','🛠️','🏠','🛍️','📚','🏥','💻','🎓','🏨','🐾','🌿','🎨','⚡','🚚','📷','🧰'];
+  return `<section class="hero"><div class="wrap hero-grid">
+    <div><div class="eyebrow">دایرکتوری هوشمند کسب‌وکارها و خدمات</div>
+      <h1>هر نیازی،<br>یک راه ساده برای پیدا کردن</h1>
+      <p>کسب‌وکارها، فروشگاه‌ها و خدمات موردنیازتان را جست‌وجو کنید؛ یا کسب‌وکار خود را در نیازیار معرفی کنید.</p>
+      <div class="searchbox"><input id="homeQ" placeholder="نام خدمت، محصول یا کسب‌وکار..." onkeydown="if(event.key==='Enter')homeSearch()"><select id="homeProvince">${provinceOptions()}</select><button class="btn" onclick="homeSearch()">جست‌وجو</button></div>
+    </div><div class="hero-art"><strong>نیازیار<br>دایرکتوری هوشمند نیازها</strong><span>معرفی کسب‌وکار • جست‌وجوی خدمات • ارتباط مستقیم</span></div>
+  </div></section>
+  <section class="section"><div class="wrap"><div class="section-head"><div><h2>دسته‌بندی‌ها</h2><div class="muted">از دسته موردنظر شروع کنید</div></div><button class="btn ghost small" onclick="startSearch()">همه دسته‌ها</button></div>
+    <div class="categories">${state.categories.length?state.categories.map((c,i)=>`<button class="cat" onclick="chooseCategory('${esc(c.category_id)}')"><span class="ico">${icons[i%icons.length]}</span><b>${esc(c.category_name)}</b></button>`).join(''):'<div class="empty">دسته‌بندی‌ای دریافت نشد. اتصال API و شیت Categories را بررسی کنید.</div>'}</div>
+  </div></section>
+  <section class="section"><div class="wrap"><div class="section-head"><div><h2>جدیدترین خدمات و محصولات</h2><div class="muted">موارد ثبت‌شده در نیازیار</div></div><button class="btn secondary small" onclick="startSearch()">مشاهده همه</button></div><div id="homeResults" class="grid"><div class="empty">در حال دریافت اطلاعات...</div></div></div></section>`;
+}
+function serviceCard(row){
+  const s=row.service||row, b=row.business||{};
+  const image=s.image_url||'';
+  return `<article class="card"><div class="cover">${image?`<img src="${esc(image)}" alt="" loading="lazy" onerror="this.remove()">`:'▦'}</div><div class="card-body">
+    <h3>${esc(s.item_name||'بدون عنوان')}</h3><div class="meta">${esc(b.business_name||'')}</div>
+    <div class="meta">${esc(locName(b.city_id))}${b.city_id?'، ':''}${esc(locName(b.province_id))}</div>
+    <div class="price">${money(s.price,s.price_type)}</div>
+    <button class="btn secondary small" style="margin-top:12px" onclick="openService('${esc(s.service_id)}')">مشاهده جزئیات</button>
+  </div></article>`;
+}
+async function loadHomeResults(){
+  const el=$('homeResults');if(!el)return;
+  try{const d=await api('GET','search_services',{});const rows=arr(d.data).slice(0,6);el.innerHTML=rows.length?rows.map(serviceCard).join(''):'<div class="empty">هنوز آگهی‌ای برای نمایش ثبت نشده است.</div>'}
+  catch(e){el.innerHTML=`<div class="empty">دریافت آگهی‌ها ناموفق بود: ${esc(e.message)}</div>`}
+}
+function startSearch(){state.path={category_id:'',subcategory_id:'',subbranch_id:''};state.search.q='';go('search');loadSearch()}
+function chooseCategory(id){state.path={category_id:id,subcategory_id:'',subbranch_id:''};go('search');loadSearch()}
+function chooseSubcategory(id){state.path.subcategory_id=id;state.path.subbranch_id='';render();loadSearch()}
+function chooseBranch(id){state.path.subbranch_id=id;render();loadSearch()}
+function searchLevel(){
+  if(!state.path.category_id)return 'categories';
+  if(!state.path.subcategory_id&&state.subcategories.some(x=>String(x.category_id)===String(state.path.category_id)))return 'subcategories';
+  if(state.path.subcategory_id&&!state.path.subbranch_id&&state.subbranches.some(x=>String(x.subcategory_id)===String(state.path.subcategory_id)))return 'subbranches';
+  return 'final';
+}
+function searchView(){
+  const level=searchLevel(), crumbs=[state.path.category_id?catName(state.path.category_id):'',state.path.subcategory_id?subName(state.path.subcategory_id):'',state.path.subbranch_id?branchName(state.path.subbranch_id):''].filter(Boolean);
+  let choices='';
+  if(level==='categories')choices=state.categories.map(c=>`<button class="choice" onclick="chooseCategory('${esc(c.category_id)}')"><b>${esc(c.category_name)}</b><span>انتخاب ←</span></button>`).join('');
+  if(level==='subcategories')choices=state.subcategories.filter(x=>String(x.category_id)===String(state.path.category_id)).map(c=>`<button class="choice" onclick="chooseSubcategory('${esc(c.subcategory_id)}')"><b>${esc(c.subcategory_name)}</b><span>انتخاب ←</span></button>`).join('');
+  if(level==='subbranches')choices=state.subbranches.filter(x=>String(x.subcategory_id)===String(state.path.subcategory_id)).map(c=>`<button class="choice" onclick="chooseBranch('${esc(c.subbranch_id)}')"><b>${esc(c.subbranch_name)}</b><span>انتخاب ←</span></button>`).join('');
+  return `<div class="page"><div class="wrap"><div class="toolbar"><div><h2 style="margin:0">جست‌وجوی نیازها</h2><div class="muted">دسته‌بندی موردنظر را انتخاب یا عبارت دلخواه را جست‌وجو کنید.</div></div><button class="btn ghost small" onclick="startSearch()">شروع مجدد</button></div>
+  <div class="panel" style="margin-bottom:16px"><div class="searchbox"><input id="searchQ" value="${esc(state.search.q)}" placeholder="جست‌وجوی عنوان، توضیحات یا نام کسب‌وکار" onkeydown="if(event.key==='Enter')runSearch()"><button class="btn" onclick="runSearch()">جست‌وجو</button></div>
+  <div class="crumbs" style="margin-top:14px"><button class="crumb" onclick="startSearch()">همه دسته‌ها</button>${crumbs.map((x,i)=>`<button class="crumb ${i===crumbs.length-1?'active':''}" onclick="backToLevel(${i})">${esc(x)}</button>`).join('')}</div>
+  ${level!=='final'?`<div style="margin-top:12px"><b>${level==='categories'?'دسته‌های اصلی':level==='subcategories'?'زیردسته‌ها':'زیرشاخه‌ها'}</b><div style="margin-top:12px">${choices||'<div class="empty">برای این دسته گزینه دیگری ثبت نشده است.</div>'}</div></div>`:''}
+  </div><div class="toolbar"><b id="resultCount">نتایج جست‌وجو</b></div><div id="searchResults" class="grid"><div class="empty">در حال جست‌وجو...</div></div></div></div>`;
+}
+function backToLevel(i){
+  if(i<0){startSearch();return}
+  if(i===0){state.path.subcategory_id='';state.path.subbranch_id=''}
+  else if(i===1)state.path.subbranch_id='';
+  render();loadSearch();
+}
+function searchParams(){
+  return {q:state.search.q,category_id:state.path.category_id,subcategory_id:state.path.subcategory_id};
+}
+async function loadSearch(){
+  const el=$('searchResults');if(!el)return;
+  el.innerHTML='<div class="empty">در حال جست‌وجو...</div>';
+  try{
+    const d=await api('GET','search_services',searchParams());
+    const rows=arr(d.data);state.results=rows;
+    el.innerHTML=rows.length?rows.map(serviceCard).join(''):'<div class="empty">در این مسیر آگهی‌ای پیدا نشد.</div>';
+    const count=$('resultCount');if(count)count.textContent=faNum(d.total??rows.length)+' آگهی';
+  }catch(e){el.innerHTML=`<div class="empty">${esc(e.message)}</div>`}
+}
+function runSearch(){state.search.q=$('searchQ')?.value||'';loadSearch()}
+function homeSearch(){state.search.q=$('homeQ')?.value||'';state.path={category_id:'',subcategory_id:'',subbranch_id:''};go('search');loadSearch()}
+async function openService(id){
+  try{const d=await api('GET','service_details',{service_id:id});state.selectedService=d;state.page='detail';render()}
+  catch(e){toast(e.message,true)}
+}
+function detailView(){
+  const d=state.selectedService||{},s=d.service||{},b=d.business||{},media=arr(d.media);
+  const img=media.find(x=>x.is_primary==='TRUE'||x.is_primary===true)?.media_url||s.image_url||media[0]?.media_url||'';
+  return `<div class="page"><div class="wrap"><button class="btn ghost small" onclick="go('search')">← بازگشت به نتایج</button><div class="detail-layout" style="margin-top:16px">
+  <section class="panel"><div class="detail-image">${img?`<img src="${esc(img)}" alt="${esc(s.item_name)}">`:'▦'}</div><h2 style="margin-bottom:8px">${esc(s.item_name||'')}</h2><div class="price">${money(s.price,s.price_type)}</div><p style="line-height:2;white-space:pre-wrap">${esc(s.description||'توضیحی ثبت نشده است.')}</p>
+  ${media.length>1?`<div class="row">${media.map(m=>`<img src="${esc(m.thumbnail_url||m.media_url)}" alt="" style="width:76px;height:65px;object-fit:cover;border-radius:10px">`).join('')}</div>`:''}
+  </section><aside class="panel"><h3>اطلاعات کسب‌وکار</h3><b>${esc(b.business_name||'')}</b><p class="meta">${esc(b.advertiser_name||'')}</p><p class="meta">${esc(b.province_name||locName(b.province_id))}${b.city_name||locName(b.city_id)?'، '+esc(b.city_name||locName(b.city_id)):''}</p><p class="meta">${esc(b.address||'')}</p>
+  ${b.mobile?`<a class="btn" style="display:block;text-align:center;text-decoration:none;margin-top:12px" href="tel:${esc(b.mobile)}">تماس با کسب‌وکار</a>`:''}
+  ${b.phone?`<a class="btn ghost" style="display:block;text-align:center;text-decoration:none;margin-top:8px" href="tel:${esc(b.phone)}">تلفن ثابت</a>`:''}
+  ${b.website?`<a class="btn secondary" style="display:block;text-align:center;text-decoration:none;margin-top:8px" target="_blank" rel="noopener" href="${safeWebsite(b.website)}">وب‌سایت</a>`:''}
+  ${b.instagram?`<p class="meta">اینستاگرام: ${esc(b.instagram)}</p>`:''}
+  <p class="hint">در این نسخه، ارسال پیام داخلی هنوز در API فعال نشده است؛ برای ارتباط از شماره تماس ثبت‌شده استفاده کنید.</p>
+  </aside></div></div></div>`;
+}
+function safeWebsite(v){let s=String(v||'').trim();if(!/^https?:\/\//i.test(s))s='https://'+s;try{let u=new URL(s);return ['http:','https:'].includes(u.protocol)?esc(u.href):'#'}catch{return '#'}}
+function openAuth(mode='login'){
+  $('modalTitle').textContent=mode==='register'?'ایجاد حساب کاربری':'ورود به نیازیار';
+  $('modalContent').innerHTML=`<div class="tabs"><button class="tab ${mode==='login'?'active':''}" onclick="openAuth('login')">ورود</button><button class="tab ${mode==='register'?'active':''}" onclick="openAuth('register')">ثبت‌نام</button></div>
+  ${mode==='register'?'<div class="field"><label>نام و نام خانوادگی *</label><input id="authName" maxlength="100"></div>':''}
+  <div class="field"><label>شماره موبایل *</label><input id="authPhone" inputmode="tel" autocomplete="tel"></div>
+  ${mode==='register'?'<div class="field"><label>ایمیل (اختیاری)</label><input id="authEmail" type="email"></div>':''}
+  <div class="field"><label>رمز عبور *</label><input id="authPassword" type="password" minlength="8" autocomplete="${mode==='login'?'current-password':'new-password'}"></div>
+  <button class="btn" style="width:100%" onclick="${mode==='register'?'register()':'login()'}">${mode==='register'?'ثبت‌نام':'ورود'}</button>`;
+  $('modal').classList.remove('hidden');
+}
+async function login(){
+  try{
+    const d=await api('POST','login',{phone:$('authPhone').value,password:$('authPassword').value});
+    if(!d.token)throw Error('توکن ورود در پاسخ API وجود ندارد.');
+    state.token=d.token;state.user=d.user||{};localStorage.setItem(TOKEN_KEY,d.token);
+    closeModal();updateHeader();toast('ورود موفق بود.');go('dashboard');
+  }catch(e){toast(e.message,true)}
+}
+async function register(){
+  try{
+    await api('POST','register',{name:$('authName').value,phone:$('authPhone').value,email:$('authEmail').value,password:$('authPassword').value});
+    toast('ثبت‌نام انجام شد؛ اکنون وارد شوید.');openAuth('login');
+  }catch(e){toast(e.message,true)}
+}
+function logout(){
+  /* API فعلی عملیات logout ندارد؛ توکن فقط از این مرورگر پاک می‌شود. */
+  state.token='';state.user=null;state.businesses=[];state.services=[];
+  localStorage.removeItem(TOKEN_KEY);updateHeader();go('home');toast('از حساب کاربری خارج شدید.');
+}
+function closeModal(){$('modal').classList.add('hidden')}
+function dashboardView(){
+  return `<div class="page"><div class="wrap"><div class="toolbar"><div><h2 style="margin:0">پنل کاربری</h2><div class="muted">مدیریت کسب‌وکارها و آگهی‌های شما</div></div><button class="btn ghost small" onclick="logout()">خروج</button></div>
+  <div class="tabs"><button class="tab active" id="tabBusinesses" onclick="dashTab('businesses')">کسب‌وکارهای من</button><button class="tab" id="tabServices" onclick="dashTab('services')">آگهی‌های من</button><button class="tab" id="tabProfile" onclick="dashTab('profile')">حساب کاربری</button></div>
+  <div id="dashContent"><div class="empty">در حال بارگذاری...</div></div></div></div>`;
+}
+async function loadDashboard(){
+  if(!state.token){openAuth('login');return}
+  try{const p=await api('POST','get_profile',{token:state.token});state.user=p.data||p;await dashTab('businesses')}
+  catch(e){toast(e.message,true);if(/نشست|وارد شوید|منقضی/i.test(e.message))logout()}
+}
+async function dashTab(tab){
+  ['businesses','services','profile'].forEach(x=>$('tab'+x[0].toUpperCase()+x.slice(1))?.classList.toggle('active',x===tab));
+  const el=$('dashContent');if(!el)return;el.innerHTML='<div class="empty">در حال دریافت اطلاعات...</div>';
+  try{
+    if(tab==='businesses'){
+      const d=await api('POST','get_my_businesses',{token:state.token});state.businesses=arr(d.data);
+      el.innerHTML=`<div class="toolbar"><b>کسب‌وکارهای من</b><button class="btn" onclick="businessForm()">+ ثبت کسب‌وکار</button></div><div class="grid">
+      ${state.businesses.length?state.businesses.map(b=>`<article class="card"><div class="card-body"><h3>${esc(b.business_name)}</h3><span class="status">ثبت‌شده</span><p class="meta">${esc(locName(b.city_id))}${b.city_id?'، ':''}${esc(locName(b.province_id))}<br>${esc(b.address||'')}</p><button class="btn small" onclick="serviceForm('${esc(b.business_id)}')">افزودن آگهی</button></div></article>`).join(''):'<div class="empty">هنوز کسب‌وکاری ثبت نکرده‌اید.</div>'}</div>`;
+    }else if(tab==='services'){
+      const d=await api('POST','get_my_services',{token:state.token});state.services=arr(d.data);
+      el.innerHTML=`<div class="toolbar"><b>آگهی‌های من</b><button class="btn" onclick="serviceForm()">+ ثبت آگهی</button></div><div class="grid">
+      ${state.services.length?state.services.map(s=>`<article class="card"><div class="card-body"><h3>${esc(s.item_name)}</h3><div class="meta">${esc(state.businesses.find(b=>String(b.business_id)===String(s.business_id))?.business_name||'')}</div><div class="price">${money(s.price,s.price_type)}</div><span class="hint">شناسه: ${esc(s.service_id)}</span></div></article>`).join(''):'<div class="empty">هنوز آگهی ثبت نکرده‌اید.</div>'}</div>`;
+    }else{
+      el.innerHTML=`<div class="panel"><h3>حساب کاربری</h3><p>نام: ${esc(state.user?.name||'')}</p><p>موبایل: ${esc(state.user?.phone||'')}</p></div>`;
+    }
+  }catch(e){el.innerHTML=`<div class="empty">${esc(e.message)}</div>`}
+}
+function businessForm(){
+  const categories=state.categories.map(c=>`<option value="${esc(c.category_id)}">${esc(c.category_name)}</option>`).join('');
+  $('modalTitle').textContent='ثبت کسب‌وکار جدید';
+  $('modalContent').innerHTML=`<div class="field"><label>نام کسب‌وکار *</label><input id="bName" maxlength="150"></div>
+  <div class="field"><label>دسته اصلی فعالیت *</label><select id="bCat"><option value="">انتخاب کنید</option>${categories}</select></div>
+  <div class="field"><label>زیردسته</label><select id="bSub"><option value="">انتخاب کنید</option></select></div>
+  <div class="field"><label>زیرشاخه</label><select id="bBranch"><option value="">انتخاب کنید</option></select></div>
+  <div class="field"><label>استان</label><select id="bProvince" onchange="refreshBusinessCities()">${provinceOptions()}</select></div>
+  <div class="field"><label>شهر</label><select id="bCity">${cityOptions()}</select></div>
+  <div class="two"><div class="field"><label>موبایل</label><input id="bMobile" inputmode="tel"></div><div class="field"><label>تلفن ثابت</label><input id="bPhone" inputmode="tel"></div></div>
+  <div class="field"><label>نشانی</label><textarea id="bAddress"></textarea></div>
+  <div class="field"><label>توضیحات کسب‌وکار</label><textarea id="bDesc"></textarea></div>
+  <button class="btn" id="saveBusinessBtn" onclick="saveBusiness()">ثبت کسب‌وکار</button>`;
+  $('modal').classList.remove('hidden');
+  $('bCat').addEventListener('change',refreshBusinessSubs);
+}
+function refreshBusinessSubs(){
+  const id=$('bCat').value;
+  $('bSub').innerHTML='<option value="">انتخاب کنید</option>'+state.subcategories.filter(x=>String(x.category_id)===String(id)).map(x=>`<option value="${esc(x.subcategory_id)}">${esc(x.subcategory_name)}</option>`).join('');
+  $('bBranch').innerHTML='<option value="">انتخاب کنید</option>';
+  $('bSub').onchange=refreshBusinessBranches;
+}
+function refreshBusinessBranches(){
+  const id=$('bSub').value;
+  $('bBranch').innerHTML='<option value="">انتخاب کنید</option>'+state.subbranches.filter(x=>String(x.subcategory_id)===String(id)).map(x=>`<option value="${esc(x.subbranch_id)}">${esc(x.subbranch_name)}</option>`).join('');
+}
+function refreshBusinessCities(){$('bCity').innerHTML=cityOptions($('bProvince').value)}
+async function saveBusiness(){
+  const btn=$('saveBusinessBtn');btn.disabled=true;btn.textContent='در حال ثبت...';
+  const payload={token:state.token,business_name:$('bName').value,business_description:$('bDesc').value,category_id:$('bCat').value,subcategory_id:$('bSub').value,subbranch_id:$('bBranch').value,province_id:$('bProvince').value,city_id:$('bCity').value,mobile:$('bMobile').value,phone:$('bPhone').value,address:$('bAddress').value};
+  try{await api('POST','create_business',payload);closeModal();toast('کسب‌وکار با موفقیت ثبت شد.');await dashTab('businesses')}
+  catch(e){toast(e.message,true);btn.disabled=false;btn.textContent='ثبت کسب‌وکار'}
+}
+function serviceForm(businessId=''){
+  if(!state.businesses.length){toast('ابتدا یک کسب‌وکار ثبت کنید.',true);return}
+  const sCats=state.categories.map(c=>`<option value="${esc(c.category_id)}">${esc(c.category_name)}</option>`).join('');
+  $('modalTitle').textContent='ثبت آگهی جدید';
+  $('modalContent').innerHTML=`<div class="field"><label>کسب‌وکار *</label><select id="sBiz">${state.businesses.map(b=>`<option value="${esc(b.business_id)}" ${String(b.business_id)===String(businessId)?'selected':''}>${esc(b.business_name)}</option>`).join('')}</select></div>
+  <div class="field"><label>نوع آگهی</label><select id="sType"><option value="service">خدمت</option><option value="product">محصول</option><option value="menu_item">آیتم منو</option></select></div>
+  <div class="field"><label>دسته اصلی *</label><select id="sCat"><option value="">انتخاب کنید</option>${sCats}</select></div>
+  <div class="field"><label>زیردسته</label><select id="sSub"><option value="">انتخاب کنید</option></select></div>
+  <div class="field"><label>زیرشاخه</label><select id="sBranch"><option value="">انتخاب کنید</option></select></div>
+  <div class="field"><label>عنوان آگهی *</label><input id="sName" maxlength="150"></div>
+  <div class="field"><label>توضیحات</label><textarea id="sDesc"></textarea></div>
+  <div class="two"><div class="field"><label>قیمت</label><input id="sPrice" type="number" min="0"></div><div class="field"><label>نوع قیمت</label><select id="sPriceType"><option value="fixed">قیمت ثابت</option><option value="from">شروع از</option><option value="negotiable">توافقی</option><option value="free">رایگان</option><option value="contact">تماس بگیرید</option></select></div></div>
+  <div class="field"><label>تصاویر (حداکثر ۵ تصویر، هرکدام حداکثر ۲ مگابایت)</label><input id="sImages" type="file" accept="image/jpeg,image/png,image/webp" multiple><div class="hint">تصاویر پس از ثبت آگهی بارگذاری می‌شوند.</div></div>
+  <button class="btn" id="saveServiceBtn" onclick="saveService()">ثبت آگهی</button>`;
+  $('modal').classList.remove('hidden');
+  $('sCat').addEventListener('change',refreshServiceSubs);
+  $('sSub').addEventListener('change',refreshServiceBranches);
+}
+function refreshServiceSubs(){
+  const id=$('sCat').value;
+  $('sSub').innerHTML='<option value="">انتخاب کنید</option>'+state.subcategories.filter(x=>String(x.category_id)===String(id)).map(x=>`<option value="${esc(x.subcategory_id)}">${esc(x.subcategory_name)}</option>`).join('');
+  $('sBranch').innerHTML='<option value="">انتخاب کنید</option>';
+}
+function refreshServiceBranches(){
+  const id=$('sSub').value;
+  $('sBranch').innerHTML='<option value="">انتخاب کنید</option>'+state.subbranches.filter(x=>String(x.subcategory_id)===String(id)).map(x=>`<option value="${esc(x.subbranch_id)}">${esc(x.subbranch_name)}</option>`).join('');
+}
+function fileBase64(file){
+  return new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(String(r.result).split(',')[1]);r.onerror=()=>reject(Error('خواندن تصویر ناموفق بود.'));r.readAsDataURL(file)});
+}
+async function saveService(){
+  const btn=$('saveServiceBtn');btn.disabled=true;btn.textContent='در حال ثبت...';
+  try{
+    const files=Array.from($('sImages').files||[]);
+    if(files.length>5)throw Error('حداکثر ۵ تصویر می‌توانید انتخاب کنید.');
+    for(const f of files){if(f.size>2*1024*1024)throw Error('حجم هر تصویر باید حداکثر ۲ مگابایت باشد.');if(!['image/jpeg','image/png','image/webp'].includes(f.type))throw Error('فرمت تصویر باید JPG، PNG یا WEBP باشد.')}
+    const d=await api('POST','create_service',{token:state.token,business_id:$('sBiz').value,item_type:$('sType').value,category_id:$('sCat').value,subcategory_id:$('sSub').value,subbranch_id:$('sBranch').value,item_name:$('sName').value,description:$('sDesc').value,price:$('sPrice').value,price_type:$('sPriceType').value});
+    if(!d.service_id)throw Error('آگهی ثبت شد اما شناسه آن از سرور دریافت نشد.');
+    let uploadErrors=[];
+    for(let i=0;i<files.length;i++){
+      try{const base64=await fileBase64(files[i]);await api('POST','upload_service_media',{token:state.token,service_id:d.service_id,file_name:files[i].name,mime_type:files[i].type,file_data:base64,is_primary:i===0})}
+      catch(e){uploadErrors.push(files[i].name+': '+e.message)}
+    }
+    closeModal();await dashTab('services');
+    if(uploadErrors.length)toast('آگهی ثبت شد؛ اما بارگذاری برخی تصاویر ناموفق بود: '+uploadErrors.join(' | '),true);
+    else toast('آگهی با موفقیت ثبت شد.');
+  }catch(e){toast(e.message,true);btn.disabled=false;btn.textContent='ثبت آگهی'}
+}
+init();
+</script>
+</body>
+</html>
