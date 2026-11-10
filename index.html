@@ -1,0 +1,908 @@
+﻿<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2563eb">
+<title>نیازیار | دایرکتوری هوشمند کسب‌وکارها و خدمات</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<style>
+:root{
+  --blue:#2563eb;--blue2:#1d4ed8;--navy:#142b65;--green:#07945b;
+  --ink:#172033;--muted:#718096;--line:#e6eaf1;--bg:#f5f7fb;
+  --card:#fff;--shadow:0 12px 35px rgba(20,42,90,.08);--radius:22px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Vazirmatn,Tahoma,sans-serif}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+.container{width:min(1180px,calc(100% - 32px));margin:auto}
+.topbar{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;align-items:center;gap:10px;font-size:25px;font-weight:950;color:var(--blue)}
+.brand-mark{width:42px;height:42px;border-radius:14px;background:linear-gradient(145deg,#3b82f6,#1d4ed8);display:grid;place-items:center;color:#fff;font-size:23px;box-shadow:0 8px 18px #2563eb35}
+.navlinks{display:flex;align-items:center;gap:8px}
+.navlinks button{border:0;background:transparent;padding:11px 15px;border-radius:13px;color:#344054;font-weight:700}
+.navlinks button:hover{background:#eff5ff;color:var(--blue)}
+.btn{border:0;border-radius:14px;padding:12px 18px;font-weight:800;transition:.2s}
+.btn-primary{background:var(--blue);color:#fff;box-shadow:0 8px 18px #2563eb25}
+.btn-primary:hover{background:var(--blue2);transform:translateY(-1px)}
+.btn-green{background:var(--green);color:#fff}
+.btn-light{background:#fff;border:1px solid var(--line);color:#344054}
+.btn-danger{background:#fff1f2;color:#be123c}
+.icon-btn{width:42px;height:42px;border:1px solid var(--line);background:#fff;border-radius:13px}
+.hero{background:linear-gradient(125deg,#2865e8 0%,#1d45b4 100%);color:#fff;padding:42px 0 48px;border-radius:0 0 34px 34px;overflow:hidden;position:relative}
+.hero:before,.hero:after{content:"";position:absolute;border:1px solid #ffffff18;border-radius:50%;pointer-events:none}
+.hero:before{width:380px;height:380px;left:-100px;top:-210px}
+.hero:after{width:260px;height:260px;right:-100px;bottom:-180px}
+.hero-inner{position:relative;z-index:1}
+.hero h1{font-size:clamp(24px,4vw,36px);line-height:1.6;margin:0 0 8px;font-weight:950}
+.hero p{margin:0 0 24px;color:#e2eaff;font-size:16px}
+.searchbox{display:flex;gap:10px;padding:9px;background:#fff;border-radius:22px;box-shadow:0 18px 38px #102e7b35;max-width:850px}
+.searchbox input{flex:1;min-width:0;border:0;outline:0;padding:10px 14px;color:var(--ink);background:#f7f8fb;border-radius:15px}
+.searchbox button{min-width:112px}
+.quick-row{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin-top:20px}
+.quick-chip{min-height:58px;border:1px solid #ffffff45;background:#ffffff18;color:#fff;border-radius:15px;padding:9px 8px;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;gap:8px;text-align:center;line-height:1.5;transition:.18s}
+.quick-chip:hover{background:#ffffff30;border-color:#fff;transform:translateY(-2px)}
+.quick-chip .quick-icon{font-size:19px;flex:0 0 auto}
+@media(max-width:760px){.quick-row{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.quick-chip{min-height:55px;font-size:12px;padding:7px 5px}}
+.section{padding:34px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:14px;margin-bottom:20px}
+.section-head h2{margin:0;font-size:25px;font-weight:950}
+.section-head p{margin:5px 0 0;color:var(--muted);font-size:14px}
+.category-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
+.category-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px 10px;min-height:126px;text-align:center;box-shadow:0 5px 18px #1d35590a;transition:.2s;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.category-card:hover{border-color:#9bbcff;box-shadow:var(--shadow);transform:translateY(-3px)}
+.category-icon{width:48px;height:48px;border-radius:16px;background:#eff5ff;color:var(--blue);display:grid;place-items:center;font-size:25px}
+.category-card strong{font-size:14px;line-height:1.7}
+.category-card small{color:var(--muted);font-size:11px}
+.breadcrumb{display:flex;align-items:center;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:13px;margin-bottom:18px}
+.breadcrumb button{border:0;background:transparent;color:var(--blue);padding:0;font-weight:800}
+.sub-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.sub-card{display:flex;align-items:center;gap:12px;text-align:right;padding:16px;background:#fff;border:1px solid var(--line);border-radius:17px;min-height:74px}
+.sub-card:hover{border-color:#9bbcff;background:#fafdff}
+.sub-icon{width:40px;height:40px;flex:none;border-radius:13px;background:#eef4ff;color:var(--blue);display:grid;place-items:center;font-size:20px}
+.empty-box{background:#fff;border:1px dashed #cbd5e1;border-radius:22px;padding:38px 18px;text-align:center;color:var(--muted)}
+.empty-box .empty-symbol{font-size:38px;margin-bottom:8px}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;background:#fff;border:1px solid var(--line);border-radius:18px;padding:13px;margin-bottom:18px}
+.toolbar input,.toolbar select{border:1px solid var(--line);background:#f9fafc;border-radius:12px;padding:10px 12px;min-width:140px;outline:0}
+.browse-filterbar{margin-top:18px}.browse-filterbar input{flex:1;min-width:190px}
+.product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.product-card{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:.2s;cursor:pointer}
+.product-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.product-image{height:165px;background:linear-gradient(135deg,#edf3ff,#f8fafc);display:grid;place-items:center;color:#8aa6d8;font-size:42px;overflow:hidden}
+.product-image img{width:100%;height:100%;object-fit:cover}
+.product-body{padding:14px}
+.product-body h3{font-size:15px;margin:0 0 7px;line-height:1.7}
+.product-meta{font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:8px}
+.price{font-weight:900;color:var(--blue);margin-top:12px}
+.badge{display:inline-flex;align-items:center;border-radius:999px;background:#edf4ff;color:#2457b8;padding:4px 9px;font-size:11px;font-weight:800}
+.business-strip{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:12px;margin-top:12px}
+.business-strip img{width:28px;height:28px;border-radius:9px;object-fit:cover;background:#eef2f7}
+.footer{margin-top:30px;background:#111f42;color:#d9e4ff;padding:34px 0}
+.footer-inner{display:flex;justify-content:space-between;gap:25px;flex-wrap:wrap}
+.footer strong{font-size:20px;color:#fff}
+.footer p{color:#aebde0;max-width:480px;line-height:2;font-size:13px}
+.view{display:none;min-height:55vh}
+.view.active{display:block}
+.detail-layout{display:grid;grid-template-columns:1.3fr .7fr;gap:18px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 5px 20px #1d355908}
+.panel h2,.panel h3{margin-top:0}
+.detail-photo{height:290px;background:#edf3ff;border-radius:18px;display:grid;place-items:center;overflow:hidden;font-size:55px;color:#9bb1d8;position:relative}
+.detail-photo img{width:100%;height:100%;object-fit:cover}
+.detail-description{color:#596579;line-height:2}
+.field{display:flex;flex-direction:column;gap:7px;margin-bottom:13px}
+.field label{font-size:13px;font-weight:800;color:#344054}
+.field input,.field select,.field textarea{width:100%;border:1px solid #dce3ed;border-radius:12px;padding:11px 12px;background:#fff;outline:0}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#80a9ff;box-shadow:0 0 0 3px #2563eb15}
+.field textarea{min-height:95px;resize:vertical}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 13px}
+.modal-backdrop{display:none;position:fixed;inset:0;background:#0b1739a8;z-index:60;padding:18px;overflow:auto}
+.modal-backdrop.show{display:flex;align-items:center;justify-content:center}
+.modal{background:#fff;border-radius:24px;width:min(540px,100%);padding:24px;max-height:92vh;overflow:auto;box-shadow:0 25px 80px #0003}
+.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.modal-head h2{margin:0;font-size:22px}
+.tabs{display:flex;background:#f1f4f9;border-radius:13px;padding:4px;margin-bottom:18px}
+.tabs button{flex:1;border:0;background:transparent;padding:10px;border-radius:10px;font-weight:800;color:#667085}
+.tabs button.active{background:#fff;color:var(--blue);box-shadow:0 2px 8px #0000000c}
+.dashboard-grid{display:grid;grid-template-columns:240px 1fr;gap:18px}
+.side-menu{background:#fff;border:1px solid var(--line);border-radius:20px;padding:12px;height:max-content}
+.side-menu button{display:flex;width:100%;gap:10px;align-items:center;text-align:right;border:0;background:transparent;padding:13px;border-radius:12px;color:#46536a;font-weight:800}
+.side-menu button.active,.side-menu button:hover{background:#edf4ff;color:var(--blue)}
+.dash-content{min-width:0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:17px;padding:16px}
+.stat b{font-size:25px;color:var(--blue);display:block}
+.stat span{font-size:12px;color:var(--muted)}
+.list-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid #eef1f5}
+.list-row:last-child{border:0}
+.toast-wrap{position:fixed;left:16px;bottom:18px;z-index:100;display:flex;flex-direction:column;gap:8px}
+.toast{background:#14213d;color:#fff;border-radius:13px;padding:12px 16px;box-shadow:0 12px 30px #0002;max-width:min(390px,calc(100vw - 32px));font-size:13px}
+.toast.error{background:#991b1b}.toast.success{background:#086344}
+.loading{padding:28px;text-align:center;color:var(--muted)}
+.spinner{display:inline-block;width:20px;height:20px;border:3px solid #dbe7ff;border-top-color:var(--blue);border-radius:50%;animation:spin .8s linear infinite;vertical-align:middle;margin-left:8px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hidden{display:none!important}
+.mobile-menu{display:none}
+@media(max-width:980px){.category-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.product-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.sub-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:650px){
+ .container{width:calc(100% - 28px)}.nav{height:66px}.brand{font-size:22px}.brand-mark{width:37px;height:37px}
+ .navlinks button:not(.login-nav){display:none}.navlinks .btn{padding:10px 13px;font-size:13px}
+ .hero{padding:30px 0 34px;border-radius:0 0 26px 26px}.hero h1{font-size:23px}.hero p{font-size:13px}
+ .searchbox{padding:7px;border-radius:18px;gap:7px}.searchbox input{font-size:13px;padding:9px}.searchbox button{min-width:72px;padding:10px;font-size:13px}
+ .section{padding:27px 0}.section-head h2{font-size:21px}
+ .category-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+ .category-card{min-height:112px;padding:12px 5px;border-radius:16px;gap:7px}
+ .category-icon{width:42px;height:42px;font-size:22px;border-radius:14px}
+ .category-card strong{font-size:12px}
+ .sub-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.sub-card{padding:12px 9px;font-size:13px}
+ .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .product-image{height:125px}.product-body{padding:11px}.product-body h3{font-size:13px}
+ .product-meta{font-size:10px}.price{font-size:13px}
+ .detail-layout{grid-template-columns:1fr}.detail-photo{height:220px}
+ .form-grid{grid-template-columns:1fr}
+ .dashboard-grid{grid-template-columns:1fr}.side-menu{display:flex;overflow:auto;gap:4px}.side-menu button{white-space:nowrap;width:auto;flex:none;padding:10px}
+ .stats{grid-template-columns:repeat(3,1fr);gap:7px}.stat{padding:12px 9px}.stat b{font-size:20px}.stat span{font-size:10px}
+ .toolbar>*{flex:1;min-width:calc(50% - 8px)}.footer-inner{display:block}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="#" onclick="goHome();return false"><span class="brand-mark">ن</span><span>نیازیار</span></a>
+    <nav class="navlinks">
+      <button onclick="goHome()">صفحه اصلی</button>
+      <button onclick="scrollToCategories()">دسته‌بندی‌ها</button>
+      <button onclick="showSearch()">جست‌وجو</button>
+      <button class="btn btn-primary login-nav" id="authNav" onclick="openAuth()">ورود / ثبت‌نام</button>
+      <button class="btn btn-light hidden" id="dashNav" onclick="openDashboard()">پنل من</button>
+    </nav>
+  </div>
+</header>
+
+
+<main>
+<section id="homeView" class="view active">
+  <div class="hero">
+    <div class="container hero-inner">
+      <h1>نیازیار؛ دایرکتوری هوشمند کسب‌وکارها و خدمات</h1>
+      <p>کسب‌وکار، محصول یا خدمت موردنظرت را سریع‌تر پیدا کن.</p>
+      <form class="searchbox" onsubmit="submitSearch(event)">
+        <input id="heroQuery" type="search" placeholder="مثلاً: آرایشگاه، تعمیر خودرو، کافه..." aria-label="عبارت جست‌وجو">
+        <button class="btn btn-green" type="submit">⌕ جست‌وجو</button>
+      </form>
+      <div class="quick-row" id="quickCategories" aria-label="دسته‌بندی‌های اصلی">
+        <div class="quick-chip" style="grid-column:1/-1">در حال دریافت دسته‌بندی‌ها...</div>
+      </div>
+    </div>
+  </div>
+
+
+  <section class="section container" id="latestSection">
+    <div class="section-head">
+      <div><h2>آخرین محصولات و خدمات</h2><p>جدیدترین موارد ثبت‌شده در نیازیار</p></div>
+      <button class="btn btn-light" onclick="runSearch({})">مشاهده همه</button>
+    </div>
+    <div id="latestArea"><div class="loading"><span class="spinner"></span> در حال دریافت اطلاعات...</div></div>
+  </section>
+</section>
+
+
+<section id="browseView" class="view">
+  <div class="container section">
+    <div id="browseBreadcrumb" class="breadcrumb"></div>
+    <div class="section-head">
+      <div><h2 id="browseTitle">دسته‌بندی‌ها</h2><p id="browseSubtitle">یک گزینه را انتخاب کن.</p></div>
+      <button class="btn btn-light" onclick="goHome()">بازگشت به خانه</button>
+    </div>
+    <div id="browseArea"></div>
+    <div class="section-head" style="margin-top:28px">
+      <div><h2 id="browseAdsTitle">آگهی‌های مرتبط</h2><p>آگهی‌ها و خدمات ثبت‌شده در همین دسته‌بندی</p></div>
+    </div>
+    <div class="toolbar browse-filterbar">
+      <input id="browseQuery" type="search" placeholder="جست‌وجو در آگهی‌های این دسته">
+      <select id="browseProvince" onchange="fillCities('browse')"><option value="">همه استان‌ها</option></select>
+      <select id="browseCity"><option value="">همه شهرها</option></select>
+      <select id="browseSort"><option value="newest">جدیدترین</option><option value="price_asc">ارزان‌ترین</option><option value="price_desc">گران‌ترین</option></select>
+      <button class="btn btn-primary" onclick="applyBrowseFilters()">اعمال فیلتر</button>
+    </div>
+    <div id="browseAdsArea"><div class="loading">در حال دریافت آگهی‌های مرتبط...</div></div>
+  </div>
+</section>
+
+
+<section id="searchView" class="view">
+  <div class="container section">
+    <div class="section-head"><div><h2>نتایج جست‌وجو</h2><p id="searchSummary">نتایج مطابق انتخاب شما</p></div><button class="btn btn-light" onclick="goHome()">خانه</button></div>
+    <div class="toolbar">
+      <input id="filterQuery" placeholder="جست‌وجو در نتایج">
+      <select id="filterProvince" onchange="fillCities('filter')"><option value="">همه استان‌ها</option></select>
+      <select id="filterCity"><option value="">همه شهرها</option></select>
+      <select id="filterSort"><option value="newest">جدیدترین</option><option value="price_asc">ارزان‌ترین</option><option value="price_desc">گران‌ترین</option></select>
+      <button class="btn btn-primary" onclick="applyFilters()">اعمال فیلتر</button>
+    </div>
+    <div id="resultsArea"><div class="loading"><span class="spinner"></span> در حال جست‌وجو...</div></div>
+    <div id="paginationArea" class="section-head" style="margin-top:18px"></div>
+  </div>
+</section>
+
+
+<section id="detailView" class="view">
+  <div class="container section">
+    <div class="breadcrumb"><button onclick="goHome()">صفحه اصلی</button><span>›</span><span>جزئیات</span></div>
+    <div id="detailArea"><div class="loading"><span class="spinner"></span> در حال دریافت جزئیات...</div></div>
+  </div>
+</section>
+
+
+<section id="dashboardView" class="view">
+  <div class="container section">
+    <div class="section-head"><div><h2>پنل مدیریت من</h2><p>مدیریت کسب‌وکارها، آگهی‌ها و پیام‌ها</p></div><button class="btn btn-light" onclick="goHome()">بازگشت به سایت</button></div>
+    <div class="dashboard-grid">
+      <aside class="side-menu">
+        <button class="active" data-tab="overview" onclick="dashTab('overview',this)">▦ نمای کلی</button>
+        <button data-tab="businesses" onclick="dashTab('businesses',this)">⌂ کسب‌وکارهای من</button>
+        <button data-tab="services" onclick="dashTab('services',this)">▤ آگهی‌های من</button>
+        <button data-tab="messages" onclick="dashTab('messages',this)">✉ پیام‌های دریافتی</button>
+        <button onclick="logout()">↪ خروج از حساب</button>
+      </aside>
+      <div class="dash-content" id="dashContent"><div class="loading"><span class="spinner"></span> در حال دریافت پنل...</div></div>
+    </div>
+  </div>
+</section>
+</main>
+
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div><strong>نیازیار</strong><p>دایرکتوری هوشمند کسب‌وکارها و خدمات؛ راهی ساده برای پیدا کردن خدمات و معرفی حرفه‌ای کسب‌وکارها.</p></div>
+    <div><p>© نیازیار — تمامی حقوق محفوظ است.</p><p>نسخه رابط کاربری هماهنگ با API v20.2.5</p></div>
+  </div>
+</footer>
+
+
+<div class="modal-backdrop" id="authModal" onclick="if(event.target===this)closeModal('authModal')">
+  <div class="modal">
+    <div class="modal-head"><h2>ورود به نیازیار</h2><button class="icon-btn" onclick="closeModal('authModal')">✕</button></div>
+    <div class="tabs"><button id="loginTab" class="active" onclick="authMode('login')">ورود</button><button id="registerTab" onclick="authMode('register')">ثبت‌نام</button></div>
+    <form id="authForm" onsubmit="submitAuth(event)">
+      <div id="registerName" class="field hidden"><label>نام و نام خانوادگی</label><input name="name" maxlength="100" autocomplete="name"></div>
+      <div class="field"><label>شماره موبایل</label><input name="phone" inputmode="tel" autocomplete="tel" placeholder="09xxxxxxxxx" required></div>
+      <div id="registerEmail" class="field hidden"><label>ایمیل (اختیاری)</label><input name="email" type="email" autocomplete="email"></div>
+      <div class="field"><label>رمز عبور</label><div style="display:flex;gap:8px"><input id="authPassword" name="password" type="password" minlength="8" required style="flex:1"><button type="button" class="icon-btn" onclick="togglePassword('authPassword',this)">◉</button></div></div>
+      <button class="btn btn-primary" id="authSubmit" style="width:100%">ورود</button>
+    </form>
+  </div>
+</div>
+
+
+<div class="modal-backdrop" id="businessModal" onclick="if(event.target===this)closeModal('businessModal')">
+  <div class="modal">
+    <div class="modal-head"><h2>ثبت کسب‌وکار جدید</h2><button class="icon-btn" onclick="closeModal('businessModal')">✕</button></div>
+    <form id="businessForm" onsubmit="submitBusiness(event)">
+      <div class="field"><label>نام کسب‌وکار *</label><input name="business_name" required maxlength="150"></div>
+      <div class="field"><label>دسته‌بندی اصلی *</label><select name="category_id" id="bizCategory" required onchange="fillHierarchy('biz')"></select></div>
+      <div class="form-grid">
+        <div class="field"><label>زیر‌دسته</label><select name="subcategory_id" id="bizSubcategory" onchange="fillHierarchy('biz')"><option value="">انتخاب نشده</option></select></div>
+        <div class="field"><label>زیرشاخه</label><select name="subbranch_id" id="bizSubbranch"><option value="">انتخاب نشده</option></select></div>
+      </div>
+      <div class="form-grid">
+        <div class="field"><label>استان</label><select name="province_id" id="bizProvince" onchange="fillCities('biz')"></select></div>
+        <div class="field"><label>شهر</label><select name="city_id" id="bizCity"></select></div>
+      </div>
+      <div class="form-grid">
+        <div class="field"><label>موبایل</label><input name="mobile" inputmode="tel" placeholder="09xxxxxxxxx"></div>
+        <div class="field"><label>تلفن ثابت</label><input name="phone" inputmode="tel"></div>
+      </div>
+      <div class="field"><label>نشانی</label><input name="address" maxlength="500"></div>
+      <div class="field"><label>معرفی کسب‌وکار</label><textarea name="business_description" maxlength="3000"></textarea></div>
+      <button class="btn btn-primary" style="width:100%">ثبت کسب‌وکار</button>
+    </form>
+  </div>
+</div>
+
+
+<!-- فرم ساده شده ثبت آگهی -->
+<div class="modal-backdrop" id="serviceModal" onclick="if(event.target===this)closeModal('serviceModal')">
+  <div class="modal">
+    <div class="modal-head"><h2>ثبت آگهی جدید</h2><button class="icon-btn" onclick="closeModal('serviceModal')">✕</button></div>
+    <form id="serviceForm" onsubmit="submitService(event)" enctype="multipart/form-data">
+      <div class="field"><label>کسب‌وکار (پروفایل) *</label><select name="business_id" id="serviceBusiness" required onchange="selectServiceBusiness()"></select></div>
+      <div class="field"><label>عنوان آگهی *</label><input name="item_name" required minlength="2" maxlength="100" placeholder="مثلا: تعمیر یخچال سامسونگ"></div>
+      
+      <div class="field"><label>دسته‌بندی اصلی *</label><select name="category_id" id="serviceCategory" required onchange="fillHierarchy('service')"></select></div>
+      <div class="form-grid">
+        <div class="field"><label>زیر‌دسته</label><select name="subcategory_id" id="serviceSubcategory" onchange="fillHierarchy('service')"><option value="">انتخاب نشده</option></select></div>
+        <div class="field"><label>زیرشاخه</label><select name="subbranch_id" id="serviceSubbranch"><option value="">انتخاب نشده</option></select></div>
+      </div>
+
+
+      <div class="form-grid">
+        <div class="field"><label>قیمت (تومان)</label><input name="price" inputmode="decimal" placeholder="مثلاً 250000"></div>
+        <div class="field"><label>نوع قیمت</label><select name="price_type"><option value="fixed">قیمت ثابت</option><option value="starting_from">شروع از</option><option value="negotiable">توافقی</option><option value="contact">تماس بگیرید</option></select></div>
+      </div>
+
+
+      <div class="field"><label>توضیحات</label><textarea name="description" maxlength="3000"></textarea></div>
+      
+      <!-- آپلود عکس -->
+      <div class="field" style="background:#f8fafc;padding:12px;border-radius:12px;border:1px dashed #cbd5e1">
+        <label style="color:var(--blue)">افزودن عکس (اختیاری - حداکثر ۵ عکس)</label>
+        <input type="file" id="adImagesInput" accept="image/*" multiple style="border:0;padding:0;background:transparent">
+        <small style="color:var(--muted);display:block;margin-top:5px">فرمت‌های مجاز: JPG, PNG, WebP (حداکثر 2 مگابایت برای هر عکس)</small>
+      </div>
+
+
+      <button class="btn btn-primary" id="submitAdBtn" style="width:100%">ثبت آگهی</button>
+    </form>
+  </div>
+</div>
+
+
+<div class="toast-wrap" id="toastWrap"></div>
+
+
+<script>
+"use strict";
+// آدرس جدید API
+const API_URL = "https://script.google.com/macros/s/AKfycbxe0HwfQd118Lnnviuj_inu7TP_EZq6XSeeJLCKIKohMlwjhhr3Udt8G8LMnpFXiM3RsQ/exec";
+const TOKEN_KEY = "niyazyar_token_v20_2_5";
+const state = {
+  token: localStorage.getItem(TOKEN_KEY) || "",
+  user: null, categories: [], subcategories: [], subbranches: [], locations: [],
+  provinces: [], cities: [], businesses: [], myServices: [], messages: [],
+  currentCategory: null, currentSubcategory: null, currentPage: 1, currentServiceId: null,
+  lastSearch: {}, authMode: "login", activeBusiness: null,
+  browseFilters: {q:"",province_id:"",city_id:"",sort:"newest"}
+};
+const $ = id => document.getElementById(id);
+const esc = value => String(value ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const faNum = value => Number(value || 0).toLocaleString("fa-IR");
+function toast(message,type=""){const el=document.createElement("div");el.className="toast "+type;el.textContent=message;$("toastWrap").appendChild(el);setTimeout(()=>el.remove(),4200)}
+function closeModal(id){$(id).classList.remove("show")}
+function openModal(id){$(id).classList.add("show")}
+function togglePassword(id,btn){const input=$(id);input.type=input.type==="password"?"text":"password";btn.textContent=input.type==="password"?"◉":"◎"}
+function iconFor(cat){const s=(cat.category_slug||"")+" "+(cat.category_name||"");const map=[[/food|restaurant|cafe|خوراک|غذا|کافه/,"🍽"],[/shop|store|فروشگاه|مغازه/,"🛍"],[/health|clinic|پزشک|درمان|سلامت/,"✚"],[/beauty|salon|زیبایی/,"✂"],[/auto|transport|خودرو|حمل/,"🚗"],[/real-estate|املاک/,"🏠"],[/construction|technical|فنی|ساختمان/,"🔧"],[/travel|tour|سفر/,"✈"],[/sport|recreation|ورزش/,"⚽"],[/education|آموزش/,"🎓"],[/financial|legal|مالی|حقوقی/,"⚖"],[/culture|handicraft|فرهنگ|صنایع دستی/,"🎨"],[/media|advertising|رسانه|تبلیغات/,"📣"],[/agriculture|کشاورزی|دامپروری/,"🌱"],[/pet|veterinary|حیوان/,"🐾"],[/event|ceremony|مراسم/,"🎉"],[/home-general|منزل|عمومی/,"🏡"],[/manufacturing|industry|تولید|صنایع/,"🏭"]];for(const [re,ic] of map)if(re.test(s))return ic;return cat.icon||"◈"}
+
+
+function normalizeEnvelope(json){
+  if(!json || typeof json!=="object") throw new Error("پاسخ سرور قابل‌خواندن نیست.");
+  if(json.ok===false || json.success===false) throw new Error(json.message||json.error||"درخواست ناموفق بود.");
+  return {root:json, data: json.data || json.result};
+}
+
+
+async function apiGet(action,params={}){
+  const url=new URL(API_URL);url.searchParams.set("action",action);
+  Object.entries(params).forEach(([k,v])=>{if(v!==undefined&&v!==null&&v!=="")url.searchParams.set(k,typeof v==="object"?JSON.stringify(v):String(v))});
+  const res=await fetch(url.toString(),{method:"GET",cache:"no-store",redirect:"follow"});
+  const text=await res.text();let json;try{json=JSON.parse(text)}catch(e){throw new Error("پاسخ API JSON معتبر نیست. ممکن است آدرس استقرار یا دسترسی وب‌اپ مشکل داشته باشد.")};
+  return normalizeEnvelope(json);
+}
+
+
+async function apiPost(action,payload={}){
+  const body=Object.assign({action},payload);
+  if(state.token && body.token===undefined)body.token=state.token;
+  const res=await fetch(API_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(body),redirect:"follow"});
+  const text=await res.text();let json;try{json=JSON.parse(text)}catch(e){throw new Error("پاسخ POST سرور JSON معتبر نیست؛ اتصال یا مجوز Web App را بررسی کن.")};
+  return normalizeEnvelope(json);
+}
+
+
+function extractArray(data,keys=[]){
+  if(Array.isArray(data))return data;
+  if(data&&typeof data==="object"){for(const k of keys){if(Array.isArray(data[k]))return data[k]}if(Array.isArray(data.data))return data.data;if(Array.isArray(data.items))return data.items}
+  return [];
+}
+
+
+// ==========================================
+// Navigation & History API (Back Button Support)
+// ==========================================
+let isHandlingPopState = false;
+
+
+function navigate(viewId, push = true) {
+  document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
+  const target = $(viewId);
+  if (target) target.classList.add("active");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
+
+  if (push && !isHandlingPopState) {
+    let histState = { view: viewId };
+    if (viewId === 'browseView') {
+      histState.categoryId = state.currentCategory?.category_id || "";
+      histState.subcategoryId = state.currentSubcategory?.subcategory_id || "";
+      histState.browseFilters = state.browseFilters;
+    } else if (viewId === 'searchView') {
+      histState.lastSearch = state.lastSearch || {};
+      histState.page = state.currentPage || 1;
+    } else if (viewId === 'detailView') {
+      histState.serviceId = state.currentServiceId || "";
+    }
+    history.pushState(histState, "");
+  }
+}
+
+
+window.addEventListener("popstate", function(e) {
+  isHandlingPopState = true;
+  const histState = e.state;
+  if (!histState || !histState.view) { navigate("homeView", false); isHandlingPopState = false; return; }
+
+
+  if (histState.view === 'homeView') { navigate("homeView", false); } 
+  else if (histState.view === 'browseView') {
+    if (histState.categoryId) {
+      state.currentCategory = state.categories.find(c => String(c.category_id) === String(histState.categoryId));
+      if (histState.subcategoryId) { state.currentSubcategory = state.subcategories.find(s => String(s.subcategory_id) === String(histState.subcategoryId)); } else { state.currentSubcategory = null; }
+      state.browseFilters = histState.browseFilters || {q:"",province_id:"",city_id:"",sort:"newest"};
+      renderBrowse(); navigate("browseView", false); loadBrowseAds();
+    } else { navigate("homeView", false); }
+  } 
+  else if (histState.view === 'searchView') { state.lastSearch = histState.lastSearch || {}; state.currentPage = histState.page || 1; runSearch(state.lastSearch, state.currentPage, false); } 
+  else if (histState.view === 'detailView') { if (histState.serviceId) { openService(histState.serviceId, false); } else { navigate("homeView", false); } }
+  else if (histState.view === 'dashboardView') { openDashboard(false); }
+  isHandlingPopState = false;
+});
+
+
+// ==========================================
+// Init
+// ==========================================
+async function init(){
+  history.replaceState({ view: 'homeView' }, "");
+  await Promise.allSettled([loadCategories(),loadLocations()]);
+  loadLatest();
+  updateAuthNav();
+  if(state.token)loadProfile().catch(()=>{state.token="";localStorage.removeItem(TOKEN_KEY);updateAuthNav()});
+}
+
+
+async function loadCategories(force=false){
+  const area=$("quickCategories");
+  if(force)area.innerHTML='<div class="quick-chip" style="grid-column:1/-1">در حال تازه‌سازی دسته‌بندی‌ها...</div>';
+  try{
+    const r=await apiGet("categories_tree");
+    const d=r.root||{};
+    state.categories=extractArray(d,["categories"]);
+    state.subcategories=extractArray(d,["subcategories"]);
+    state.subbranches=extractArray(d,["subbranches"]);
+    const sortRows=(a,b)=>Number(a.sort_order||0)-Number(b.sort_order||0);
+    state.categories.sort(sortRows); state.subcategories.sort(sortRows); state.subbranches.sort(sortRows);
+    renderQuickCategories();
+  }catch(e){
+    area.innerHTML=`<div class="quick-chip" style="grid-column:1/-1;white-space:normal">دریافت دسته‌بندی‌ها ناموفق بود: ${esc(e.message)} <button class="btn btn-light" onclick="loadCategories(true)">تلاش دوباره</button></div>`;
+    toast(e.message,"error");
+  }
+}
+
+
+function renderQuickCategories(){
+  const area=$("quickCategories");
+  if(!state.categories.length){
+    area.innerHTML='<div class="quick-chip" style="grid-column:1/-1;white-space:normal">هنوز دسته‌بندی فعالی ثبت نشده است.</div>';
+    return;
+  }
+  const categories=state.categories.slice(0,18);
+  area.innerHTML=categories.map(c=>`<button class="quick-chip" onclick="openCategory('${esc(c.category_id)}')"><span class="quick-icon">${esc(iconFor(c))}</span><span>${esc(c.category_name||"دسته‌بندی")}</span></button>`).join("");
+}
+
+
+async function loadLocations(){
+  try{
+    const r=await apiGet("locations");
+    state.locations=extractArray(r.root,["locations", "data"]);
+    state.provinces = state.locations.filter(x => { const t = String(x.location_type || "").trim().toLowerCase(); return t === "province" || t === "استان"; }).sort(sortOrder);
+    state.cities = state.locations.filter(x => { const t = String(x.location_type || "").trim().toLowerCase(); return t === "city" || t === "شهر"; }).sort(sortOrder);
+    fillLocationSelects();
+  }catch(e){ console.warn("locations:",e.message); }
+}
+
+
+function sortOrder(a,b){return Number(a.sort_order||0)-Number(b.sort_order||0)}
+
+
+function fillLocationSelects(){
+  if(!state.provinces.length) return;
+  const opts='<option value="">همه استان‌ها</option>'+state.provinces.map(p=>`<option value="${esc(p.location_id)}">${esc(p.location_name)}</option>`).join("");
+  ["filterProvince","browseProvince"].forEach(id=>{if($(id))$(id).innerHTML=opts});
+  ["bizProvince"].forEach(id=>{if($(id))$(id).innerHTML=opts.replace("همه استان‌ها","انتخاب استان")});
+  ["filterCity","browseCity"].forEach(id=>{if($(id))$(id).innerHTML='<option value="">همه شهرها</option>'});
+  if($("bizCity"))$("bizCity").innerHTML='<option value="">انتخاب شهر</option>';
+}
+
+
+function fillCities(prefix){
+  const provinceId=prefix==="biz"?"bizProvince":prefix==="browse"?"browseProvince":"filterProvince";
+  const cityId=prefix==="biz"?"bizCity":prefix==="browse"?"browseCity":"filterCity";
+  const province=$(provinceId)?.value||"";
+  const cityEl=$(cityId);if(!cityEl)return;
+  const empty=prefix==="biz"?"انتخاب شهر":"همه شهرها";
+  cityEl.innerHTML=`<option value="">${empty}</option>`+state.cities.filter(c=>String(c.parent_id)===String(province)).map(c=>`<option value="${esc(c.location_id)}">${esc(c.location_name)}</option>`).join("");
+}
+
+
+function scrollToCategories(){goHome();setTimeout(()=>$("quickCategories").scrollIntoView({behavior:"smooth",block:"center"}),80)}
+function showSearch(){ navigate("searchView", true); $("filterQuery").focus(); }
+function goHome(isPush = true){ navigate("homeView", isPush); }
+
+
+function openCategory(id){
+  const cat=state.categories.find(x=>String(x.category_id).trim()===String(id).trim());if(!cat)return;
+  state.currentCategory=cat;state.currentSubcategory=null; state.browseFilters={q:"",province_id:"",city_id:"",sort:"newest"};
+  renderBrowse(); navigate("browseView", true); loadBrowseAds();
+}
+
+
+function openSubcategory(id){
+  const sub=state.subcategories.find(x=>String(x.subcategory_id).trim()===String(id).trim());if(!sub)return;
+  state.currentSubcategory=sub; state.browseFilters={q:"",province_id:"",city_id:"",sort:"newest"};
+  renderBrowse(); navigate("browseView", true); loadBrowseAds();
+}
+
+
+function renderBrowse(){
+  const cat=state.currentCategory,sub=state.currentSubcategory;
+  if(!cat)return;
+  $("browseBreadcrumb").innerHTML=`<button onclick="goHome()">صفحه اصلی</button><span>›</span><button onclick="openCategory('${esc(cat.category_id)}')">${esc(cat.category_name)}</button>${sub?`<span>›</span><span>${esc(sub.subcategory_name)}</span>`:""}`;
+  if(!sub){
+    $("browseTitle").textContent="انتخاب زیر‌دسته";
+    $("browseSubtitle").textContent=`زیر‌دسته‌های ${cat.category_name}؛ یکی را انتخاب کن یا آگهی‌های مرتبط را پایین‌تر ببین.`;
+    const items=state.subcategories.filter(s=>String(s.category_id)===String(cat.category_id)).sort(sortOrder);
+    $("browseArea").innerHTML=items.length?'<div class="sub-grid">'+items.map(s=>`<button class="sub-card" onclick="openSubcategory('${esc(s.subcategory_id)}')"><span class="sub-icon">${esc(s.icon||"›")}</span><b>${esc(s.subcategory_name)}</b></button>`).join("")+'</div>':'<div class="empty-box">برای این دسته‌بندی هنوز زیر‌دسته‌ای ثبت نشده است.</div>';
+    $("browseAdsTitle").textContent=`آگهی‌های ${cat.category_name}`;
+  }else{
+    $("browseTitle").textContent="انتخاب زیرشاخه";
+    $("browseSubtitle").textContent=`زیرشاخه‌های ${sub.subcategory_name} و آگهی‌های مرتبط`;
+    const items=state.subbranches.filter(b=>String(b.subcategory_id)===String(sub.subcategory_id)).sort(sortOrder);
+    $("browseArea").innerHTML=items.length?'<div class="sub-grid">'+items.map(b=>`<button class="sub-card" onclick="runSearch({category_id:'${esc(cat.category_id)}',subcategory_id:'${esc(sub.subcategory_id)}',subbranch_id:'${esc(b.subbranch_id)}',category_name:'${esc(cat.category_name)}',subcategory_name:'${esc(sub.subcategory_name)}'})"><span class="sub-icon">${esc(b.icon||"›")}</span><b>${esc(b.subbranch_name)}</b></button>`).join("")+'</div>':'<div class="empty-box">برای این زیر‌دسته زیرشاخهٔ جداگانه‌ای ثبت نشده است؛ آگهی‌های مرتبط را در پایین ببین.</div>';
+    $("browseAdsTitle").textContent=`آگهی‌های ${sub.subcategory_name}`;
+  }
+  $("browseQuery").value=state.browseFilters.q||""; $("browseProvince").value=state.browseFilters.province_id||"";
+  fillCities("browse"); $("browseCity").value=state.browseFilters.city_id||""; $("browseSort").value=state.browseFilters.sort||"newest";
+}
+
+
+function applyBrowseFilters(){
+  state.browseFilters={q:$("browseQuery").value.trim(),province_id:$("browseProvince").value,city_id:$("browseCity").value,sort:$("browseSort").value};
+  loadBrowseAds();
+}
+
+
+async function loadBrowseAds(){
+  const target=$("browseAdsArea");if(!target||!state.currentCategory)return;
+  target.innerHTML='<div class="loading"><span class="spinner"></span> در حال دریافت آگهی‌های مرتبط...</div>';
+  const f=state.browseFilters||{};
+  const params={category_id:state.currentCategory.category_id,subcategory_id:state.currentSubcategory?.subcategory_id,q:f.q,province_id:f.province_id,city_id:f.city_id,sort:f.sort||"newest",page:1,limit:12};
+  try{
+    const r=await apiGet("search_services",params);
+    const items=extractArray(r.root,["data","items","results"]);
+    renderProducts(target,items,"هنوز آگهی یا خدمتی در این دسته‌بندی ثبت نشده است.");
+  }catch(e){target.innerHTML=`<div class="empty-box">دریافت آگهی‌های این دسته‌بندی ناموفق بود: ${esc(e.message)}</div>`}
+}
+
+
+function submitSearch(e){e.preventDefault();runSearch({q:$("heroQuery").value.trim()})}
+function quickSearch(q){$("heroQuery").value=q;runSearch({q})}
+function applyFilters(){ runSearch(Object.assign({},state.lastSearch,{q:$("filterQuery").value.trim(),province_id:$("filterProvince").value,city_id:$("filterCity").value,sort:$("filterSort").value})); }
+
+
+async function runSearch(filters={}, page=1, isPush=true){
+  state.lastSearch=Object.assign({},filters); state.currentPage=page; navigate("searchView", isPush);
+  $("filterQuery").value=filters.q||"";$("filterProvince").value=filters.province_id||"";fillCities("filter");$("filterCity").value=filters.city_id||"";$("filterSort").value=filters.sort||"newest";
+  $("resultsArea").innerHTML='<div class="loading"><span class="spinner"></span> در حال جست‌وجو...</div>';$("paginationArea").innerHTML="";
+  const params={q:filters.q,category_id:filters.category_id,subcategory_id:filters.subcategory_id,subbranch_id:filters.subbranch_id,province_id:filters.province_id,city_id:filters.city_id,sort:filters.sort||"newest",page,limit:12};
+  try{
+    const r=await apiGet("search_services",params),root=r.root||{},items=extractArray(root,["data","items","results"]);
+    $("searchSummary").textContent=`${faNum(root.total??items.length)} نتیجه پیدا شد${filters.category_name?" در "+filters.category_name:""}`;
+    renderProducts($("resultsArea"),items,"موردی مطابق جست‌وجو پیدا نشد.");
+    const pages=Math.ceil((root.total||items.length)/12) || 1;
+    if(pages>1)$("paginationArea").innerHTML=`<button class="btn btn-light" ${page<=1?"disabled":""} onclick="runSearch(state.lastSearch,${page-1})">قبلی</button><span>صفحه ${faNum(page)} از ${faNum(pages)}</span><button class="btn btn-light" ${page>=pages?"disabled":""} onclick="runSearch(state.lastSearch,${page+1})">بعدی</button>`;
+  }catch(e){$("resultsArea").innerHTML=`<div class="empty-box">خطا در جست‌وجو: ${esc(e.message)}</div>`}
+}
+
+
+async function loadLatest(){
+  try{const r=await apiGet("search_services",{sort:"newest",page:1,limit:8});const items=extractArray(r.root,["data","items","results"]);renderProducts($("latestArea"),items,"هنوز محصول یا خدمتی ثبت نشده است.")}
+  catch(e){$("latestArea").innerHTML='<div class="empty-box">در حال حاضر دریافت آخرین موارد ممکن نیست.</div>'}
+}
+
+
+function renderProducts(target,items,emptyText){
+  if(!items.length){target.innerHTML=`<div class="empty-box"><div class="empty-symbol">⌕</div>${esc(emptyText)}</div>`;return}
+  target.innerHTML='<div class="product-grid">'+items.map(item=>{
+    const s=item.service||item, b=item.business||{};
+    const img=s.image_url||"";const price=priceLabel(s);
+    return `<article class="product-card" onclick="openService('${esc(s.service_id)}')">
+      <div class="product-image">${img?`<img src="${esc(img)}" loading="lazy" onerror="this.parentNode.innerHTML='▧'">`:"▧"}</div>
+      <div class="product-body"><span class="badge">${esc(itemTypeLabel(s.item_type))}</span><h3>${esc(s.item_name||"بدون عنوان")}</h3>
+      <div class="product-meta"><span>${esc(b.business_name||"کسب‌وکار")}</span><span>${esc(s.availability==="available"?"موجود":"")}</span></div>
+      <div class="price">${esc(price)}</div>
+      <div class="business-strip"><span>⌖</span>${esc(b.address||"مشاهده جزئیات")}</div></div></article>`;
+  }).join("")+'</div>';
+}
+
+
+function itemTypeLabel(t){return t==="product"?"محصول":t==="menu_item"||t==="menu"?"آیتم منو":"خدمت"}
+function priceLabel(s){
+  const p=Number(s.price||0);
+  if(s.price_type==="free")return "رایگان";
+  if(s.price_type==="contact"||s.price_type==="negotiable"||!s.price)return "تماس بگیرید";
+  return (s.price_type==="starting_from"?"شروع از ":"")+faNum(p)+" تومان";
+}
+
+
+async function openService(id, isPush = true){
+  if(!id)return;
+  state.currentServiceId = id;
+  navigate("detailView", isPush);
+  $("detailArea").innerHTML='<div class="loading"><span class="spinner"></span> در حال دریافت جزئیات...</div>';
+  try{
+    const r=await apiGet("service_details",{service_id:id});const d=r.root||{},s=d.service||{},b=d.business||{},media=Array.isArray(d.media)?d.media:[];
+    
+    let galleryHtml = "";
+    if (media.length > 0) {
+      galleryHtml = `<div style="display:flex;gap:10px;overflow-x:auto;padding-bottom:10px;margin-top:15px;">` + 
+        media.map(m => `<img src="${esc(m.media_url)}" style="height:100px;border-radius:10px;object-fit:cover;cursor:pointer;border:1px solid #ddd" onclick="document.getElementById('mainAdImage').src=this.src">`).join('') + 
+      `</div>`;
+    }
+    const mainImage = s.image_url || (media[0]&&media[0].media_url) || "";
+
+
+    $("detailArea").innerHTML=`<div class="detail-layout">
+      <div class="panel">
+        <div class="detail-photo">${mainImage?`<img id="mainAdImage" src="${esc(mainImage)}" alt="">`:"▧"}</div>
+        ${galleryHtml}
+        <div class="detail-title">${esc(s.item_name||"جزئیات مورد")}</div>
+        <span class="badge">${esc(itemTypeLabel(s.item_type))}</span>
+        <p class="detail-description">${esc(s.description||"توضیحی ثبت نشده است.")}</p>
+        <h3>${esc(priceLabel(s))}</h3>
+      </div>
+      <aside class="panel">
+        <h3>اطلاعات کسب‌وکار</h3>
+        <b>${esc(b.business_name||"")}</b>
+        <p class="detail-description">${esc(b.address||"")}</p>
+        <p style="direction:ltr;text-align:right">${esc(b.mobile||b.phone||"")}</p>
+        <hr style="border:0;border-top:1px solid var(--line);margin:20px 0">
+        <h3>ارسال پیام</h3>
+        <form onsubmit="sendInquiry(event,'${esc(b.business_id||"")}','${esc(s.service_id||id)}')">
+          ${state.token?"":'<div class="field"><label>نام شما</label><input name="guest_name" required></div><div class="field"><label>شماره موبایل</label><input name="guest_phone" required inputmode="tel"></div>'}
+          <div class="field"><label>پیام</label><textarea name="message_text" required maxlength="2000" placeholder="متن پیام شما..."></textarea></div>
+          <button class="btn btn-primary" style="width:100%">ارسال پیام</button>
+        </form>
+      </aside>
+    </div>`;
+  }catch(e){$("detailArea").innerHTML=`<div class="empty-box">${esc(e.message)}</div>`}
+}
+
+
+async function sendInquiry(e,businessId,serviceId){
+  e.preventDefault();const f=new FormData(e.target);const payload={business_id:businessId,service_id:serviceId,message_text:f.get("message_text")};
+  if(!state.token){payload.guest_name=f.get("guest_name");payload.guest_phone=f.get("guest_phone")}
+  try{await apiPost("send_message",payload);toast("پیام شما با موفقیت ارسال شد.","success");e.target.reset()}catch(err){toast(err.message,"error")}
+}
+
+
+function authMode(mode){
+  state.authMode=mode;$("loginTab").classList.toggle("active",mode==="login");$("registerTab").classList.toggle("active",mode==="register");
+  $("registerName").classList.toggle("hidden",mode!=="register");$("registerEmail").classList.toggle("hidden",mode!=="register");
+  $("authSubmit").textContent=mode==="login"?"ورود":"ایجاد حساب کاربری";$("authPassword").autocomplete=mode==="login"?"current-password":"new-password";
+}
+
+
+function openAuth(){authMode("login");openModal("authModal")}
+
+
+async function submitAuth(e){
+  e.preventDefault();const f=new FormData(e.target),payload={phone:String(f.get("phone")||"").trim(),password:String(f.get("password")||"")};
+  if(state.authMode==="register"){payload.name=f.get("name");payload.email=f.get("email")}
+  const btn=$("authSubmit");btn.disabled=true;btn.innerHTML='<span class="spinner"></span> لطفاً صبر کن';
+  try{
+    const r=await apiPost(state.authMode==="login"?"login":"register",payload),d=r.root||{};
+    if(state.authMode==="register"){toast(d.message||"ثبت‌نام انجام شد. اکنون وارد شوید.","success");authMode("login");$("authForm").elements.phone.value=payload.phone;$("authForm").elements.password.value="";}
+    else{state.token=d.token||"";state.user=d.user||null;if(!state.token)throw new Error("توکن ورود از سرور دریافت نشد.");localStorage.setItem(TOKEN_KEY,state.token);closeModal("authModal");updateAuthNav();toast("خوش آمدی!","success");openDashboard()}
+  }catch(err){toast(err.message,"error")}finally{btn.disabled=false;btn.textContent=state.authMode==="login"?"ورود":"ایجاد حساب کاربری"}
+}
+
+
+function updateAuthNav(){const logged=!!state.token;$("authNav").classList.toggle("hidden",logged);$("dashNav").classList.toggle("hidden",!logged)}
+async function loadProfile(){const r=await apiPost("get_profile",{});state.user=(r.root.data&&r.root.data)||state.user;updateAuthNav()}
+
+
+async function logout(){
+  try{if(state.token)await apiPost("logout",{})}catch(e){}
+  state.token="";state.user=null;state.businesses=[];state.myServices=[];localStorage.removeItem(TOKEN_KEY);updateAuthNav();goHome();toast("از حساب کاربری خارج شدی.")
+}
+
+
+async function openDashboard(isPush = true){
+  if(!state.token){openAuth();return}
+  navigate("dashboardView", isPush);
+  $("dashContent").innerHTML='<div class="loading"><span class="spinner"></span> در حال دریافت اطلاعات پنل...</div>';
+  try{
+    const [p,b,s]=await Promise.all([apiPost("get_profile",{}),apiPost("get_my_businesses",{page:1,limit:50}),apiPost("get_my_services",{page:1,limit:50})]);
+    state.user=p.root.data||state.user;state.businesses=extractArray(b.root,["data","businesses"]);state.myServices=extractArray(s.root,["data","services"]);
+    renderDashboardOverview();
+  }catch(e){$("dashContent").innerHTML=`<div class="empty-box">${esc(e.message)}<p><button class="btn btn-primary" onclick="logout()">ورود مجدد</button></p></div>`}
+}
+
+
+function renderDashboardOverview(){
+  $("dashContent").innerHTML=`<div class="stats">
+    <div class="stat"><b>${faNum(state.businesses.length)}</b><span>کسب‌وکار</span></div>
+    <div class="stat"><b>${faNum(state.myServices.length)}</b><span>آگهی</span></div>
+    <div class="stat"><b>${esc(state.user?.name||"کاربر")}</b><span>حساب کاربری</span></div>
+  </div>
+  <div class="panel"><div class="section-head"><div><h3>شروع سریع</h3><p>برای معرفی کسب‌وکار یا ثبت آگهی اقدام کن.</p></div></div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap">
+    <button class="btn btn-primary" onclick="openBusinessForm()">＋ ثبت کسب‌وکار</button>
+    <button class="btn btn-green" onclick="openServiceForm()">＋ ثبت آگهی جدید</button>
+  </div></div>
+  <div class="panel" style="margin-top:15px"><h3>کسب‌وکارهای اخیر</h3>${state.businesses.length?state.businesses.slice(0,4).map(b=>`<div class="list-row"><div><b>${esc(b.business_name)}</b><div class="product-meta">${esc(b.business_id)}</div></div><span class="badge">${esc(b.verification_status||"در انتظار بررسی")}</span></div>`).join(""):'<div class="empty-box">هنوز کسب‌وکاری ثبت نکرده‌ای.</div>'}</div>`;
+}
+
+
+function dashTab(tab,btn){
+  document.querySelectorAll(".side-menu button[data-tab]").forEach(x=>x.classList.toggle("active",x===btn));
+  if(tab==="overview"){renderDashboardOverview();return}
+  if(tab==="businesses"){renderMyBusinesses();return}
+  if(tab==="services"){renderMyServices();return}
+  if(tab==="messages"){renderMyMessages();return}
+}
+
+
+function renderMyBusinesses(){
+  $("dashContent").innerHTML=`<div class="section-head"><div><h3>کسب‌وکارهای من</h3><p>مدیریت اطلاعات کسب‌وکارها</p></div><button class="btn btn-primary" onclick="openBusinessForm()">＋ ثبت کسب‌وکار</button></div><div class="panel">${state.businesses.length?state.businesses.map(b=>`<div class="list-row"><div><b>${esc(b.business_name)}</b><div class="product-meta">${esc(b.address||"نشانی ثبت نشده")} · ${esc(b.mobile||b.phone||"")}</div></div><span class="badge">${esc(b.verification_status||"pending")}</span></div>`).join(""):'<div class="empty-box">هنوز کسب‌وکاری ثبت نکرده‌ای.</div>'}</div>`;
+}
+
+
+function renderMyServices(){
+  $("dashContent").innerHTML=`<div class="section-head"><div><h3>آگهی‌های من</h3><p>موارد ثبت‌شده برای کسب‌وکارها</p></div><button class="btn btn-primary" onclick="openServiceForm()">＋ ثبت آگهی جدید</button></div><div class="panel">${state.myServices.length?state.myServices.map(s=>`<div class="list-row"><div><b>${esc(s.item_name)}</b><div class="product-meta">${esc(itemTypeLabel(s.item_type))} · ${esc(priceLabel(s))}</div></div><span class="badge">${esc(s.status||"active")}</span></div>`).join(""):'<div class="empty-box">هنوز آگهی ثبت نکرده‌ای.</div>'}</div>`;
+}
+
+
+async function renderMyMessages(){
+  $("dashContent").innerHTML='<div class="loading"><span class="spinner"></span> دریافت پیام‌ها...</div>';
+  try{const r=await apiPost("get_received_messages",{page:1,limit:50});state.messages=extractArray(r.root,["data","messages"]);$("dashContent").innerHTML=`<div class="section-head"><div><h3>پیام‌های دریافتی</h3><p>${faNum(state.messages.length)} پیام</p></div></div><div class="panel">${state.messages.length?state.messages.map(m=>`<div class="list-row"><div><b>${esc(m.message_text||"پیام")}</b><div class="product-meta">${esc(m.created_at||"")}</div></div><span class="badge">${m.is_read?"خوانده‌شده":"جدید"}</span></div>`).join(""):'<div class="empty-box">پیامی دریافت نشده است.</div>'}</div>`}
+  catch(e){$("dashContent").innerHTML=`<div class="empty-box">${esc(e.message)}</div>`}
+}
+
+
+function openBusinessForm(){
+  if(!state.categories.length){toast("فهرست دسته‌بندی‌ها هنوز دریافت نشده است.","error");return}
+  $("businessForm").reset();$("bizCategory").innerHTML=state.categories.map(c=>`<option value="${esc(c.category_id)}">${esc(c.category_name)}</option>`).join("");fillHierarchy("biz");fillLocationSelects();openModal("businessModal")
+}
+
+
+function fillHierarchy(prefix){
+  const isService=prefix==="service";
+  const catEl=$(isService?"serviceCategory":"bizCategory");
+  const subEl=$(isService?"serviceSubcategory":"bizSubcategory");
+  const branchEl=$(isService?"serviceSubbranch":"bizSubbranch");
+  const catId=catEl.value, selected=catEl.selectedOptions[0];
+  const lockedSub=isService&&selected?String(selected.dataset.sub||""):"";
+  const lockedBranch=isService&&selected?String(selected.dataset.branch||""):"";
+  const prevSub=subEl.value;
+  let subs=state.subcategories.filter(s=>String(s.category_id)===String(catId)).sort(sortOrder);
+  if(lockedSub)subs=subs.filter(s=>String(s.subcategory_id)===lockedSub);
+  subEl.innerHTML='<option value="">انتخاب نشده</option>'+subs.map(s=>`<option value="${esc(s.subcategory_id)}">${esc(s.subcategory_name)}</option>`).join("");
+  if(lockedSub)subEl.value=lockedSub;
+  else if(subs.some(s=>String(s.subcategory_id)===prevSub))subEl.value=prevSub;
+  const subId=subEl.value,prevBranch=branchEl.value;
+  let branches=state.subbranches.filter(b=>String(b.subcategory_id)===String(subId)).sort(sortOrder);
+  if(lockedBranch)branches=branches.filter(b=>String(b.subbranch_id)===lockedBranch);
+  branchEl.innerHTML='<option value="">انتخاب نشده</option>'+branches.map(b=>`<option value="${esc(b.subbranch_id)}">${esc(b.subbranch_name)}</option>`).join("");
+  if(lockedBranch)branchEl.value=lockedBranch;
+  else if(branches.some(b=>String(b.subbranch_id)===prevBranch))branchEl.value=prevBranch;
+}
+
+
+function openServiceForm(){
+  if(!state.businesses.length){toast("ابتدا باید یک کسب‌وکار ثبت کنی.","error");openBusinessForm();return}
+  $("serviceForm").reset();
+  $("serviceBusiness").innerHTML=state.businesses.map(b=>`<option value="${esc(b.business_id)}">${esc(b.business_name)}</option>`).join("");
+  selectServiceBusiness();
+  openModal("serviceModal")
+}
+
+
+function selectServiceBusiness(){
+  const biz=state.businesses.find(b=>String(b.business_id)===$("serviceBusiness").value);state.activeBusiness=biz;
+  let allowed=Array.isArray(biz?.categories)?biz.categories:[];
+  if(!allowed.length&&biz?.category_id)allowed=[{category_id:biz.category_id,subcategory_id:biz.subcategory_id||"",subbranch_id:biz.subbranch_id||""}];
+  const unique=[];allowed.forEach(x=>{if(!unique.some(y=>y.category_id===x.category_id&&y.subcategory_id===x.subcategory_id&&y.subbranch_id===x.subbranch_id))unique.push(x)});
+  $("serviceCategory").innerHTML=unique.map(x=>{
+    const c=state.categories.find(z=>String(z.category_id)===String(x.category_id));
+    const sub=state.subcategories.find(z=>String(z.subcategory_id)===String(x.subcategory_id));
+    const branch=state.subbranches.find(z=>String(z.subbranch_id)===String(x.subbranch_id));
+    const label=[c?.category_name||x.category_id,sub?.subcategory_name,branch?.subbranch_name].filter(Boolean).join(" / ");
+    return `<option value="${esc(x.category_id)}" data-sub="${esc(x.subcategory_id||"")}" data-branch="${esc(x.subbranch_id||"")}">${esc(label)}</option>`;
+  }).join("");
+  fillHierarchy("service");
+  const opt=$("serviceCategory").selectedOptions[0];if(opt&&opt.dataset.sub){$("serviceSubcategory").value=opt.dataset.sub;fillHierarchy("service");if(opt.dataset.branch)$("serviceSubbranch").value=opt.dataset.branch}
+}
+
+
+async function submitBusiness(e){
+  e.preventDefault();const f=new FormData(e.target),payload=Object.fromEntries(f.entries());
+  ["subcategory_id","subbranch_id","province_id","city_id","phone","mobile","address","business_description"].forEach(k=>{if(!payload[k])delete payload[k]});
+  try{const r=await apiPost("create_business",payload);toast(r.root.message||"کسب‌وکار ثبت شد.","success");closeModal("businessModal");await openDashboard();dashTab("businesses",document.querySelector('[data-tab="businesses"]'))}
+  catch(err){toast(err.message,"error")}
+}
+
+
+// آپلود فایل به Base64
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+  });
+}
+
+
+async function submitService(e){
+  e.preventDefault();
+  const f = new FormData(e.target);
+  const payload = Object.fromEntries(f.entries());
+  ["subcategory_id", "subbranch_id", "price", "description"].forEach(k => { if (!payload[k]) delete payload[k]; });
+  
+  const btn = $("submitAdBtn");
+  const originalText = btn.innerHTML;
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> در حال ثبت آگهی...';
+
+
+  try {
+    // ۱. ثبت آگهی
+    const r = await apiPost("create_service", payload);
+    const newServiceId = r.root.service_id || (r.root.data && r.root.data.service_id);
+    if (!newServiceId) throw new Error("شناسه آگهی از سرور دریافت نشد.");
+
+
+    // ۲. آپلود عکس‌ها
+    const imageInput = $("adImagesInput");
+    if (imageInput && imageInput.files.length > 0) {
+      btn.innerHTML = '<span class="spinner"></span> در حال آپلود عکس‌ها...';
+      for (let i = 0; i < imageInput.files.length; i++) {
+        const file = imageInput.files[i];
+        const base64 = await fileToBase64(file);
+        await apiPost("upload_service_media", {
+          service_id: newServiceId,
+          mime_type: file.type,
+          file_data: base64,
+          file_name: file.name,
+          is_primary: i === 0
+        });
+      }
+    }
+
+
+    toast("آگهی و عکس‌ها با موفقیت ثبت شدند.", "success");
+    closeModal("serviceModal");
+    await openDashboard();
+    dashTab("services", document.querySelector('[data-tab="services"]'));
+
+
+  } catch (err) {
+    toast(err.message, "error");
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = originalText;
+  }
+}
+
+
+window.addEventListener("DOMContentLoaded",init);
+</script>
+</body>
+</html>
